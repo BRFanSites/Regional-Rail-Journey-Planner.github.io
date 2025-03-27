@@ -3,79 +3,8 @@
 <head>
     <link rel="icon" href="Regional_logo.ico" type="image/ico">
     <title>Regional Journey Planner</title>
+    <link rel="stylesheet" type="text/css" href="./style.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            margin: 100px;
-        }
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            background-color: #ffffff34;
-        }
-        .station-dropdown {
-            width: 98%;
-            padding: 10px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        .northern-rail-logo img {
-        transform: scale(0.5);
-        width: 100%;
-        height: 100%;
-        border-radius: 50%;
-        }
-        .Journey-Planner-Background img {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        z-index: -1;
-        opacity: 0.75;
-        }
-        .journey-planner-header {
-        background-color: #0065bd;
-        color: #fff;
-        padding: 10px;
-        text-align: center;
-        border-bottom: 1px solid #ccc;
-        }
-        .button {
-            display: block;
-            width: 100%;
-            padding: 10px;
-            font-size: 16px;
-            color: #fff;
-            background-color: #007bff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-align: center;
-        }
-        .button:hover {
-            background-color: #0056b3;
-        }
-        form label {
-            display: block;
-            margin: 10px 0 5px;
-            font-weight: bold;
-        }
-
-        .ui-autocomplete {
-            max-height: 200px; /* adjust the height as needed */
-            overflow-y: auto;
-            scrollbar-width: thin; /* add this to make the scrollbar thinner */
-        }
-    </style>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
@@ -89,19 +18,6 @@
         <div class="journey-planner-header">
             <h2>Journey Planner</h2>
         </div>
-        <form>
-            <div class="from-station">
-                <label for="from-station" class="from-station-label">From:</label>
-                <div class="station-dropdown-wrapper">
-                    <input id="from-station" type="text" class="station-dropdown">
-                    <div id="from-station-suggestions" class="suggestions-dropdown"></div>
-                </div>
-            </div>
-            <label for="to-station" class="to-station-label">To:</label>
-            <input id="to-station" type="text" class="station-dropdown">
-            <ul id="to-station-suggestions"></ul>
-            <button class="button">Plan Journey</button>
-        </form>
     </div>
 
     <script>
@@ -171,18 +87,29 @@
         const fromStation = fromStationInput.value.trim();
         const toStation = toStationInput.value.trim();
 
+            console.log('code is being executed');
+
         if (fromStation && toStation) {
-            if (stations.includes(fromStation) && stations.includes(toStation)) {
-                // Forward to journey.html with the correct data
-                const url = `journey.html?from=${fromStation}&to=${toStation}`;
-                window.location.href = url;
-            } else {
-                alert('Invalid station name');
-            }
+          console.log('From station:', fromStation);
+          console.log('To station:', toStation);
+          if (stations.includes(fromStation) && stations.includes(toStation)) {
+            console.log('Redirecting to journey.html');
+            const url = `journey.html?from=${fromStation}&to=${toStation}`;
+            window.location.href = url;
+          } else {
+            console.log('Invalid station name');
+            alert('Invalid station name');
+          }
         } else {
-            alert('Please enter both from and to stations');
+          console.log('Please enter both from and to stations');
+          alert('Please enter both from and to stations');
         }
-    });  
+    });
     </script>
+    <div id="search-form">
+        <input type="text" id="from-station" placeholder="From station">
+        <input type="text" id="to-station" placeholder="To station">
+        <button class="button">Plan Journey</button>
+    </div>
 </body>
 </html>
