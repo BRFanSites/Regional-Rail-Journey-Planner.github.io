@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Journey Information</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Journey Information</h1>
+    <div class="journey-summary">
+        <h2>Departure: {{ departure }}</h2>
+        <h2>Arrival: {{ arrival }}</h2>
+        <p>Total Travel Time: {{ travelTime }}</p>
+    </div>
+    <div class="timetable">
+        <h2>Timetable</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Departure Time</th>
+                    <th>Arrival Time</th>
+                    <th>Line</th>
+                    <th>Station</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#legs}}
+                <tr>
+                    <td>{{ departureTime }}</td>
+                    <td>{{ arrivalTime }}</td>
+                    <td>{{ line }}</td>
+                    <td>{{ station }}</td>
+                </tr>
+                {{/legs}}
+            </tbody>
+        </table>
+    </div>
+    <div class="changes">
+        <h2>Changes</h2>
+        <ul>
+            {{#changes}}
+            <li>{{ line }} at {{ station }}</li>
+            {{/changes}}
+        </ul>
+    </div>
+    <div class="pricing">
+        <h2>Pricing</h2>
+        <p>Price: {{ price }}</p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
