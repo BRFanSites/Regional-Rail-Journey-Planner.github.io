@@ -1,6 +1,6 @@
 const routesFolder = 'https://raw.githubusercontent.com/RionPlaysTV/Regional-Rail-Journey-Planner.github.io/main/Routes';
 
-fetch(`${routesFolder}/route1.json`)
+fetch(`${routesFolder}/Fayre-Leaton.json`)
   .then(response => response.json())
   .then(routeData => {
     console.log(`Route: ${routeData.route}`);
