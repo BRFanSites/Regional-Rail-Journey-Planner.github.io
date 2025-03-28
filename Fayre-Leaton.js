@@ -1,5 +1,11 @@
 const routesFolder = 'https://raw.githubusercontent.com/RionPlaysTV/Regional-Rail-Journey-Planner.github.io/main/Routes/';
 
+export function fetchRouteData(routeName) {
+  return fetch(`${routesFolder}${routeName}.json`)
+    .then(response => response.json())
+    .then(routeData => routeData);
+}
+
 fetch(`${routesFolder}/Fayre-Leaton.json`)
   .then(response => response.json())
   .then(routeData => {
@@ -31,28 +37,11 @@ function planJourney(startStation, endStation) {
 }
 
 function getRoutes() {
-  const routes = [];
-  const files = fs.readdirSync('./routes');
-
-  files.forEach((file) => {
-    const filePath = path.join('./routes', file);
-    const routeData = require(filePath);
-    routes.push(routeData);
-  });
-
-  return routes;
-}
-
-// Add event listener to plan journey button
-const planJourneyButton = document.querySelector('.button');
-
-if (planJourneyButton) {
-  planJourneyButton.addEventListener('click', () => {
-    const startStation = document.querySelector('.start-station').value;
-    const endStation = document.querySelector('.end-station').value;
-
-    planJourney(startStation, endStation);
-  });
-} else {
-  console.error('Plan journey button not found');
+  fetch('routes.json')
+    .then(response => response.json())
+    .then(data => {
+      // process the data here
+    })
+    .catch(error => console.error(error));
+    return routes;
 }
