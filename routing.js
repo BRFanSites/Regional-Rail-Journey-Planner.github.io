@@ -5,7 +5,7 @@ fetch('https://www.regionalrail.co.uk/api/routes.json', {
 })
   .then(response => response.json())
   .then(data => {
-    // Process the data
+    routes = data.routes;
   })
   .catch(error => {
     console.error(error);
