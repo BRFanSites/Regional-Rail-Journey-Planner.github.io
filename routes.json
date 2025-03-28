@@ -1,0 +1,222 @@
+{
+  "routes": [
+    {
+      "id": 1,
+      "from": "Cuffley",
+      "to": "Avonhill",
+      "callingPoints": [
+        "Ashby-in-Kirkside",
+        "Wallsend",
+        "Ive",
+        "Norrington",
+        "Stirling Street",
+        "Hulme Heath",
+        "Astly",
+        "Forestdale",
+        "Freston Junction",
+        "St James Park",
+        "Leaton",
+        "Bawtry Road",
+        "Woodham",
+        "Belmond Green",
+        "Rowton",
+        "Fleetwood",
+        "Thornfield",
+        "Union Street"
+      ]
+    },
+    {
+      "id": 2,
+      "from": "Cuffley",
+      "to": "Victoria Docks",
+      "callingPoints": [
+        "Ashby-in-Kirkside",
+        "Wallsend",
+        "Ive",
+        "Norrington",
+        "Stirling Street",
+        "Hulme Heath",
+        "Astly",
+        "Forestdale",
+        "Freston Junction",
+        "St James Park",
+        "Leaton",
+        "Meryon",
+        "Whetstone",
+        "Abbey Road",
+        "Longbow Beach"
+      ]
+    },
+    {
+      "id": 3,
+      "from": "Cuffley",
+      "to": "Syde-on-Sea",
+      "callingPoints": [
+        "Ashby-in-Kirkside",
+        "Wallsend",
+        "Ive",
+        "Norrington",
+        "Stirling Street",
+        "Hulme Heath",
+        "Astly",
+        "Forestdale",
+        "Freston Junction",
+        "St James Park",
+        "Leaton",
+        "Meryon",
+        "Whetstone",
+        "Abbey Road",
+        "Longbow Beach",
+        "Victoria Docks",
+        "Newhurst"
+      ]
+    },
+    {
+        "id": 4,
+        "from": "Cuffley",
+        "to": "Ashdean",
+        "callingPoints": [
+          "Ashby-in-Kirkside",
+        "Wallsend",
+        "Ive",
+        "Norrington",
+        "Stirling Street",
+        "Hulme Heath",
+        "Astly",
+        "Forestdale",
+        "Freston Junction",
+        "St James Park",
+        "Leaton",
+        "Meryon",
+        "Whetstone",
+        "Abbey Road",
+        "Longbow",
+        "Russell Lane",
+        "Osidge Hill",
+        "Ashdean Bridge"
+        ]
+      },
+      {
+        "id": 5,
+        "from": "Mill Bridge",
+        "to": "Avonhill",
+        "callingPoints": [
+          "Northcote",
+          "Elmtree House",
+          "Fortis Green",
+          "Henley Park",
+          "Leaton",
+          "Bawtry Road",
+          "Woodham",
+          "Belmond Green",
+          "Rowton",
+          "Fleetwood",
+          "Thornfield",
+          "Union Street"
+        ]
+      },
+      {
+        "id": 6,
+        "from": "Mill Bridge",
+        "to": "Victoria Docks",
+        "callingPoints": [
+          "Northcote",
+          "Elmtree House",
+          "Fortis Green",
+          "Henley Park",
+          "Leaton",
+          "Meryon",
+          "Whetstone",
+          "Abbey Road",
+          "Longbow Beach"
+        ]
+      },
+      {
+        "id": 7,
+        "from": "Mill Bridge",
+        "to": "Syde-on-Sea",
+        "callingPoints": [
+          "Northcote",
+          "Elmtree House",
+          "Fortis Green",
+          "Henley Park",
+          "Leaton",
+          "Meryon",
+          "Whetstone",
+          "Abbey Road",
+          "Longbow Beach",
+          "Victoria Docks",
+          "Newhurst"
+        ]
+      },
+      {
+        "id": 8,
+        "from": "Mill Bridge",
+        "to": "Ashdean",
+        "callingPoints": [
+          "Northcote",
+          "Elmtree House",
+          "Fortis Green",
+          "Henley Park",
+          "Leaton",
+          "Meryon",
+          "Whetstone",
+          "Abbey Road",
+          "Longbow",
+          "Russell Lane",
+          "Osidge Hill",
+          "Ashdean Bridge"
+        ]
+      },
+      {
+        "id": 9,
+        "from": "Fayre",
+        "to": "Syde-on-Sea",
+        "callingPoints": [
+          "Arkley",
+          "Rosebury Park",
+          "Abbey Road",
+          "Longbow Beach",
+          "Victoria Docks",
+          "Newhurst"
+        ]
+      },
+      {
+        "id": 10,
+        "from": "Fayre",
+        "to": "Victoria Docks",
+        "callingPoints": [
+            "Arkley",
+            "Rosebury Park",
+            "Abbey Road",
+            "Longbow Beach"
+        ]
+      },
+      {
+        "id": 11,
+        "from": "Fayre",
+        "to": "Ashdean",
+        "callingPoints": [
+          "Arkley",
+          "Rosebury Park",
+          "Abbey Road",
+          "Longbow",
+          "Russell Lane",
+          "Osidge Hill",
+          "Ashdean Bridge"
+        ]
+      },
+      {
+        "id": 12,
+        "from": "Fayre",
+        "to": "Leaton",
+        "callingPoints": [
+          "Abbey Road",
+          "Longbow",
+          "Russell Lane",
+          "Broomfield",
+          "Meryon"
+        ]
+      }
+  ]
+}
