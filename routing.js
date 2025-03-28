@@ -1,10 +1,24 @@
 let routes;
 
-fetch('https://RionPlaysTV.github.io/Regional-Rail-Journey-Planner.github.io/routes.json')
+fetch('https://www.regionalrail.co.uk/api/routes')
   .then(response => response.json())
   .then(data => {
-    routes = data.routes;
+    // Process the data
+  })
+  .catch(error => {
+    console.error(error);
   });
+
+  const express = require('express');
+const cors = require('cors');
+
+const app = express();
+
+app.use(cors({
+  origin: 'https://www.regionalrail.co.uk',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+}));
 
 // Add event listener to plan journey button
 const planJourneyButton = document.querySelector('.button');
@@ -37,7 +51,6 @@ function planJourney(fromStation, toStation) {
   }
 
   function findRoute(from, to) {
-    console.log('Routes:', routes);
     for (const route of routes) {
       const callingPoints = route.callingPoints;
       const fromIndex = callingPoints.indexOf(from);
@@ -46,23 +59,50 @@ function planJourney(fromStation, toStation) {
       if (fromIndex === 0 && toIndex !== -1) {
         const routeCallingPoints = callingPoints.slice(1, toIndex + 1);
   
-        return {
+        const routeData = {
           from: from,
           to: to,
           callingPoints: routeCallingPoints,
         };
+  
+        // Put the JavaScript code block here
+        showJourneyInfo(routeData);
+  
+        return routeData;
       } else if (fromIndex !== -1 && toIndex !== -1 && fromIndex < toIndex) {
         const routeCallingPoints = callingPoints.slice(fromIndex, toIndex + 1);
   
-        return {
+        const routeData = {
           from: from,
           to: to,
           callingPoints: routeCallingPoints,
         };
+  
+        // Put the JavaScript code block here
+        showJourneyInfo(routeData);
+  
+        return routeData;
       }
     }
   
     return null;
+  }
+  
+  // Define the showJourneyInfo function here
+  function showJourneyInfo(route) {
+    const searchForm = document.querySelector('.search-form');
+    const journeyInfo = document.querySelector('.journey-info');
+  
+    searchForm.style.display = 'none';
+    journeyInfo.style.display = 'block';
+  
+    const fromStation = document.querySelector('.from-station');
+    const toStation = document.querySelector('.to-station');
+    const journeyStations = document.querySelector('.journey-stations');
+  
+    fromStation.textContent = route.from;
+    toStation.textContent = route.to;
+    journeyStations.innerHTML = route.callingPoints.map(station => `<li>${station}</li>`).join('');
   }
 
   const route = findRoute(fromStation, toStation);
