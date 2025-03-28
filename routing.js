@@ -1,6 +1,8 @@
 let routes;
 
-fetch('https://www.regionalrail.co.uk/api/routes')
+fetch('https://www.regionalrail.co.uk/api/routes', {
+  mode: 'no-cors',
+})
   .then(response => response.json())
   .then(data => {
     // Process the data
