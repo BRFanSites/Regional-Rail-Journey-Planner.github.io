@@ -1,6 +1,6 @@
 let routes;
 
-fetch('https://www.regionalrail.co.uk/api/routes', {
+fetch('https://www.regionalrail.co.uk/api/routes.json', {
   mode: 'no-cors',
 })
   .then(response => response.json())
@@ -10,17 +10,6 @@ fetch('https://www.regionalrail.co.uk/api/routes', {
   .catch(error => {
     console.error(error);
   });
-
-  const express = require('express');
-const cors = require('cors');
-
-const app = express();
-
-app.use(cors({
-  origin: 'https://www.regionalrail.co.uk',
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-}));
 
 // Add event listener to plan journey button
 const planJourneyButton = document.querySelector('.button');
