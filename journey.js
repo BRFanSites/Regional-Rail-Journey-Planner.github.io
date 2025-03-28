@@ -1,4 +1,4 @@
-const routesFolder = 'https://raw.githubusercontent.com/RionPlaysTV/Regional-Rail-Journey-Planner.github.io/main/Routes';
+const routesFolder = 'https://raw.githubusercontent.com/RionPlaysTV/Regional-Rail-Journey-Planner.github.io/main/Routes/';
 
 fetch(`${routesFolder}/Fayre-Leaton.json`)
   .then(response => response.json())
