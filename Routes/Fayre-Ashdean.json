@@ -1,0 +1,24 @@
+{
+  "forward": [
+    "Fayre",
+    "Arkley",
+    "Rosebury Park",
+    "Abbey Road",
+    "Longbow",
+    "Russell Lane",
+    "Osidge Hill",
+    "Ashdean Bridge",
+    "Ashdean"
+  ],
+  "reverse": [
+    "Ashdean",
+    "Ashdean Bridge",
+    "Osidge Hill",
+    "Russel Lane",
+    "Longbow",
+    "Abbey Road",
+    "Rosebury Park",
+    "Arkley",
+    "Fayre"
+  ]
+}

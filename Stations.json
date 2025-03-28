@@ -1,5 +1,5 @@
 {
-    "Mainline": [
+    "Lines": [
         {
             "Section": "Cuffley to Leaton",
             "Stations": [
@@ -28,37 +28,52 @@
                 { "from": "Thornfield", "to": "Union Street" },
                 { "from": "Union Street", "to": "Avonhill" }
             ]
+        },
+        {   
+            "Section": "Leaton to Victoria Docks",
+            "Stations": [
+                { "from": "Leaton", "to": "Meryon" },
+                { "from": "Meryon", "to": "Whetstone" },
+                { "from": "Whetstone", "to": "Abbey Road" },
+                { "from": "Abbey Road", "to": "Longbow Beach" },
+                { "from": "Longbow Beach", "to": "Victoria Docks" }
+            ]
+        },
+        {
+            "Section": "Abbey Road to Ashdean",
+            "Stations": [
+                { "from": "Abbey Road", "to": "Longbow" },
+                { "from": "Longbow", "to": "Russel Lane" },
+                { "from": "Russel Lane", "to": "Osidge Hill" },
+                { "from": "Osidge Hill", "to": "Ashdean Bridge" },
+                { "from": "Ashdean Bridge", "to": "Ashdean" }
+            ]
+        },
+        {
+            "Section": "Leaton to Mill Bridge",
+            "Stations": [
+                { "from": "Leaton", "to": "Henley Park" },
+                { "from": "Henley Park", "to": "Fortis Green" },
+                { "from": "Fortis Green", "to": "Elmtree House" },
+                { "from": "Elmtree House", "to": "Northcote" },
+                { "from": "Northcote", "to": "Mill Bridge" }
+            ]
+        },
+        {
+            "Section": "Broomfield Loop",
+            "Stations": [
+                { "station": "Russel Lane" },
+                { "station": "Broomfield" },
+                { "station": "Meryon" }
+            ]
+        },
+        {
+            "Section": "Fayre Branch",
+            "Stations": [
+                { "from": "Abbey Road", "to": "Rosebury Park" },
+                { "from": "Rosebury Park", "to": "Arkley" },
+                { "from": "Arkley", "to": "Fayre" }
+            ]
         }
-    ],
-    "Victoria Docks Branch": [
-        { "from": "Leaton", "to": "Meryon" },
-        { "from": "Meryon", "to": "Whetstone" },
-        { "from": "Whetstone", "to": "Abbey Road" },
-        { "from": "Abbey Road", "to": "Longbow Beach" },
-        { "from": "Longbow Beach", "to": "Victoria Docks" }
-    ],
-    "Ashdean Branch": [
-        { "from": "Abbey Road", "to": "Longbow" },
-        { "from": "Longbow", "to": "Russel Lane" },
-        { "from": "Russel Lane", "to": "Osidge Hill" },
-        { "from": "Osidge Hill", "to": "Ashdean Bridge" },
-        { "from": "Ashdean Bridge", "to": "Ashdean" }
-    ],
-    "Mill Bridge Branch": [
-        { "from": "Leaton", "to": "Henley Park" },
-        { "from": "Henley Park", "to": "Fortis Green" },
-        { "from": "Fortis Green", "to": "Elmtree House" },
-        { "from": "Elmtree House", "to": "Northcote" },
-        { "from": "Northcote", "to": "Mill Bridge" }
-    ],
-    "Broomfield Loop": [
-        { "station": "Russel Lane" },
-        { "station": "Broomfield" },
-        { "station": "Meryon" }
-    ],
-    "Fayre Branch": [
-        { "from": "Abbey Road", "to": "Rosebury Park" },
-        { "from": "Rosebury Park", "to": "Arkley" },
-        { "from": "Arkley", "to": "Fayre" }
     ]
 }

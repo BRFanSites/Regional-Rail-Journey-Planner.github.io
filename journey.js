@@ -1,61 +1,58 @@
-// script.js
+const routesFolder = 'https://raw.githubusercontent.com/your-username/your-repo-name/master/routes';
 
-// Parse the stations.json file and create a graph data structure
-const graph = {};
-fetch('stations.json')
+fetch(`${routesFolder}/route1.json`)
   .then(response => response.json())
-  .then(data => {
-    const mainline = data.Mainline;
-    mainline.forEach(section => {
-      const stations = section.Stations;
-      stations.forEach(station => {
-        const from = station.from;
-        const to = station.to;
-        if (!graph[from]) graph[from] = {};
-        if (!graph[to]) graph[to] = {};
-        graph[from][to] = true;
-      });
-    });
-  })
-  .catch(error => console.error('Error fetching data:', error));
-
-// Function to generate a list of journeys
-function generateJourneys(from, to, timeframe) {
-  const journeys = [];
-  // Use the graph data structure to find all possible journeys between from and to
-  // within the given timeframe
-  // ...
-  return journeys;
-}
-
-// Function to render a journey
-function renderJourney(journey) {
-  const html = document.getElementById('journey-template').innerHTML;
-  const renderedHtml = Mustache.render(html, journey);
-  const journeyElement = document.createElement('div');
-  journeyElement.innerHTML = renderedHtml;
-  document.getElementById('journey-list').appendChild(journeyElement);
-  // Attach a click event handler to the journey element
-  journeyElement.addEventListener('click', () => {
-    // Extend the journey to show all calling points
-    // ...
+  .then(routeData => {
+    console.log(`Route: ${routeData.route}`);
+    console.log(`Forward: ${routeData.forward.join(', ')}`);
+    console.log(`Reverse: ${routeData.reverse.join(', ')}`);
+    console.log('---');
   });
+
+
+function planJourney(startStation, endStation) {
+  const routes = getRoutes(); // assume this function returns an array of route objects
+
+  const bestRoute = routes.find((route) => {
+    return route.forward.includes(startStation) && route.forward.includes(endStation);
+  });
+
+  if (bestRoute) {
+    const startIndex = bestRoute.forward.indexOf(startStation);
+    const endIndex = bestRoute.forward.indexOf(endStation);
+
+    const journey = bestRoute.forward.slice(startIndex, endIndex + 1);
+
+    console.log(`Journey from ${startStation} to ${endStation}:`);
+    console.log(journey.join(', '));
+  } else {
+    console.log(`No route found from ${startStation} to ${endStation}`);
+  }
 }
 
-// Get the search query from the journey.html file
-const searchInput = document.getElementById('search-input');
-const searchQuery = searchInput.value;
+function getRoutes() {
+  const routes = [];
+  const files = fs.readdirSync('./routes');
 
-// Use the search query to generate a list of journeys
-const journeys = generateJourneys(searchQuery.from, searchQuery.to, searchQuery.timeframe);
+  files.forEach((file) => {
+    const filePath = path.join('./routes', file);
+    const routeData = require(filePath);
+    routes.push(routeData);
+  });
 
-// Render the list of journeys on the page
-journeys.forEach(renderJourney);
+  return routes;
+}
 
-// Add an event listener to the search input field
-searchInput.addEventListener('input', () => {
-  const searchQuery = searchInput.value;
-  const journeys = generateJourneys(searchQuery.from, searchQuery.to, searchQuery.timeframe);
-  document.getElementById('journey-list').innerHTML = '';
-  journeys.forEach(renderJourney);
-});
+// Add event listener to plan journey button
+const planJourneyButton = document.querySelector('.button');
+
+if (planJourneyButton) {
+  planJourneyButton.addEventListener('click', () => {
+    const startStation = document.querySelector('.start-station').value;
+    const endStation = document.querySelector('.end-station').value;
+
+    planJourney(startStation, endStation);
+  });
+} else {
+  console.error('Plan journey button not found');
+}

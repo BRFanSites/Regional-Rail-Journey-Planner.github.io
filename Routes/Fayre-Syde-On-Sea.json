@@ -1,0 +1,22 @@
+{
+  "forward": [
+    "Fayre",
+    "Arkley",
+    "Rosebury Park",
+    "Abbey Road",
+    "Longbow Beach",
+    "Victoria Docks",
+    "Newhurst",
+    "Syde-on-Sea"
+  ],
+  "reverse": [
+    "Syde-on-Sea",
+    "Newhurst",
+    "Victoria Docks",
+    "Longbow Beach",
+    "Abbey Road",
+    "Rosebury Park",
+    "Arkley",
+    "Fayre"
+  ]
+}
