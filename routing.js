@@ -37,8 +37,8 @@ fetch('https://www.regionalrail.co.uk/routes.json')
 
     function planJourney(fromStation, toStation, routes) {
       function findRoute(from, to, routes) {
-        const fromStationNormalized = from.charAt(0).toUpperCase() + from.slice(1).replace(/\s+/g, '');
-        const toStationNormalized = to.charAt(0).toUpperCase() + to.slice(1).replace(/\s+/g, '');
+        const fromStationNormalized = from.charAt(0).toUpperCase() + from.slice(1);
+        const toStationNormalized = to.charAt(0).toUpperCase() + to.slice(1);
       
         console.log('Routes inside findRoute function:', data.routes);
         console.log('Routes length:', data.routes.length);
