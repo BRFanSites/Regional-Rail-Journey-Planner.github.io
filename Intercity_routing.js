@@ -1,5 +1,5 @@
 let routes;
-const increment = 0.25;
+const increment = 0.15;
 
 fetch('https://www.regionalrail.co.uk/routes.json')
   .then(response => {

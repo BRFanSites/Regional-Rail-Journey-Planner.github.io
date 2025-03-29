@@ -1,0 +1,164 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #ffff00;
+  margin: 100px;
+  color: #000;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff34;
+}
+
+.station-dropdown {
+  width: 98%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.northern-rail-logo img {
+  transform: scale(0.5);
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.journey-planner-header {
+  background-color: #ffff00;
+  color: #000;
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+}
+
+.button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  color: #000;
+  background-color: #ffff00;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.button:hover {
+  background-color: #ffcc00;
+}
+
+form label {
+  display: block;
+  margin: 10px 0 5px;
+  font-weight: bold;
+  color: #000;
+}
+
+.ui-autocomplete {
+  max-height: 200px; /* adjust the height as needed */
+  overflow-y: auto;
+  scrollbar-width: thin; /* add this to make the scrollbar thinner */
+}
+
+.station-dropdown:focus {
+  border-color: #ffff00;
+  box-shadow: 0 0 10px rgba(255, 255, 0, 0.6);
+}
+
+.northern-rail-logo img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.journey-planner-header {
+  background-color: #ffff00;
+  color: #000;
+  padding: 10px;
+  margin-top: -50px;
+  text-align: center;
+  border-bottom: 1px solid #ffff00;
+}
+
+#from-station, #to-station {
+  width: 98.2%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  color: #000;
+}
+
+.journey-planner-header h2 {
+  font-size: 24px;
+  margin: 10;
+  color: #000;
+}
+
+.from-station-label {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #000;
+}
+
+.to-station-label {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #000;
+}
+
+.button {
+  background-color: #ffff00;
+  color: #000;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #ffcc00;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  color: #000;
+}
+
+input[type="text"]:focus {
+  border-color: #aaa;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.journey-info {
+  display: none;
+}
+
+.journey-info.show {
+  display: block;
+}
+
+marquee {
+  font: Ubuntu, sans-serif;
+  font-size: 25px;
+  font-weight: bold;
+  color: #000;
+}

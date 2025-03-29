@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+    </style>
+    <link rel="icon" href="Regional_logo.ico" type="image/ico">
+    <title>Intercity Journey Planner</title>
+    <link rel="stylesheet" type="text/css" href="./Intercity_style.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: auto;
+        }
+
+        .Journey-Planner-Background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .image-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: translateX(0);
+        }
+
+        .slide-in {
+            animation: slide-in 2s ease-in-out;
+            animation-fill-mode: forwards;
+        }
+
+        .slide-out {
+            animation: slide-out 2s ease-in-out;
+        }
+
+        @keyframes slide-in {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(0%);
+            }
+        }
+
+        @keyframes slide-out {
+            0% {
+                transform: translateX(0%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="Journey-Planner-Background">
+        <div class="image-container"></div>
+    </div>
+
+    <div id="scrolling-text-bar" style="position: fixed; top: 0; left: 0; width: 100%; background-color: #ffcc00; padding: 10px; border-bottom: 1px solid #ffcc00; z-index: 1;">
+        <marquee behavior="scroll" direction="left" scrollamount="10;">
+            Welcome to the Regional Journey Planner! Plan your journey with ease and convenience. 
+            <a href="https://github.com/BRFanSites/Regional-Rail-Journey-Planner.github.io" target="_blank" style="color: white; text-decoration: underline;">Have suggestions or issues? Visit our GitHub repository.</a>
+            Thank you for using our service!
+        </marquee>
+        <button onclick="window.location.href = 'index.html';">Regional Rail Planner</button>
+    </div>
+
+    <div class="container">
+        <div class="northern-rail-logo">
+            <img src="Intercity_logo.webp" alt="Regional Rail Logo">
+        </div>
+        <div class="journey-planner-header">
+            <h2>Journey Planner</h2>
+        </div>
+        <div id="search-form" style="display: block;">
+            <input type="text" id="from-station" placeholder="From station">
+            <input type="text" id="to-station" placeholder="To station">
+            <button class="button">Plan Journey</button>
+        </div>
+        <div id="journey-info" style="display: none;">
+            <h2>Journey Information</h2>
+            <p>From: <span id="from-station-name"></span></p>
+            <p>To: <span id="to-station-name"></span></p>
+            <p>Departure Time: <span id="departure-time"></span></p>
+            <p>Arrival Time: <span id="arrival-time"></span></p>
+            <p>Calling Points: <span id="calling-points"></span></p>
+            <p>Price: <span id="price"></span></p>
+        </div>
+    </div>
+
+    <script>
+        const backgroundImages = [
+            'background1.png',
+            'background2.png',
+            'background3.png',
+            // add more images here
+        ];
+
+        const imageContainer = document.querySelector('.image-container');
+
+        let currentImageIndex = 0;
+        let currentImage = document.createElement('img');
+        currentImage.className = 'image';
+        currentImage.src = backgroundImages[currentImageIndex];
+        imageContainer.appendChild(currentImage);
+
+        setInterval(() => {
+            currentImageIndex = (currentImageIndex + 1) % backgroundImages.length;
+
+            const nextImage = document.createElement('img');
+            nextImage.className = 'image';
+            nextImage.src = backgroundImages[currentImageIndex];
+            nextImage.style.transform = 'translateX(100%)';
+            imageContainer.appendChild(nextImage);
+
+            currentImage.classList.add('slide-out');
+            nextImage.classList.add('slide-in');
+
+            setTimeout(() => {
+                imageContainer.removeChild(currentImage);
+                currentImage = nextImage;
+            }, 2000);
+        }, 10000); // change the background image every 10 seconds
+    </script>
+    <script type="module" src="Intercity_routing.js"></script>
+</body>
+</html>
