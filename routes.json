@@ -54,7 +54,7 @@
     {
       "id": 3,
       "from": "Cuffley",
-      "to": "Syde-on-Sea",
+      "to": "Syde-On-Sea",
       "callingPoints": [
         "Cuffley",
         "Ashby-in-Kirkside",
@@ -74,7 +74,7 @@
         "Longbow Beach",
         "Victoria Docks",
         "Newhurst",
-        "Syde-on-Sea"
+        "Syde-On-Sea"
       ]
     },
     {
@@ -146,7 +146,7 @@
     {
       "id": 7,
       "from": "Mill Bridge",
-      "to": "Syde-on-Sea",
+      "to": "Syde-On-Sea",
       "callingPoints": [
         "Mill Bridge",
         "Northcote",
@@ -160,7 +160,7 @@
         "Longbow Beach",
         "Victoria Docks",
         "Newhurst",
-        "Syde-on-Sea"
+        "Syde-On-Sea"
       ]
     },
     {
@@ -187,7 +187,7 @@
     {
       "id": 9,
       "from": "Fayre",
-      "to": "Syde-on-Sea",
+      "to": "Syde-On-Sea",
       "callingPoints": [
         "Fayre",
         "Arkley",
@@ -196,7 +196,7 @@
         "Longbow Beach",
         "Victoria Docks",
         "Newhurst",
-        "Syde-on-Sea"
+        "Syde-On-Sea"
       ]
     },
     {
@@ -297,10 +297,10 @@
     },
     {
       "id": 15,
-      "from": "Syde-on-Sea",
+      "from": "Syde-On-Sea",
       "to": "Cuffley",
       "callingPoints": [
-        "Syde-on-Sea",
+        "Syde-On-Sea",
         "Newhurst",
         "Victoria Docks",
         "Longbow Beach",
@@ -389,10 +389,10 @@
     },
     {
       "id": 19,
-      "from": "Syde-on-Sea",
+      "from": "Syde-On-Sea",
       "to": "Mill Bridge",
       "callingPoints": [
-        "Syde-on-Sea",
+        "Syde-On-Sea",
         "Newhurst",
         "Victoria Docks",
         "Longbow Beach",
@@ -430,10 +430,10 @@
     },
     {
       "id": 21,
-      "from": "Syde-on-Sea",
+      "from": "Syde-On-Sea",
       "to": "Fayre",
       "callingPoints": [
-        "Syde-on-Sea",
+        "Syde-On-Sea",
         "Newhurst",
         "Victoria Docks",
         "Longbow Beach",
@@ -470,6 +470,24 @@
         "Rosebury Park",
         "Arkley",
         "Fayre"
+      ]
+    },
+    {
+      "id": 24,
+      "from": "Victoria Docks",
+      "to": "Victoria Harbour",
+      "callingPoints": [
+        "Victoria Docks",
+        "Victoria Harbour"
+      ]
+    },
+    {
+      "id": 25,
+      "from": "Victoria Harbour",
+      "to": "Victoria Docks",
+      "callingPoints": [
+        "Victoria Harbour",
+        "Victoria Docks"
       ]
     }
   ]

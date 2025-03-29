@@ -157,3 +157,25 @@ marquee {
   font-weight: bold;
   color: #ffffff;
 }
+
+.image-container {
+  position: relative !important; /* keep the image in the normal document flow */
+  clear: both !important; /* clear any floating elements */
+  margin-top: 20px !important; /* add some space between the button and the image */
+  text-align: center !important; /* center the image horizontally */
+}
+
+button {
+  background-color: #007bff; /* blue background color */
+  color: #ffffff; /* white text color */
+  padding: 10px 20px; /* add some padding to make the button bigger */
+  border: none; /* remove the default border */
+  border-radius: 5px; /* add a rounded corner effect */
+  cursor: pointer; /* change the cursor to a pointing hand */
+  font-size: 16px; /* increase the font size */
+  font-weight: bold; /* make the text bold */
+}
+
+button:hover {
+  background-color: #0056b3; /* darker blue background color on hover */
+}
