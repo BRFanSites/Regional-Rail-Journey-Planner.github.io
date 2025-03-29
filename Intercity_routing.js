@@ -37,60 +37,60 @@ fetch('https://www.regionalrail.co.uk/Intercity_routes.json')
 
     function planJourney(fromStation, toStation, routes) {
       function findRoute(from, to, routes) {
-        const fromStationNormalized = from.trim().replace(/\s+/g, ' ');
-        const toStationNormalized = to.trim().replace(/\s+/g, ' ');
-        
-      
-        console.log('Routes inside findRoute function:', data.routes);
-        console.log('Routes length:', data.routes.length);
-      
-        for (var i = 0; i < data.routes.length; i++) {
-          const route = data.routes[i];
-          if (route && route.callingPoints) {
-            console.log('Calling points:', route.callingPoints);
-            console.log('From station:', fromStationNormalized);
-            console.log('To station:', toStationNormalized);
-            console.log('Id:', route.id);
-      
-            const fromIndex = route.callingPoints.indexOf(fromStationNormalized);
-            const toIndex = route.callingPoints.indexOf(toStationNormalized);
-            console.log('From index:', fromIndex);
-            console.log('To index:', toIndex);
-      
-            if (fromIndex !== -1 && toIndex !== -1 && fromIndex < toIndex) {
-              console.log('Found a route!');
-              const routeCallingPoints = route.callingPoints.slice(fromIndex, toIndex + 1);
-      
-              const routeData = {
-                from: from,
-                to: to,
-                callingPoints: routeCallingPoints,
-              };
-      
-              function calculateFare(fromIndex, toIndex) {
-                const numStations = Math.abs(toIndex - fromIndex);
-                console.log('Number of stations:', numStations);
-                const cost = numStations / increment;
-                console.log('Calculated Fare:', cost);
-                return cost;
+              const fromStationNormalized = from.trim().replace(/\s+/g, ' ');
+              const toStationNormalized = to.trim().replace(/\s+/g, ' ');
+              
+            
+              console.log('Routes inside findRoute function:', data.routes);
+              console.log('Routes length:', data.routes.length);
+            
+              for (var i = 0; i < data.routes.length; i++) {
+                const route = data.routes[i];
+                if (route && route.callingPoints) {
+                  console.log('Calling points:', route.callingPoints);
+                  console.log('From station:', fromStationNormalized);
+                  console.log('To station:', toStationNormalized);
+                  console.log('Id:', route.id);
+            
+                  const fromIndex = route.callingPoints.indexOf(fromStationNormalized);
+                  const toIndex = route.callingPoints.indexOf(toStationNormalized);
+                  console.log('From index:', fromIndex);
+                  console.log('To index:', toIndex);
+            
+                  if (fromIndex !== -1 && toIndex !== -1 && fromIndex < toIndex) {
+                    console.log('Found a route!');
+                    const routeCallingPoints = route.callingPoints.slice(fromIndex, toIndex + 1);
+            
+                    const routeData = {
+                      from: from,
+                      to: to,
+                      callingPoints: routeCallingPoints,
+                    };
+            
+                    function calculateFare(fromIndex, toIndex) {
+                      const numStations = Math.abs(toIndex - fromIndex);
+                      console.log('Number of stations:', numStations);
+                      const cost = numStations / increment;
+                      console.log('Calculated Fare:', cost);
+                      return cost;
+                    }
+            
+                    const fare = calculateFare(fromIndex, toIndex);
+                    console.log('Calculated Fare:', fare);
+                    showJourneyInfo(routeData, fare);
+            
+                    return routeData;
+                  } else {
+                    console.log('No route found');
+                  }
+                } else {
+                  console.log('Invalid route object');
+                }
               }
-      
-              const fare = calculateFare(fromIndex, toIndex);
-              console.log('Calculated Fare:', fare);
-              showJourneyInfo(routeData, fare);
-      
-              return routeData;
-            } else {
-              console.log('No route found');
+            
+              console.log('Outside for loop');
+              return null;
             }
-          } else {
-            console.log('Invalid route object');
-          }
-        }
-      
-        console.log('Outside for loop');
-        return null;
-      }
 
      
 
