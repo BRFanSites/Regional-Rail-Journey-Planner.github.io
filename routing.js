@@ -106,6 +106,7 @@ fetch('https://www.regionalrail.co.uk/routes.json')
           "Arkley": "(Limited Stop)",
           "Ashdean Bridge": "(Request Stop)",
           "Broomfield": "(Towards Meryon Only)",
+          "Longbow Beach": "(Weekends Only)",
           // Add more station names and their corresponding additional information here
         };
       
