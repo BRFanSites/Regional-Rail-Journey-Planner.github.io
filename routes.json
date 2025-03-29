@@ -54,7 +54,7 @@
     {
       "id": 3,
       "from": "Cuffley",
-      "to": "Syde-On-Sea",
+      "to": "Syde-on-sea",
       "callingPoints": [
         "Cuffley",
         "Ashby-in-Kirkside",
@@ -74,7 +74,7 @@
         "Longbow Beach",
         "Victoria Docks",
         "Newhurst",
-        "Syde-On-Sea"
+        "Syde-on-sea"
       ]
     },
     {
@@ -146,7 +146,7 @@
     {
       "id": 7,
       "from": "Mill Bridge",
-      "to": "Syde-On-Sea",
+      "to": "Syde-on-sea",
       "callingPoints": [
         "Mill Bridge",
         "Northcote",
@@ -160,7 +160,7 @@
         "Longbow Beach",
         "Victoria Docks",
         "Newhurst",
-        "Syde-On-Sea"
+        "Syde-on-sea"
       ]
     },
     {
@@ -187,7 +187,7 @@
     {
       "id": 9,
       "from": "Fayre",
-      "to": "Syde-On-Sea",
+      "to": "Syde-on-sea",
       "callingPoints": [
         "Fayre",
         "Arkley",
@@ -196,7 +196,7 @@
         "Longbow Beach",
         "Victoria Docks",
         "Newhurst",
-        "Syde-On-Sea"
+        "Syde-on-sea"
       ]
     },
     {
@@ -297,10 +297,10 @@
     },
     {
       "id": 15,
-      "from": "Syde-On-Sea",
+      "from": "Syde-on-sea",
       "to": "Cuffley",
       "callingPoints": [
-        "Syde-On-Sea",
+        "Syde-on-sea",
         "Newhurst",
         "Victoria Docks",
         "Longbow Beach",
@@ -389,10 +389,10 @@
     },
     {
       "id": 19,
-      "from": "Syde-On-Sea",
+      "from": "Syde-on-sea",
       "to": "Mill Bridge",
       "callingPoints": [
-        "Syde-On-Sea",
+        "Syde-on-sea",
         "Newhurst",
         "Victoria Docks",
         "Longbow Beach",
@@ -430,10 +430,10 @@
     },
     {
       "id": 21,
-      "from": "Syde-On-Sea",
+      "from": "Syde-on-sea",
       "to": "Fayre",
       "callingPoints": [
-        "Syde-On-Sea",
+        "Syde-on-sea",
         "Newhurst",
         "Victoria Docks",
         "Longbow Beach",
@@ -513,10 +513,10 @@
     },
     {
       "id": 27,
-      "from": "Syde-On-Sea",
+      "from": "Syde-on-sea",
       "to": "Avonhill",
       "callingPoints": [
-      "Syde-On-Sea",
+      "Syde-on-sea",
       "Newhurst",
       "Victoria Docks",
       "Longbow Beach",
@@ -582,7 +582,7 @@
     {
       "id": 30,
       "from": "Avonhill",
-      "to": "Syde-On-Sea",
+      "to": "Syde-on-sea",
       "callingPoints": [
       "Avonhill",
       "Union Street",
@@ -599,7 +599,7 @@
       "Longbow Beach",
       "Victoria Docks",
       "Newhurst",
-      "Syde-On-Sea"
+      "Syde-on-sea"
       ]
     },
     {
