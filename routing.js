@@ -49,6 +49,7 @@ fetch('https://www.regionalrail.co.uk/routes.json')
             console.log('Calling points:', route.callingPoints);
             console.log('From station:', fromStationNormalized);
             console.log('To station:', toStationNormalized);
+            console.log('Id:', route.id);
       
             const fromIndex = route.callingPoints.indexOf(fromStationNormalized);
             const toIndex = route.callingPoints.indexOf(toStationNormalized);
