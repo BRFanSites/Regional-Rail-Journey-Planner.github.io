@@ -37,31 +37,34 @@ fetch('https://www.regionalrail.co.uk/Intercity_routes.json')
 
     function planJourney(fromStation, toStation, routes) {
       function findRoute(from, to) {
+        const fromStationNormalized = from.charAt(0).toUpperCase() + from.slice(1).replace(/\s+/g, '');
+        const toStationNormalized = to.charAt(0).toUpperCase() + to.slice(1).replace(/\s+/g, '');
+      
         console.log('Routes inside findRoute function:', data.routes);
         console.log('Routes length:', data.routes.length);
-
+      
         for (var i = 0; i < data.routes.length; i++) {
           const route = data.routes[i];
           if (route && route.callingPoints) {
             console.log('Calling points:', route.callingPoints);
-            console.log('From station:', from);
-            console.log('To station:', to);
-
-            const fromIndex = route.callingPoints.indexOf(from);
-            const toIndex = route.callingPoints.indexOf(to);
+            console.log('From station:', fromStationNormalized);
+            console.log('To station:', toStationNormalized);
+      
+            const fromIndex = route.callingPoints.indexOf(fromStationNormalized);
+            const toIndex = route.callingPoints.indexOf(toStationNormalized);
             console.log('From index:', fromIndex);
             console.log('To index:', toIndex);
-
+      
             if (fromIndex !== -1 && toIndex !== -1 && fromIndex < toIndex) {
               console.log('Found a route!');
               const routeCallingPoints = route.callingPoints.slice(fromIndex, toIndex + 1);
-
+      
               const routeData = {
                 from: from,
                 to: to,
                 callingPoints: routeCallingPoints,
               };
-
+      
               function calculateFare(fromIndex, toIndex) {
                 const numStations = Math.abs(toIndex - fromIndex);
                 console.log('Number of stations:', numStations);
@@ -69,11 +72,11 @@ fetch('https://www.regionalrail.co.uk/Intercity_routes.json')
                 console.log('Calculated Fare:', cost);
                 return cost;
               }
-
+      
               const fare = calculateFare(fromIndex, toIndex);
               console.log('Calculated Fare:', fare);
               showJourneyInfo(routeData, fare);
-
+      
               return routeData;
             } else {
               console.log('No route found');
@@ -82,7 +85,7 @@ fetch('https://www.regionalrail.co.uk/Intercity_routes.json')
             console.log('Invalid route object');
           }
         }
-
+      
         console.log('Outside for loop');
         return null;
       }
@@ -94,40 +97,70 @@ fetch('https://www.regionalrail.co.uk/Intercity_routes.json')
         const searchForm = document.getElementById('search-form');
         const journeyInfo = document.getElementById('journey-info');
         const container = document.getElementsByClassName('container')[0];
-    
+      
+        const stationInfo = {
+          "Wallsend": "(Limited Stop)",
+          "Norrington": "(Limited Stop)",
+          "Hulme Heath": "(Limited Stop)",
+          "Leaton": "(Limited Stop)",
+          "Fortis Green": "(Limited Stop)",
+          "Abbey Road": "(Limited Stop)",
+          "Fleetwood": "(Limited Stop)",
+          // Add more station names and their corresponding additional information here
+        };
+      
         if (searchForm && journeyInfo && container) {
-            searchForm.style.display = 'none';
-            journeyInfo.style.display = 'block';
-            container.style.backgroundColor = '#ffff00';
-            container.style.opacity = 0.9;
-            container.style.color = '#000';
-    
-            const DepartureTime = document.getElementById('departure-time');
-            const ArrivalTime = document.getElementById('arrival-time');
-            const fromStationName = document.getElementById('from-station-name');
-            const toStationName = document.getElementById('to-station-name');
-            const callingPoints = document.getElementById('calling-points');
-            const price = document.getElementById('price'); // ✅ Keep original name
-    
-            if (DepartureTime && ArrivalTime) {
-                DepartureTime.textContent = route.departureTime || 'N/A';
-                ArrivalTime.textContent = route.arrivalTime || 'N/A';
-            }
-    
-            if (fromStationName && toStationName && callingPoints && price) {
-                fromStationName.textContent = route.from;
-                toStationName.textContent = route.to;
-                callingPoints.innerHTML = route.callingPoints.slice(1).map(station => `<li>${station}</li>`).join('');
-                
-                // ✅ Patch fare into price element, rounding to 2 decimal places
-                price.textContent = `£${cost.toFixed(2)}`;
+          searchForm.style.display = 'none';
+          journeyInfo.style.display = 'block';
+          container.style.backgroundColor = '#ffff00';
+          container.style.opacity = 0.9;
+          container.style.color = '#000';
+      
+          const DepartureTime = document.getElementById('departure-time');
+          const ArrivalTime = document.getElementById('arrival-time');
+          const fromStationName = document.getElementById('from-station-name');
+          const toStationName = document.getElementById('to-station-name');
+          const callingPoints = document.getElementById('calling-points');
+          const price = document.getElementById('price');
+      
+          if (DepartureTime && ArrivalTime) {
+            DepartureTime.textContent = route.departureTime || 'N/A';
+            ArrivalTime.textContent = route.arrivalTime || 'N/A';
+          }
+      
+          if (fromStationName && toStationName && callingPoints && price) {
+            const fromStationText = stationInfo[route.from];
+            const toStationText = stationInfo[route.to];
+      
+            if (fromStationText) {
+              fromStationName.textContent = `${route.from} ${fromStationText}`;
             } else {
-                console.log('Error: one or more required elements not found');
+              fromStationName.textContent = route.from;
             }
+      
+            if (toStationText) {
+              toStationName.textContent = `${route.to} ${toStationText}`;
+            } else {
+              toStationName.textContent = route.to;
+            }
+      
+            callingPoints.innerHTML = route.callingPoints.slice(1).map(station => {
+              const stationText = stationInfo[station];
+              if (stationText) {
+                return `<li>${station} ${stationText}</li>`;
+              } else {
+                return `<li>${station}</li>`;
+              }
+            }).join('');
+      
+            price.textContent = `£${cost.toFixed(2)}`;
+          } else {
+            console.log('Error: one or more required elements not found');
+          }
         } else {
-            console.log('Error: search form or journey info element not found');
+          console.log('Error: search form or journey info element not found');
         }
-    }
+      }
     
 
       const route = findRoute(fromStation, toStation);

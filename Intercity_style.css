@@ -1,8 +1,28 @@
-body {
-  font-family: Arial, sans-serif;
-  background-color: #ffff00;
-  margin: 100px;
-  color: #000;
+::-webkit-scrollbar {
+  width: 15px;
+  height: 10px;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 10px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #666;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+/* Show scrollbar when scrolling */
+body:hover::-webkit-scrollbar {
+  opacity: 1;
 }
 
 .container {
@@ -77,7 +97,7 @@ form label {
   padding: 10px;
   margin-top: -50px;
   text-align: center;
-  border-bottom: 1px solid #ffff00;
+  border-bottom: 1px solid #ffe600;
 }
 
 #from-station, #to-station {
