@@ -117,8 +117,7 @@ fetch('https://www.regionalrail.co.uk/routes.json')
           container.style.opacity = 0.9;
           container.style.color = '#fff';
       
-          const DepartureTime = document.getElementById('departure-time');
-          const ArrivalTime = document.getElementById('arrival-time');
+          const DepartureTime = document.getElementById('route-type');
           const fromStationName = document.getElementById('from-station-name');
           const toStationName = document.getElementById('to-station-name');
           const callingPoints = document.getElementById('calling-points');

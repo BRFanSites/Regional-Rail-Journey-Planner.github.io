@@ -4,6 +4,7 @@
       "id": 1,
       "from": "Cuffley",
       "to": "Avonhill",
+      "RouteType": "Electric Express",
       "callingPoints": [
         "Cuffley",
         "Wallsend",
@@ -20,6 +21,7 @@
       "id": 2,
       "from": "Cuffley",
       "to": "Victoria Docks",
+      "RouteType": "Diesel Express/Bi-Mode Express",
       "callingPoints": [
         "Cuffley",
         "Wallsend",
@@ -35,6 +37,7 @@
       "id": 3,
       "from": "Mill Bridge",
       "to": "Avonhill",
+      "RouteType": "Electric Express",
       "callingPoints": [
         "Mill Bridge",
         "Fortis Green",
@@ -48,6 +51,7 @@
       "id": 4,
       "from": "Mill Bridge",
       "to": "Victoria Docks",
+      "RouteType": "Diesel Express/Bi-Mode Express",
       "callingPoints": [
         "Mill Bridge",
         "Fortis Green",
@@ -60,6 +64,7 @@
       "id": 5,
       "from": "Avonhill",
       "to": "Cuffley",
+      "RouteType": "Electric Express",
       "callingPoints": [
         "Avonhill",
         "Fleetwood",
@@ -76,6 +81,7 @@
       "id": 6,
       "from": "Victoria Docks",
       "to": "Cuffley",
+      "RouteType": "Diesel Express/Bi-Mode Express",
       "callingPoints": [
         "Victoria Docks",
         "Abbey Road",
@@ -91,6 +97,7 @@
       "id": 7,
       "from": "Avonhill",
       "to": "Mill Bridge",
+      "RouteType": "Electric Express",
       "callingPoints": [
         "Avonhill",
         "Fleetwood",
@@ -104,6 +111,7 @@
       "id": 8,
       "from": "Victoria Docks",
       "to": "Mill Bridge",
+      "RouteType": "Diesel Express/Bi-Mode Express",
       "callingPoints": [
         "Victoria Docks",
         "Abbey Road",

@@ -4,6 +4,7 @@
       "id": 1,
       "from": "Cuffley",
       "to": "Avonhill",
+      "RouteType": "Electric Regional",
       "callingPoints": [
         "Cuffley",
         "Ashby-in-Kirkside",
@@ -31,6 +32,7 @@
       "id": 2,
       "from": "Cuffley",
       "to": "Victoria Docks",
+      "RouteType": "Diesel Regional",
       "callingPoints": [
         "Cuffley",
         "Ashby-in-Kirkside",
@@ -55,6 +57,7 @@
       "id": 3,
       "from": "Cuffley",
       "to": "Syde-On-Sea",
+      "RouteType": "Diesel Regional",
       "callingPoints": [
         "Cuffley",
         "Ashby-in-Kirkside",
@@ -81,6 +84,7 @@
       "id": 4,
       "from": "Cuffley",
       "to": "Ashdean",
+      "RouteType": "Diesel Regional",
       "callingPoints": [
         "Cuffley",
         "Ashby-in-Kirkside",
@@ -108,6 +112,7 @@
       "id": 5,
       "from": "Mill Bridge",
       "to": "Avonhill",
+      "RouteType": "Electric Regional",
       "callingPoints": [
         "Mill Bridge",
         "Northcote",
@@ -129,6 +134,7 @@
       "id": 6,
       "from": "Mill Bridge",
       "to": "Victoria Docks",
+      "RouteType": "Diesel Regional",
       "callingPoints": [
         "Mill Bridge",
         "Northcote",
@@ -147,6 +153,7 @@
       "id": 7,
       "from": "Mill Bridge",
       "to": "Syde-On-Sea",
+      "RouteType": "Diesel Regional",
       "callingPoints": [
         "Mill Bridge",
         "Northcote",
@@ -167,6 +174,7 @@
       "id": 8,
       "from": "Mill Bridge",
       "to": "Ashdean",
+      "RouteType": "Diesel Regional",
       "callingPoints": [
         "Mill Bridge",
         "Northcote",
@@ -188,6 +196,7 @@
       "id": 9,
       "from": "Fayre",
       "to": "Syde-On-Sea",
+      "RouteType": "Diesel Regional",
       "callingPoints": [
         "Fayre",
         "Arkley",
@@ -203,6 +212,7 @@
       "id": 10,
       "from": "Fayre",
       "to": "Victoria Docks",
+      "RouteType": "Diesel Regional",
       "callingPoints": [
         "Fayre",
         "Arkley",
@@ -216,6 +226,7 @@
       "id": 11,
       "from": "Fayre",
       "to": "Ashdean",
+      "RouteType": "Diesel Regional",
       "callingPoints": [
         "Fayre",
         "Arkley",
@@ -232,6 +243,7 @@
       "id": 12,
       "from": "Fayre",
       "to": "Leaton",
+      "RouteType": "Diesel Regional",
       "callingPoints": [
         "Fayre",
         "Arkley",
@@ -248,6 +260,7 @@
       "id": 13,
       "from": "Avonhill",
       "to": "Cuffley",
+      "RouteType": "Electric Regional",
       "callingPoints": [
         "Avonhill",
         "Union Street",
@@ -275,6 +288,7 @@
       "id": 14,
       "from": "Victoria Docks",
       "to": "Cuffley",
+      "RouteType": "Diesel Regional",
       "callingPoints": [
         "Victoria Docks",
         "Longbow Beach",
@@ -299,6 +313,7 @@
       "id": 15,
       "from": "Syde-On-Sea",
       "to": "Cuffley",
+      "RouteType": "Diesel Regional",
       "callingPoints": [
         "Syde-On-Sea",
         "Newhurst",
@@ -325,6 +340,7 @@
       "id": 16,
       "from": "Ashdean",
       "to": "Cuffley",
+      "RouteType": "Diesel Regional",
       "callingPoints": [
         "Ashdean",
         "Ashdean Bridge",
@@ -352,6 +368,7 @@
       "id": 17,
       "from": "Avonhill",
       "to": "Mill Bridge",
+      "RouteType": "Electric Regional",
       "callingPoints": [
         "Avonhill",
         "Union Street",
@@ -373,6 +390,7 @@
       "id": 18,
       "from": "Victoria Docks",
       "to": "Mill Bridge",
+      "RouteType": "Diesel Regional",
       "callingPoints": [
         "Victoria Docks",
         "Longbow Beach",
@@ -391,6 +409,7 @@
       "id": 19,
       "from": "Syde-On-Sea",
       "to": "Mill Bridge",
+      "RouteType": "Diesel Regional",
       "callingPoints": [
         "Syde-On-Sea",
         "Newhurst",
@@ -411,6 +430,7 @@
       "id": 20,
       "from": "Ashdean",
       "to": "Mill Bridge",
+      "RouteType": "Diesel Regional",
       "callingPoints": [
         "Ashdean",
         "Ashdean Bridge",
@@ -432,6 +452,7 @@
       "id": 21,
       "from": "Syde-On-Sea",
       "to": "Fayre",
+      "RouteType": "Diesel Regional",
       "callingPoints": [
         "Syde-On-Sea",
         "Newhurst",
@@ -447,6 +468,7 @@
       "id": 22,
       "from": "Victoria Docks",
       "to": "Fayre",
+      "RouteType": "Diesel Regional",
       "callingPoints": [
         "Victoria Docks",
         "Longbow Beach",
@@ -460,6 +482,7 @@
       "id": 23,
       "from": "Ashdean",
       "to": "Fayre",
+      "RouteType": "Diesel Regional",
       "callingPoints": [
         "Ashdean",
         "Ashdean Bridge",
@@ -476,6 +499,7 @@
       "id": 24,
       "from": "Victoria Docks",
       "to": "Victoria Harbour",
+      "RouteType": "Diesel Shuttle",
       "callingPoints": [
         "Victoria Docks",
         "Victoria Harbour"
@@ -485,6 +509,7 @@
       "id": 25,
       "from": "Victoria Harbour",
       "to": "Victoria Docks",
+      "RouteType": "Diesel Shuttle",
       "callingPoints": [
         "Victoria Harbour",
         "Victoria Docks"
@@ -494,6 +519,7 @@
       "id": 26,
       "from": "Victoria Docks",
       "to": "Avonhill",
+      "RouteType": "Diesel Regional",
       "callingPoints": [
       "Victoria Docks",
       "Longbow Beach",
@@ -515,6 +541,7 @@
       "id": 27,
       "from": "Syde-On-Sea",
       "to": "Avonhill",
+      "RouteType": "Diesel Regional",
       "callingPoints": [
       "Syde-On-Sea",
       "Newhurst",
@@ -538,6 +565,7 @@
       "id": 28,
       "from": "Ashdean",
       "to": "Avonhill",
+      "RouteType": "Diesel Regional",
       "callingPoints": [
       "Ashdean",
       "Ashdean Bridge",
@@ -562,6 +590,7 @@
       "id": 29,
       "from": "Avonhill",
       "to": "Victoria Docks",
+      "RouteType": "Diesel Regional",
       "callingPoints": [
       "Avonhill",
       "Union Street",
@@ -583,6 +612,7 @@
       "id": 30,
       "from": "Avonhill",
       "to": "Syde-On-Sea",
+      "RouteType": "Diesel Regional",
       "callingPoints": [
       "Avonhill",
       "Union Street",
@@ -606,6 +636,7 @@
       "id": 31,
       "from": "Avonhill",
       "to": "Ashdean",
+      "RouteType": "Diesel Regional",
       "callingPoints": [
       "Avonhill",
       "Union Street",
