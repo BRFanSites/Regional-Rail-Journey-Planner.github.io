@@ -1,7 +1,11 @@
 let routes;
 const increment = 0.15;
 
+<<<<<<< HEAD
 fetch('https://www.regionalrail.co.uk/Intercity_routes.json')
+=======
+fetch('https://www.regionalrail.co.uk/routes.json')
+>>>>>>> d089f9c5c11b40015da9f1dab3fb53c23a15e88e
   .then(response => {
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
