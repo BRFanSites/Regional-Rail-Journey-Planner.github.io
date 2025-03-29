@@ -36,9 +36,10 @@ fetch('https://www.regionalrail.co.uk/Intercity_routes.json')
     }
 
     function planJourney(fromStation, toStation, routes) {
-      function findRoute(from, to) {
-        const fromStationNormalized = from.charAt(0).toUpperCase() + from.slice(1).replace(/\s+/g, '');
-        const toStationNormalized = to.charAt(0).toUpperCase() + to.slice(1).replace(/\s+/g, '');
+      function findRoute(from, to, routes) {
+        const fromStationNormalized = from.trim().replace(/\s+/g, ' ');
+        const toStationNormalized = to.trim().replace(/\s+/g, ' ');
+        
       
         console.log('Routes inside findRoute function:', data.routes);
         console.log('Routes length:', data.routes.length);
@@ -49,6 +50,7 @@ fetch('https://www.regionalrail.co.uk/Intercity_routes.json')
             console.log('Calling points:', route.callingPoints);
             console.log('From station:', fromStationNormalized);
             console.log('To station:', toStationNormalized);
+            console.log('Id:', route.id);
       
             const fromIndex = route.callingPoints.indexOf(fromStationNormalized);
             const toIndex = route.callingPoints.indexOf(toStationNormalized);
