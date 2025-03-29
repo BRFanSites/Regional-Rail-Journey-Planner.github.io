@@ -31,14 +31,6 @@ body {
   border-radius: 50%;
 }
 
-.journey-planner-header {
-  background-color: #0065bd;
-  color: #fff;
-  padding: 10px;
-  text-align: center;
-  border-bottom: 1px solid #ccc;
-}
-
 .button {
   display: block;
   width: 100%;

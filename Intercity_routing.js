@@ -98,9 +98,9 @@ fetch('https://www.regionalrail.co.uk/Intercity_routes.json')
         if (searchForm && journeyInfo && container) {
             searchForm.style.display = 'none';
             journeyInfo.style.display = 'block';
-            container.style.backgroundColor = '#0077ff';
+            container.style.backgroundColor = '#ffff00';
             container.style.opacity = 0.9;
-            container.style.color = '#fff';
+            container.style.color = '#000';
     
             const DepartureTime = document.getElementById('departure-time');
             const ArrivalTime = document.getElementById('arrival-time');

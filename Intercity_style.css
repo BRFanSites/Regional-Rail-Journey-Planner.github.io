@@ -30,14 +30,6 @@ body {
   border-radius: 50%;
 }
 
-.journey-planner-header {
-  background-color: #ffff00;
-  color: #000;
-  padding: 10px;
-  text-align: center;
-  border-bottom: 1px solid #ccc;
-}
-
 .button {
   display: block;
   width: 100%;
@@ -80,7 +72,7 @@ form label {
 }
 
 .journey-planner-header {
-  background-color: #ffff00;
+  background-color: #ffe600;
   color: #000;
   padding: 10px;
   margin-top: -50px;
