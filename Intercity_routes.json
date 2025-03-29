@@ -1,0 +1,116 @@
+{
+  "routes": [
+    {
+      "id": 1,
+      "from": "Cuffley",
+      "to": "Avonhill",
+      "callingPoints": [
+        "Cuffley",
+        "Wallsend",
+        "Norrington",
+        "Hulme Heath",
+        "Freston Junction",
+        "Leaton",
+        "Belmond Green",
+        "Fleetwood",
+        "Avonhill"
+      ]
+    },
+    {
+      "id": 2,
+      "from": "Cuffley",
+      "to": "Victoria Docks",
+      "callingPoints": [
+        "Cuffley",
+        "Wallsend",
+        "Norrington",
+        "Hulme Heath",
+        "Freston Junction",
+        "Leaton",
+        "Abbey Road",
+        "Victoria Docks"
+      ]
+    },
+    {
+      "id": 3,
+      "from": "Mill Bridge",
+      "to": "Avonhill",
+      "callingPoints": [
+        "Mill Bridge",
+        "Fortis Green",
+        "Leaton",
+        "Belmond Green",
+        "Fleetwood",
+        "Avonhill"
+      ]
+    },
+    {
+      "id": 4,
+      "from": "Mill Bridge",
+      "to": "Victoria Docks",
+      "callingPoints": [
+        "Mill Bridge",
+        "Fortis Green",
+        "Leaton",
+        "Abbey Road",
+        "Victoria Docks"
+      ]
+    },
+    {
+      "id": 5,
+      "from": "Avonhill",
+      "to": "Cuffley",
+      "callingPoints": [
+        "Avonhill",
+        "Fleetwood",
+        "Belmond Green",
+        "Leaton",
+        "Freston Junction",
+        "Hulme Heath",
+        "Norrington",
+        "Wallsend",
+        "Cuffley"
+      ]
+    },
+    {
+      "id": 6,
+      "from": "Victoria Docks",
+      "to": "Cuffley",
+      "callingPoints": [
+        "Victoria Docks",
+        "Abbey Road",
+        "Leaton",
+        "Freston Junction",
+        "Hulme Heath",
+        "Norrington",
+        "Wallsend",
+        "Cuffley"
+      ]
+    },
+    {
+      "id": 7,
+      "from": "Avonhill",
+      "to": "Mill Bridge",
+      "callingPoints": [
+        "Avonhill",
+        "Fleetwood",
+        "Belmond Green",
+        "Leaton",
+        "Fortis Green",
+        "Mill Bridge"
+      ]
+    },
+    {
+      "id": 8,
+      "from": "Victoria Docks",
+      "to": "Mill Bridge",
+      "callingPoints": [
+        "Victoria Docks",
+        "Abbey Road",
+        "Leaton",
+        "Fortis Green",
+        "Mill Bridge"
+      ]
+    }
+  ]
+}
