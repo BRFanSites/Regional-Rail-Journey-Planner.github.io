@@ -85,7 +85,18 @@ form label {
   padding: 10px;
   margin-top: -50px;
   text-align: center;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #0065bd;
+}
+
+#from-station, #to-station {
+  width: 98.2%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .journey-planner-header h2 {
@@ -138,4 +149,11 @@ input[type="text"]:focus {
 
 .journey-info.show {
   display: block;
+}
+
+marquee {
+  font: Ubuntu, sans-serif;
+  font-size: 25px;
+  font-weight: bold;
+  color: #ffffff;
 }
