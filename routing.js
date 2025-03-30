@@ -48,6 +48,7 @@ fetch('https://www.regionalrail.co.uk/routes.json')
                 const route = data.routes[i];
                 if (route && route.callingPoints) {
                   console.log('Calling points:', route.callingPoints);
+                  console.log('Route Type:', route.routeType);
                   console.log('From station:', fromStationNormalized);
                   console.log('To station:', toStationNormalized);
                   console.log('Id:', route.id);
@@ -62,6 +63,7 @@ fetch('https://www.regionalrail.co.uk/routes.json')
                     const routeCallingPoints = route.callingPoints.slice(fromIndex, toIndex + 1);
             
                     const routeData = {
+                      routeType: route.routeType,
                       from: from,
                       to: to,
                       callingPoints: routeCallingPoints,
@@ -117,7 +119,7 @@ fetch('https://www.regionalrail.co.uk/routes.json')
           container.style.opacity = 0.9;
           container.style.color = '#fff';
       
-          const DepartureTime = document.getElementById('route-type');
+          const routeType = document.getElementById('route-type');
           const fromStationName = document.getElementById('from-station-name');
           const toStationName = document.getElementById('to-station-name');
           const callingPoints = document.getElementById('calling-points');
@@ -154,6 +156,7 @@ fetch('https://www.regionalrail.co.uk/routes.json')
             }).join('');
       
             price.textContent = `£${cost.toFixed(2)}`;
+            routeType.textContent = route.routeType;
           } else {
             console.log('Error: one or more required elements not found');
           }
