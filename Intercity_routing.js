@@ -101,6 +101,7 @@ fetch('https://www.regionalrail.co.uk/Intercity_routes.json')
         const searchForm = document.getElementById('search-form');
         const journeyInfo = document.getElementById('journey-info');
         const container = document.getElementsByClassName('container')[0];
+        console.log('Route Type:', route.routeType);
       
         const stationInfo = {
           "Wallsend": "(Limited Stop)",
