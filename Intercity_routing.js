@@ -101,7 +101,6 @@ fetch('https://www.regionalrail.co.uk/Intercity_routes.json')
         const searchForm = document.getElementById('search-form');
         const journeyInfo = document.getElementById('journey-info');
         const container = document.getElementsByClassName('container')[0];
-        console.log('Route Type:', route.routeType);
       
         const stationInfo = {
           "Wallsend": "(Limited Stop)",
@@ -117,11 +116,12 @@ fetch('https://www.regionalrail.co.uk/Intercity_routes.json')
         if (searchForm && journeyInfo && container) {
           searchForm.style.display = 'none';
           journeyInfo.style.display = 'block';
-          container.style.backgroundColor = '#ffff00';
+          container.style.backgroundColor = '#0077ff';
           container.style.opacity = 0.9;
-          container.style.color = '#000';
+          container.style.color = '#fff';
       
           const routeType = document.getElementById('route-type');
+          console.log('Route Type Element:', routeType);
           const fromStationName = document.getElementById('from-station-name');
           const toStationName = document.getElementById('to-station-name');
           const callingPoints = document.getElementById('calling-points');
@@ -132,7 +132,7 @@ fetch('https://www.regionalrail.co.uk/Intercity_routes.json')
             ArrivalTime.textContent = route.arrivalTime || 'N/A';
           }
       
-          if (fromStationName && toStationName && callingPoints && price) {
+          if (fromStationName && toStationName && callingPoints && price && routeType) {
             const fromStationText = stationInfo[route.from];
             const toStationText = stationInfo[route.to];
       
@@ -158,6 +158,7 @@ fetch('https://www.regionalrail.co.uk/Intercity_routes.json')
             }).join('');
       
             price.textContent = `£${cost.toFixed(2)}`;
+            console.log('Route Type:', route.routeType);
             routeType.textContent = route.routeType;
           } else {
             console.log('Error: one or more required elements not found');
