@@ -3,7 +3,7 @@ document.querySelector('.avonhill-box').addEventListener('click', () => {
 });
 
 document.querySelector('.belmond-green-box').addEventListener('click', () => {
-  window.location.href = 'Belmond_green.html';
+  window.location.href = 'Belmond_Green.html';
 });
 
 document.querySelector('.leaton-box').addEventListener('click', () => {
@@ -15,7 +15,7 @@ document.querySelector('.norrington-box').addEventListener('click', () => {
 });
 
 document.querySelector('.mill-bridge-box').addEventListener('click', () => {
-  window.location.href = 'Mill_bridge.html';
+  window.location.href = 'Mill_Bridge.html';
 });
 
 document.querySelector('.cuffley-box').addEventListener('click', () => {
