@@ -1,0 +1,575 @@
+{
+  "destinations": [
+    {
+      "name": "Syde-On-Sea",
+      "callingPoints": [
+        "Ashby-in-Kirkside",
+        "Wallsend",
+        "Ive",
+        "Norrington",
+        "Stirling Street",
+        "Hulme Heath",
+        "Astly",
+        "Forestdale",
+        "Freston Junction",
+        "St James Park",
+        "Leaton",
+        "Meryon",
+        "Whetstone",
+        "Abbey Road",
+        {
+          "name": "Longbow Beach",
+          "daysOfOperation": ["Saturday", "Sunday"]
+        },
+        "Victoria Docks",
+        "Newhurst",
+        "Syde-On-Sea"
+      ],
+      "services": [
+        {
+          "name": "Semi-Fast",
+          "callingPoints": [
+            "Ashby-in-Kirkside",
+            "Wallsend",
+            "Ive",
+            "Norrington",
+            "Stirling Street",
+            "Hulme Heath",
+            "Astly",
+            "Forestdale",
+            "Freston Junction",
+            "St James Park",
+            "Leaton",
+            "Meryon",
+            "Whetstone",
+            "Abbey Road",
+            "Longbow Beach",
+            "Victoria Docks",
+            "Newhurst",
+            "Syde-On-Sea"
+          ],
+          "exceptions": {
+            "Ashby-in-Kirkside": 0.25,
+            "Ive": 0.25,
+            "Stirling Street": 0.25,
+            "Astly": 0.25,
+            "Forestdale": 0.25,
+            "Meryon": 0.25,
+            "Whetstone": 0.25
+          }
+        },
+        {
+          "name": "Regional",
+          "callingPoints": [
+            "Ashby-in-Kirkside",
+            "Wallsend",
+            "Ive",
+            "Norrington",
+            "Stirling Street",
+            "Hulme Heath",
+            "Astly",
+            "Forestdale",
+            "Freston Junction",
+            "St James Park",
+            "Leaton",
+            "Meryon",
+            "Whetstone",
+            "Abbey Road",
+            "Longbow Beach",
+            "Victoria Docks",
+            "Newhurst",
+            "Syde-On-Sea"
+          ],
+          "exceptions": {
+            "Stirling Street": 0.25
+          }
+        }
+      ]
+    },
+    {
+        "name": "Victoria Docks",
+        "callingPoints": [
+          "Ashby-in-Kirkside",
+          "Wallsend",
+          "Ive",
+          "Norrington",
+          "Stirling Street",
+          "Hulme Heath",
+          "Astly",
+          "Forestdale",
+          "Freston Junction",
+          "St James Park",
+          "Leaton",
+          "Meryon",
+          "Whetstone",
+          "Abbey Road",
+          {
+            "name": "Longbow Beach",
+            "daysOfOperation": ["Saturday", "Sunday"]
+          },
+          "Victoria Docks"
+        ],
+        "services": [
+          {
+                "name": "Intercity",
+                "callingPoints": [
+                  "Norrington",
+                  "Hulme Heath",
+                  "Freston Junction",
+                  "Leaton",
+                  "Abbey Road",
+                  "Victoria Docks"
+                ],
+                "exceptions": {
+                  "Norrington": 0.66,
+                  "Hulme Heath": 0.33,
+                  "Stirling Street": false,
+                  "Astly": false,
+                  "Forestdale": false,
+                  "St James Park": false,
+                  "Leaton": 0.66,
+                  "Meryon": false,
+                  "Whetstone": false,
+                  "Longbow Beach": false,
+                  "Abbey road": 0.33
+                  
+                }
+          },
+          {
+            "name": "Semi-Fast",
+            "callingPoints": [
+              "Ashby-in-Kirkside",
+              "Wallsend",
+              "Ive",
+              "Norrington",
+              "Stirling Street",
+              "Hulme Heath",
+              "Astly",
+              "Forestdale",
+              "Freston Junction",
+              "St James Park",
+              "Leaton",
+              "Meryon",
+              "Whetstone",
+              "Abbey Road",
+              "Longbow Beach",
+              "Victoria Docks"
+            ],
+            "exceptions": {
+              "Ashby-in-Kirkside": 0.25,
+              "Ive": 0.25,
+              "Stirling Street": false,
+              "Astly": 0.25,
+              "Forestdale": 0.25,
+              "Meryon": 0.25,
+              "Whetstone": 0.25
+            }
+          },
+          {
+            "name": "Regional",
+            "callingPoints": [
+              "Ashby-in-Kirkside",
+              "Wallsend",
+              "Ive",
+              "Norrington",
+              "Stirling Street",
+              "Hulme Heath",
+              "Astly",
+              "Forestdale",
+              "Freston Junction",
+              "St James Park",
+              "Leaton",
+              "Meryon",
+              "Whetstone",
+              "Abbey Road",
+              "Longbow Beach",
+              "Victoria Docks"
+            ],
+            "exceptions": {
+              "Stirling Street": 0.25
+            }
+          }
+        ]
+      },
+      {
+        "name": "Ashdean",
+        "callingPoints": [
+          "Ashby-in-Kirkside",
+          "Wallsend",
+          "Ive",
+          "Norrington",
+          "Stirling Street",
+          "Hulme Heath",
+          "Astly",
+          "Forestdale",
+          "Freston Junction",
+          "St James Park",
+          "Leaton",
+          "Meryon",
+          "Whetstone",
+          "Abbey Road",
+          "Longbow",
+          "Russell Lane", 
+          "Osidge Hill",
+          "Ashdean Bridge",
+          "Ashdean"
+        ],
+        "services": [
+          {
+            "name": "Semi-Fast",
+            "callingPoints": [
+              "Ashby-in-Kirkside",
+              "Wallsend",
+              "Ive",
+              "Norrington",
+              "Stirling Street",
+              "Hulme Heath",
+              "Astly",
+              "Forestdale",
+              "Freston Junction",
+              "St James Park",
+              "Leaton",
+              "Meryon",
+              "Whetstone",
+              "Abbey Road",
+              "Longbow",
+              "Russell Lane",
+              "Osidge Hill",
+              "Ashdean Bridge",
+              "Ashdean"
+            ],
+            "exceptions": {
+              "Ashby-in-Kirkside": 0.25,
+              "Ive": 0.25,
+              "Stirling Street": false,
+              "Astly": 0.25,
+              "Forestdale": 0.25,
+              "Meryon": 0.25,
+              "Whetstone": 0.25,
+              "Ashdean Bridge": false
+            }
+          },
+          {
+            "name": "Regional",
+            "callingPoints": [
+              "Ashby-in-Kirkside",
+              "Wallsend",
+              "Ive",
+              "Norrington",
+              "Stirling Street",
+              "Hulme Heath",
+              "Astly",
+              "Forestdale",
+              "Freston Junction",
+              "St James Park",
+              "Leaton",
+              "Meryon",
+              "Whetstone",
+              "Abbey Road",
+              "Longbow",
+              "Russell Lane",
+              "Osidge Hill",
+              "Ashdean Bridge",
+              "Ashdean"
+            ],
+            "exceptions": {
+              "Stirling Street": 0.25,
+              "Ashdean Bridge": 0.33
+            }
+          }
+        ]
+      },
+      {
+        "name": "Fleetwood",
+        "callingPoints": [
+          "Ashby-in-Kirkside",
+          "Wallsend",
+          "Ive",
+          "Norrington",
+          "Stirling Street",
+          "Hulme Heath",
+          "Astly",
+          "Forestdale",
+          "Freston Junction",
+          "St James Park",
+          "Leaton",
+          "Bawtry Road",
+          "Woodham",
+          "Belmond Green",
+          "Rowton",
+          "Fleetwood"
+        ],
+        "services": [
+          {
+            "name": "Regional",
+            "callingPoints": [
+              "Ashby-in-Kirkside",
+              "Wallsend",
+              "Ive",
+              "Norrington",
+              "Stirling Street",
+              "Hulme Heath",
+              "Astly",
+              "Forestdale",
+              "Freston Junction",
+              "St James Park",
+              "Leaton",
+              "Bawtry Road",
+              "Woodham",
+              "Belmond Green",
+              "Rowton",
+              "Fleetwood"
+            ],
+            "exceptions": {
+              "Stirling Street": 0.33
+            }
+          }
+        ]
+      },
+      {
+        "name": "Belmond Green",
+        "callingPoints": [
+          "Ashby-in-Kirkside",
+          "Wallsend",
+          "Ive",
+          "Norrington",
+          "Stirling Street",
+          "Hulme Heath",
+          "Astly",
+          "Forestdale",
+          "Freston Junction",
+          "St James Park",
+          "Leaton",
+          "Bawtry Road",
+          "Woodham",
+          "Belmond Green"
+        ],
+        "services": [
+          {
+            "name": "Intercity",
+            "callingPoints": [
+              "Norrington",
+              "Hulme Heath",
+              "Freston Junction",
+              "Leaton",
+              "Belmond Green"
+            ],
+            "exceptions": {
+              "Norrington": 0.66,
+              "Hulme Heath": 0.33,
+              "Stirling Street": false,
+              "Astly": false,
+              "Forestdale": false,
+              "St James Park": false,
+              "Leaton": 0.66,
+              "Bawtry Road": false,
+              "Woodham": false
+            }
+          },
+          {
+            "name": "Semi-Fast",
+            "callingPoints": [
+              "Ashby-in-Kirkside",
+              "Wallsend",
+              "Ive",
+              "Stirling Street",
+              "Hulme Heath",
+              "Astly",
+              "Forestdale",
+              "Freston Junction",
+              "St James Park",
+              "Leaton",
+              "Bawtry Road",
+              "Woodham",
+              "Belmond Green"
+            ],
+            "exceptions": {
+              "Ashby-in-Kirkside": 0.25,
+              "Ive": 0.25,
+              "Stirling Street": false,
+              "Astly": 0.25,
+              "Forestdale": 0.25
+
+            }
+          },
+          {
+            "name": "Regional",
+            "callingPoints": [
+              "Ashby-in-Kirkside",
+              "Wallsend",
+              "Ive",
+              "Norrington",
+              "Stirling Street",
+              "Hulme Heath",
+              "Astly",
+              "Forestdale",
+              "Freston Junction",
+              "St James Park",
+              "Leaton",
+              "Bawtry Road",
+              "Woodham",
+              "Belmond Green"
+            ],
+            "exceptions": {
+              "Stirling Street": 0.33
+            }
+          }
+        ]
+      },
+      {
+        "name": "Avonhill",
+        "callingPoints": [
+          "Ashby-in-Kirkside",
+          "Wallsend",
+          "Ive",
+          "Norrington",
+          "Stirling Street",
+          "Hulme Heath",
+          "Astly",
+          "Forestdale",
+          "Freston Junction",
+          "St James Park",
+          "Leaton",
+          "Bawtry Road",
+          "Woodham",
+          "Belmond Green",
+          "Rowton",
+          "Fleetwood",
+          "Thornfield",
+          "Union Street",
+          "Avonhill"
+        ],
+        "services": [
+          {
+            "name": "Intercity",
+            "callingPoints": [
+              "Norrington",
+              "Hulme Heath",
+              "Freston Junction",
+              "Leaton",
+              "Belmond Green",
+              "Fleetwood",
+              "Avonhill"
+            ],
+            "exceptions": {
+              "Norrington": 0.66,
+              "Hulme Heath": 0.33,
+              "Stirling Street": false,
+              "Astly": false,
+              "Forestdale": false,
+              "St James Park": false,
+              "Leaton": 0.66,
+              "Bawtry Road": false,
+              "Woodham": false,
+              "Fleetwood": 0.33
+            }
+          },
+          {
+            "name": "Semi-Fast",
+            "callingPoints": [
+              "Ashby-in-Kirkside",
+              "Wallsend",
+              "Ive",
+              "Stirling Street",              
+              "Hulme Heath",
+              "Astly",
+              "Forestdale",
+              "Freston Junction",
+              "St James Park",
+              "Leaton",
+              "Bawtry Road",
+              "Woodham",
+              "Belmond Green",
+              "Fleetwood",
+              "Avonhill"
+            ],
+            "exceptions": {
+              "Ashby-in-Kirkside": 0.25,
+              "Ive": 0.25,
+              "Stirling Street": false,
+              "Astly": 0.25,
+              "Forestdale": 0.25,
+              "Rowton": 0.25
+            }
+          },
+          {
+            "name": "Regional",
+            "callingPoints": [
+              "Ashby-in-Kirkside",
+              "Wallsend",
+              "Ive",
+              "Norrington",
+              "Stirling Street",
+              "Hulme Heath",
+              "Astly",
+              "Forestdale",
+              "Freston Junction",
+              "St James Park",
+              "Leaton",
+              "Bawtry Road",
+              "Woodham",
+              "Belmond Green",
+              "Fleetwood",
+              "Avonhill"
+            ],
+            "exceptions": {
+              "Stirling Street": 0.33
+            }
+          }
+        ]
+      },
+      {
+        "name": "Leaton",
+        "callingPoints": [
+          "Ashby-in-Kirkside",
+          "Wallsend",
+          "Ive",
+          "Norrington",
+          "Stirling Street",
+          "Hulme Heath",
+          "Astly",
+          "Forestdale",
+          "Freston Junction",
+          "St James Park",
+          "Leaton",
+          "Meryon",
+          "Whetstone",
+          "Abbey Road",
+          "Longbow",
+          "Russell Lane",
+          "Broomfield",
+          "Meryon",
+          "Leaton"
+        ],
+        "services": [
+          {
+            "name": "Regional",
+            "callingPoints": [
+              "Ashby-in-Kirkside",
+              "Wallsend",
+              "Ive",
+              "Norrington",
+              "Stirling Street",
+              "Hulme Heath",
+              "Astly",
+              "Forestdale",
+              "Freston Junction",
+              "St James Park",
+              "Leaton",
+              "Meryon",
+              "Whetstone",
+              "Abbey Road",
+              "Longbow",
+              "Russell Lane",
+              "Broomfield",
+              "Meryon",
+              "Leaton"
+            ],
+            "exceptions": {
+              "Stirling Street": 0.33
+            }
+          }
+        ]
+      }
+    ]
+}

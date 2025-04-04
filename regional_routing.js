@@ -37,70 +37,57 @@ fetch('https://www.regionalrail.co.uk/routes.json')
 
     function planJourney(fromStation, toStation, routes) {
       function findRoute(from, to, routes) {
-              const fromStationNormalized = from.trim().replace(/\s+/g, ' ');
-              const toStationNormalized = to.trim().replace(/\s+/g, ' ');
-              
-            
-              console.log('Routes inside findRoute function:', data.routes);
-              console.log('Routes length:', data.routes.length);
-            
-              for (var i = 0; i < data.routes.length; i++) {
-                const route = data.routes[i];
-                if (route && route.callingPoints) {
-                  console.log('Calling points:', route.callingPoints);
-                  console.log('Route Type:', route.routeType);
-                  console.log('From station:', fromStationNormalized);
-                  console.log('To station:', toStationNormalized);
-                  console.log('Id:', route.id);
-            
-                  const fromIndex = route.callingPoints.indexOf(fromStationNormalized);
-                  const toIndex = route.callingPoints.indexOf(toStationNormalized);
-                  console.log('From index:', fromIndex);
-                  console.log('To index:', toIndex);
-            
-                  if (fromIndex !== -1 && toIndex !== -1 && fromIndex < toIndex) {
-                    console.log('Found a route!');
-                    const routeCallingPoints = route.callingPoints.slice(fromIndex, toIndex + 1);
-            
-                    const routeData = {
-                      routeType: route.routeType,
-                      from: from,
-                      to: to,
-                      callingPoints: routeCallingPoints,
-                    };
-            
-                    function calculateFare(fromIndex, toIndex) {
-                      const numStations = Math.abs(toIndex - fromIndex);
-                      console.log('Number of stations:', numStations);
-                      const cost = numStations / increment;
-                      console.log('Calculated Fare:', cost);
-                      return cost;
-                    }
-            
-                    const fare = calculateFare(fromIndex, toIndex);
-                    console.log('Calculated Fare:', fare);
-                    showJourneyInfo(routeData, fare);
-            
-                    return routeData;
-                  } else {
-                    console.log('No route found');
-                  }
-                } else {
-                  console.log('Invalid route object');
-                }
-              }
-            
-              console.log('Outside for loop');
-              return null;
+        console.log('Finding route from', from, 'to', to);
+      
+        const fromStationNormalized = from.trim().replace(/\s+/g, ' ');
+        const toStationNormalized = to.trim().replace(/\s+/g, ' ');
+      
+        console.log('Normalized from station:', fromStationNormalized);
+        console.log('Normalized to station:', toStationNormalized);
+      
+        for (let i = 0; i < routes.length; i++) {
+          const route = routes[i];
+          console.log('Checking route', i, route);
+      
+          if (route && route.callingPoints) {
+            console.log('Checking calling points', route.callingPoints);
+      
+            const fromIndex = route.callingPoints.findIndex(cp => cp === fromStationNormalized);
+            const toIndex = route.callingPoints.findIndex(cp => cp === toStationNormalized);
+      
+            console.log('From index:', fromIndex);
+            console.log('To index:', toIndex);
+      
+            if (fromIndex !== -1 && toIndex !== -1 && fromIndex < toIndex) {
+              console.log('Found a route!');
+      
+              const routeCallingPoints = route.callingPoints.slice(fromIndex, toIndex + 1);
+      
+              const routeData = {
+                routeType: routeRouteType,
+                from: from,
+                to: to,
+                callingPoints: routeCallingPoints,
+              };
+      
+              return routeData;
+            } else {
+              console.log('No route found');
             }
-     
-
-      // Define the showJourneyInfo function here
+          } else {
+            console.log('Invalid route object');
+          }
+        }
+      
+        console.log('No route found');
+        return null;
+      }
+    
       function showJourneyInfo(route, cost) {
         const searchForm = document.getElementById('search-form');
         const journeyInfo = document.getElementById('journey-info');
         const container = document.getElementsByClassName('container')[0];
-      
+    
         const stationInfo = {
           "Bawtry Road": "(Limited Stop)",
           "Stirling Street": "(Limited Stop)",
@@ -111,42 +98,37 @@ fetch('https://www.regionalrail.co.uk/routes.json')
           "Longbow Beach": "(Weekends Only)",
           // Add more station names and their corresponding additional information here
         };
-      
+    
         if (searchForm && journeyInfo && container) {
           searchForm.style.display = 'none';
           journeyInfo.style.display = 'block';
           container.style.backgroundColor = '#0077ff';
           container.style.opacity = 0.9;
           container.style.color = '#fff';
-      
+    
           const routeType = document.getElementById('route-type');
-          console.log('Route Type Element:', routeType);
           const fromStationName = document.getElementById('from-station-name');
           const toStationName = document.getElementById('to-station-name');
           const callingPoints = document.getElementById('calling-points');
           const price = document.getElementById('price');
-      
-          if (DepartureTime && ArrivalTime) {
-            DepartureTime.textContent = route.departureTime || 'N/A';
-            ArrivalTime.textContent = route.arrivalTime || 'N/A';
-          }
-      
+    
           if (fromStationName && toStationName && callingPoints && price && routeType) {
             const fromStationText = stationInfo[route.from];
             const toStationText = stationInfo[route.to];
-      
+            const routeType = stationInfo[route.routeType];
+    
             if (fromStationText) {
               fromStationName.textContent = `${route.from} ${fromStationText}`;
             } else {
               fromStationName.textContent = route.from;
             }
-      
+    
             if (toStationText) {
               toStationName.textContent = `${route.to} ${toStationText}`;
             } else {
               toStationName.textContent = route.to;
             }
-      
+    
             callingPoints.innerHTML = route.callingPoints.slice(1).map(station => {
               const stationText = stationInfo[station];
               if (stationText) {
@@ -155,9 +137,8 @@ fetch('https://www.regionalrail.co.uk/routes.json')
                 return `<li>${station}</li>`;
               }
             }).join('');
-      
+    
             price.textContent = `£${cost.toFixed(2)}`;
-            console.log('Route Type:', route.routeType);
             routeType.textContent = route.routeType;
           } else {
             console.log('Error: one or more required elements not found');
@@ -167,9 +148,8 @@ fetch('https://www.regionalrail.co.uk/routes.json')
         }
       }
     
-
-      const route = findRoute(fromStation, toStation);
-
+      const route = findRoute(fromStation, toStation, routes);
+    
       if (route) {
         console.log(`Route from ${route.from} to ${route.to}:`);
         console.log(route.callingPoints);

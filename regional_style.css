@@ -25,6 +25,12 @@ body:hover::-webkit-scrollbar {
   opacity: 1;
 }
 
+body {
+  font-family: Arial, sans-serif;
+  background-color: #0077ff;
+  margin: 100px;
+}
+
 .container {
   width: 90%;
   max-width: 1200px;
@@ -55,8 +61,8 @@ body:hover::-webkit-scrollbar {
   width: 100%;
   padding: 10px;
   font-size: 16px;
-  color: #000;
-  background-color: #ffff00;
+  color: #fff;
+  background-color: #007bff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -64,14 +70,13 @@ body:hover::-webkit-scrollbar {
 }
 
 .button:hover {
-  background-color: #ffcc00;
+  background-color: #0056b3;
 }
 
 form label {
   display: block;
   margin: 10px 0 5px;
   font-weight: bold;
-  color: #000;
 }
 
 .ui-autocomplete {
@@ -81,8 +86,8 @@ form label {
 }
 
 .station-dropdown:focus {
-  border-color: #ffff00;
-  box-shadow: 0 0 10px rgba(255, 255, 0, 0.6);
+  border-color: #66afe9;
+  box-shadow: 0 0 10px rgba(102, 175, 233, 0.6);
 }
 
 .northern-rail-logo img {
@@ -92,12 +97,12 @@ form label {
 }
 
 .journey-planner-header {
-  background-color: #ffe600;
-  color: #000;
+  background-color: #0065bd;
+  color: #fff;
   padding: 10px;
   margin-top: -50px;
   text-align: center;
-  border-bottom: 1px solid #ffe600;
+  border-bottom: 1px solid #0065bd;
 }
 
 #from-station, #to-station {
@@ -109,30 +114,26 @@ form label {
   font-size: 16px;
   font-family: Arial, sans-serif;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  color: #000;
 }
 
 .journey-planner-header h2 {
   font-size: 24px;
   margin: 10;
-  color: #000;
 }
 
 .from-station-label {
   font-size: 16px;
   margin-bottom: 10px;
-  color: #000;
 }
 
 .to-station-label {
   font-size: 16px;
   margin-bottom: 10px;
-  color: #000;
 }
 
 .button {
-  background-color: #ffff00;
-  color: #000;
+  background-color: #0065bd;
+  color: #fff;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
@@ -140,7 +141,7 @@ form label {
 }
 
 .button:hover {
-  background-color: #ffcc00;
+  background-color: #0047b3;
 }
 
 input[type="text"] {
@@ -152,7 +153,6 @@ input[type="text"] {
   font-size: 16px;
   font-family: Arial, sans-serif;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  color: #000;
 }
 
 input[type="text"]:focus {
@@ -172,7 +172,7 @@ marquee {
   font: Ubuntu, sans-serif;
   font-size: 25px;
   font-weight: bold;
-  color: #000;
+  color: #ffffff;
 }
 
 .image-container {
@@ -182,10 +182,9 @@ marquee {
   text-align: center !important; /* center the image horizontally */
 }
 
-
 button {
-  background-color: #ffff00; /* yellow background color */
-  color: #000000; /* black text color */
+  background-color: #007bff; /* blue background color */
+  color: #ffffff; /* white text color */
   padding: 10px 20px; /* add some padding to make the button bigger */
   border: none; /* remove the default border */
   border-radius: 5px; /* add a rounded corner effect */
@@ -195,7 +194,7 @@ button {
 }
 
 button:hover {
-  background-color: #ffcc00; /* darker yellow background color on hover */
+  background-color: #0056b3; /* darker blue background color on hover */
 }
 
 .back-button {

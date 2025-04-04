@@ -1,0 +1,519 @@
+{
+  "destinations": [
+    {
+      "name": "Avonhill",
+      "callingPoints": [
+        "Bawtry Road",
+        "Woodham",
+        "Belmond Green",
+        "Rowton",
+        "Fleetwood",
+        "Thornfield",
+        "Union Street",
+        "Avonhill"
+      ],
+      "services": [
+        {
+          "name": "Intercity",
+          "callingPoints": [
+            "Belmond Green",
+            "Fleetwood",
+            "Avonhill"
+          ],
+          "exceptions": {
+            "Bawtry Road": false,
+            "Woodham": false,
+            "Rowton": false,
+            "Thornfield": false,
+            "Union Street": false,
+            "fleetwood": 0.33
+            
+          }
+        },
+        {
+          "name": "Semi-Fast",
+          "callingPoints": [
+            "Bawtry Road",
+            "Woodham",
+            "Belmond Green",
+            "Rowton",
+            "Fleetwood",
+            "Thornfield",
+            "Union Street",
+            "Avonhill"
+          ],
+          "exceptions": {
+            "Bawtry Road": 0.25,
+            "Woodham": 0.25,
+            "Rowton": 0.25
+          }
+        },
+        {
+          "name": "Regional",
+          "callingPoints": [
+            "Bawtry Road",
+            "Woodham",
+            "Belmond Green",
+            "Rowton",
+            "Fleetwood",
+            "Thornfield",
+            "Union Street",
+            "Avonhill"
+          ],
+          "exceptions": {}
+        }
+      ]
+    },
+    {
+      "name": "Syde-On-Sea",
+      "callingPoints": [
+        "Meryon",
+        "Whetstone",
+        "Abbey Road",
+        {
+          "name": "Longbow Beach",
+          "daysOfOperation": ["Saturday", "Sunday"]
+        },
+        "Victoria Docks",
+        "Newhurst",
+        "Syde-On-Sea"
+      ],
+      "services": [
+        {
+          "name": "Semi-Fast",
+          "callingPoints": [
+            "Meryon",
+            "Whetstone",
+            "Abbey Road",
+            "Longbow Beach",
+            "Victoria Docks",
+            "Newhurst",
+            "Syde-On-Sea"
+          ],
+          "exceptions": {
+            "Meryon": 0.25,
+            "Whetstone": 0.25
+          }
+        },
+        {
+          "name": "Regional",
+          "callingPoints": [
+            "Meryon",
+            "Whetstone",
+            "Abbey Road",
+            "Longbow Beach",
+            "Victoria Docks",
+            "Newhurst",
+            "Syde-On-Sea"
+          ],
+          "exceptions": {}
+        }
+      ]
+    },
+    {
+        "name": "Victoria Docks",
+        "callingPoints": [
+          "Meryon",
+          "Whetstone",
+          "Abbey Road",
+          {
+            "name": "Longbow Beach",
+            "daysOfOperation": ["Saturday", "Sunday"]
+          },
+          "Victoria Docks"
+        ],
+        "services": [
+          {
+                "name": "Intercity",
+                "callingPoints": [
+                  "Abbey Road",
+                  "Victoria Docks"
+                ],
+                "exceptions": {
+                  "Meryon": false,
+                  "Whetstone": false,
+                  "Longbow Beach": false,
+                  "Abbey road": 0.33
+                  
+                }
+          },
+          {
+            "name": "Semi-Fast",
+            "callingPoints": [
+              "Meryon",
+              "Whetstone",
+              "Abbey Road",
+              "Longbow Beach",
+              "Victoria Docks"
+            ],
+            "exceptions": {
+              "Meryon": 0.25,
+              "Whetstone": 0.25
+            }
+          },
+          {
+            "name": "Regional",
+            "callingPoints": [
+              "Meryon",
+              "Whetstone",
+              "Abbey Road",
+              "Longbow Beach",
+              "Victoria Docks"
+            ],
+            "exceptions": {}
+          }
+        ]
+      },
+      {
+        "name": "Ashdean",
+        "callingPoints": [
+          "Meryon",
+          "Whetstone",
+          "Abbey Road",
+          "Longbow",
+          "Russell Lane", 
+          "Osidge Hill",
+          "Ashdean Bridge",
+          "Ashdean"
+        ],
+        "services": [
+          {
+            "name": "Semi-Fast",
+            "callingPoints": [
+              "Meryon",
+              "Whetstone",
+              "Abbey Road",
+              "Longbow",
+              "Russell Lane",
+              "Osidge Hill",
+              "Ashdean Bridge",
+              "Ashdean"
+            ],
+            "exceptions": {
+              "Meryon": 0.25,
+              "Whetstone": 0.25,
+              "Ashdean Bridge": false
+            }
+          },
+          {
+            "name": "Regional",
+            "callingPoints": [
+              "Meryon",
+              "Whetstone",
+              "Abbey Road",
+              "Longbow",
+              "Russell Lane",
+              "Osidge Hill",
+              "Ashdean Bridge",
+              "Ashdean"
+            ],
+            "exceptions": {
+              "Ashdean Bridge": 0.33
+            }
+          }
+        ]
+      },
+      {
+        "name": "Mill Bridge",
+        "callingPoints": [
+          "Henley Park",
+          "Fortis Green",
+          "Elmtree House",
+          "Northcote",
+          "Mill Bridge"
+        ],
+        "services": [
+          {
+            "name": "Intercity",
+            "callingPoints": [
+              "Fortis Green",
+              "Mill Bridge"
+            ],
+            "exceptions": {
+              "Henley Park": false,
+              "Elmtree House": false,
+              "Northcote": false,
+              "Fortis Green": 0.33
+                  
+            }
+          },
+          {
+            "name": "Semi-Fast",
+            "callingPoints": [
+              "Henley Park",
+              "Fortis Green",
+              "Elmtree House",
+              "Northcote",
+              "Mill Bridge"
+            ],
+            "exceptions": {
+              "Henley Park": 0.25,
+              "Elmtree House": 0.25,
+              "Northcote": 0.25
+            }
+          },
+          {
+            "name": "Regional",
+            "callingPoints": [
+              "Henley Park",
+              "Fortis Green",
+              "Elmtree House",
+              "Northcote",
+              "Mill Bridge"
+            ],
+            "exceptions": {}
+          }
+        ]
+      },
+      {
+        "name": "Norrington",
+        "callingPoints": [
+          "St James Park",
+          "Freston Junction",
+          "Forestdale",
+          "Astly",
+          "Hulme Heath",
+          "Stirling Street",
+          "Norrington"
+        ],
+        "services": [
+          {
+            "name": "Intercity",
+            "callingPoints": [
+              "Freston Junction",
+              "Hulme Heath",
+              "Norrington"
+            ],
+            "exceptions": {
+              "St James Park": false,
+              "Forestdale": false,
+              "Astly": false,
+              "Stirling Street": false,
+              "Hulme Heath": 0.33
+                  
+            }
+          },
+          {
+            "name": "Semi-Fast",
+            "callingPoints": [
+              "St James Park",
+              "Freston Junction",
+              "Forestdale",
+              "Astly",
+              "Hulme Heath",
+              "Norrington"
+            ],
+            "exceptions": {
+              "Astly": 0.25,
+              "Forestdale": 0.25,
+              "Stirling Street": false
+            }
+          },
+          {
+            "name": "Regional",
+            "callingPoints": [
+              "St James Park",
+              "Freston Junction",
+              "Forestdale",
+              "Astly",
+              "Hulme Heath",
+              "Stirling Street",
+              "Norrington"
+            ],
+            "exceptions": {
+              "Stirling Street": 0.33
+            }
+          }
+        ]
+      },
+      {
+        "name": "Cuffley",
+        "callingPoints": [
+          "St James Park",
+          "Freston Junction",
+          "Forestdale",
+          "Astly",
+          "Hulme Heath",
+          "Stirling Street",
+          "Norrington",
+          "Wallsend",
+          "Ashby-in-Kirkside",
+          "Cuffley"
+        ],
+        "services": [
+          {
+            "name": "Intercity",
+            "callingPoints": [
+              "Freston Junction",
+              "Hulme Heath",
+              "Norrington",
+              "Wallsend",
+              "Cuffley"
+            ],
+            "exceptions": {
+              "St James Park": false,
+              "Forestdale": false,
+              "Astly": false,
+              "Stirling Street": false,
+              "Hulme Heath": 0.33,
+              "Norrington": 0.33,
+              "Wallsend": 0.33,
+              "Ashby-in-Kirkside": false
+              
+                  
+            }
+          },
+          {
+            "name": "Semi-Fast",
+            "callingPoints": [
+              "St James Park",
+              "Freston Junction",
+              "Forestdale",
+              "Astly",
+              "Hulme Heath",
+              "Norrington",
+              "Wallsend",
+              "Ashby-in-Kirkside",
+              "Cuffley"
+            ],
+            "exceptions": {
+              "Astly": 0.25,
+              "Forestdale": 0.25,
+              "Stirling Street": false,
+              "Asbty-in-Kirkside": 0.25
+            }
+          },
+          {
+            "name": "Regional",
+            "callingPoints": [
+              "St James Park",
+              "Freston Junction",
+              "Forestdale",
+              "Astly",
+              "Hulme Heath",
+              "Stirling Street",
+              "Norrington",
+              "Wallsend",
+              "Ashby-in-Kirkside",
+              "Cuffley"
+            ],
+            "exceptions": {
+              "Stirling Street": 0.33
+            }
+          }
+        ]
+      },
+      {
+        "name": "Belmond Green",
+        "callingPoints": [
+          "Bawtry Road",
+          "Woodham",
+          "Belmond Green"
+        ],
+        "services": [
+          {
+            "name": "Intercity",
+            "callingPoints": [
+              "Bawtry Road",
+              "Woodham",
+              "Belmond Green"
+            ],
+            "exceptions": {
+              "Bawtry Road": false,
+              "Woodham": false
+            }
+          },
+          {
+            "name": "Semi-Fast",
+            "callingPoints": [
+              "Bawtry Road",
+              "Woodham",
+              "Belmond Green"
+            ],
+            "exceptions": {
+              "Bawtry Road": 0.25,
+              "Woodham": 0.25
+            }
+          },
+          {
+            "name": "Regional",
+            "callingPoints": [
+              "Bawtry Road",
+              "Woodham",
+              "Belmond Green"
+            ],
+            "exceptions": {}
+          }
+        ]
+      },
+      {
+        "name": "Fleetwood",
+        "callingPoints": [
+          "Bawtry Road",
+          "Woodham",
+          "Belmond Green",
+          "Rowton",
+          "Fleetwood"
+        ],
+        "services": [
+          {
+            "name": "Semi-Fast",
+            "callingPoints": [
+              "Bawtry Road",
+              "Woodham",
+              "Belmond Green",
+              "Rowton",
+              "Fleetwood"
+            ],
+            "exceptions": {
+              "Bawtry Road": 0.25,
+              "Woodham": 0.25,
+              "Rowton": 0.25
+            }
+          },
+          {
+            "name": "Regional",
+            "callingPoints": [
+              "Bawtry Road",
+              "Woodham",
+              "Belmond Green",
+              "Rowton",
+              "Fleetwood"
+            ],
+            "exceptions": {}
+          }
+        ]
+      },
+      {
+        "name": "Leaton",
+        "callingPoints": [
+          "Meryon",
+          "Whetstone",
+          "Abbey Road",
+          "Longbow",
+          "Russell Lane",
+          "Broomfield",
+          "Meryon",
+          "Leaton"
+        ],
+        "services": [
+          {
+            "name": "Regional",
+            "callingPoints": [
+              
+              "Meryon",
+              "Whetstone",
+              "Abbey Road",
+              "Longbow",
+              "Russell Lane",
+              "Broomfield",
+              "Meryon",
+              "Leaton"
+            ],
+            "exceptions": {
+            }
+          }
+        ]
+      }          
+  ]
+}

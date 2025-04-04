@@ -4,9 +4,9 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
     </style>
-    <link rel="icon" href="Intercity_logo.ico" type="image/ico">
-    <title>Intercity Journey Planner</title>
-    <link rel="stylesheet" type="text/css" href="./Intercity_style.css">
+    <link rel="icon" href="Regional_logo.ico" type="image/ico">
+    <title>Regional Journey Planner</title>
+    <link rel="stylesheet" type="text/css" href="./regional_style.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -79,21 +79,21 @@
         <div class="image-container"></div>
     </div>
 
-    <div id="scrolling-text-bar" style="position: fixed; top: 0; left: 0; width: 100%; background-color: #ffcc00; padding: 10px; border-bottom: 1px solid #ffcc00; z-index: 1;">
-      <marquee behavior="scroll" direction="left" scrollamount="10;">
-        Welcome to the Intercity Journey Planner! Plan your journey with ease and convenience. 
-        <a href="https://github.com/BRFanSites/Regional-Rail-Journey-Planner.github.io" target="_blank" style="color: #000; text-decoration: underline;">Have suggestions or issues? Visit our GitHub repository.</a>
-        Thank you for using our service!
-      </marquee>
-      <p style="font-size: 18px; text-align: center; color: #000000;">All station names are required to be correctly cappitalized check route map below for accurate results. Some station names may contain special characters, please make sure to include them for accurate results. If no routes generate between your selected stations try clearing your cache and cookies and try again.</p>
-      <button onclick="window.location.href = 'https://github.com/BRFanSites/Regional-Rail-Journey-Planner.github.io';" style="float: right;">GitHub</button>
-      <button onclick="window.location.href = 'index.html';">Regional Rail Planner</button>
-      <button class="back-button" onclick="window.location.href='index.html'">Back to Home</button>
+    <div id="scrolling-text-bar" style="position: fixed; top: 0; left: 0; width: 100%; background-color: #0065bd; padding: 10px; border-bottom: 1px solid #0065bd; z-index: 1;">
+        <marquee behavior="scroll" direction="left" scrollamount="10;">
+            Welcome to the Regional Journey Planner! Plan your journey with ease and convenience. 
+            <a href="https://github.com/BRFanSites/Regional-Rail-Journey-Planner.github.io" target="_blank" style="color: white; text-decoration: underline;">Have suggestions or issues? Visit our GitHub repository.</a>
+            Thank you for using our service!
+        </marquee>
+        <p style="font-size: 18px; text-align: center; color: #ffffff;">All station names are required to be correctly cappitalized check route map below for accurate results. Some station names may contain special characters, please make sure to include them for accurate results. If no routes generate between your selected stations try clearing your cache and cookies and try again.</p>
+        <button onclick="window.location.href = 'https://github.com/BRFanSites/Regional-Rail-Journey-Planner.github.io';" style="float: right;">GitHub</button>
+        <button onclick="window.location.href = 'Intercity.html';">Intercity Rail Planner</button>
+        <button class="back-button" onclick="window.location.href='index.html'">Back to Home</button>
     </div>
 
     <div class="container">
         <div class="northern-rail-logo">
-            <img src="Intercity_logo.webp" alt="Regional Rail Logo">
+            <img src="Regional_logo.webp" alt="Regional Rail Logo">
         </div>
         <div class="journey-planner-header">
             <h2>Journey Planner</h2>
@@ -103,7 +103,7 @@
             <input type="text" id="to-station" placeholder="To station">
             <button class="button">Plan Journey</button>
             <div Class="image-container">
-                <img src="Intercity_Map.webp" alt="Intercity Background">
+                <img src="Regional_Map.webp" alt="Regional Background">
             </div>
         </div>
         <div id="journey-info" style="display: none;">
@@ -118,10 +118,10 @@
 
     <script>
         const backgroundImages = [
-            'intercity_background1.png',
-            'intercity_background2.png',
-            'intercity_background3.png',
-            'intercity_background4.png',
+            'regional_background1.png',
+            'regional_background2.png',
+            'regional_background3.png',
+            'regional_background4.png',
             // add more images here
         ];
 
@@ -151,6 +151,6 @@
             }, 2000);
         }, 10000); // change the background image every 10 seconds
     </script>
-    <script type="module" src="Intercity_routing.js"></script>
+    <script type="module" src="routing.js"></script>
 </body>
 </html>

@@ -1,0 +1,465 @@
+{
+  "destinations": [
+    {
+      "name": "Avonhill",
+      "callingPoints": [
+        "Northcote",
+        "Elmtree House",
+        "Fortis Green",
+        "Henley Park",
+        "Leaton",
+        "Bawtry Road",
+        "Woodham",
+        "Belmond Green",
+        "Rowton",
+        "Fleetwood",
+        "Thornfield",
+        "Union Street",
+        "Avonhill"
+      ],
+      "services": [
+        {
+          "name": "Intercity",
+          "callingPoints": [
+            "Fortis Green",
+            "Leaton",
+            "Belmond Green",
+            "Fleetwood",
+            "Avonhill"
+          ],
+          "exceptions": {
+            "Henley Park": false,
+            "Elmtree House": false,
+            "Northcote": false,
+            "Fortis Green": 0.33,
+            "Leaton": 0.66,
+            "Bawtry Road": false,
+            "Woodham": false,
+            "Rowton": false,
+            "Thornfield": false,
+            "Union Street": false,
+            "fleetwood": 0.33
+            
+          }
+        },
+        {
+          "name": "Semi-Fast",
+          "callingPoints": [
+            "Northcote",
+            "Elmtree House",
+            "Fortis Green",
+            "Henley Park",
+            "Leaton",
+            "Bawtry Road",
+            "Woodham",
+            "Belmond Green",
+            "Rowton",
+            "Fleetwood",
+            "Thornfield",
+            "Union Street",
+            "Avonhill"
+          ],
+          "exceptions": {
+            "Northcote": 0.25,
+            "Elmtree House": 0.25,
+            "Henley Park": 0.25,
+            "Bawtry Road": 0.25,
+            "Woodham": 0.25,
+            "Rowton": 0.25
+          }
+        },
+        {
+          "name": "Regional",
+          "callingPoints": [
+            "Northcote",
+            "Elmtree House",
+            "Fortis Green",
+            "Henley Park",
+            "Leaton",
+            "Bawtry Road",
+            "Woodham",
+            "Belmond Green",
+            "Rowton",
+            "Fleetwood",
+            "Thornfield",
+            "Union Street",
+            "Avonhill"
+          ],
+          "exceptions": {}
+        }
+      ]
+    },
+    {
+      "name": "Syde-On-Sea",
+      "callingPoints": [
+        "Northcote",
+        "Elmtree House",
+        "Fortis Green",
+        "Henley Park",
+        "Leaton",
+        "Meryon",
+        "Whetstone",
+        "Abbey Road",
+        {
+          "name": "Longbow Beach",
+          "daysOfOperation": ["Saturday", "Sunday"]
+        },
+        "Victoria Docks",
+        "Newhurst",
+        "Syde-On-Sea"
+      ],
+      "services": [
+        {
+          "name": "Semi-Fast",
+          "callingPoints": [
+            "Northcote",
+            "Elmtree House",
+            "Fortis Green",
+            "Henley Park",
+            "Leaton",
+            "Meryon",
+            "Whetstone",
+            "Abbey Road",
+            "Longbow Beach",
+            "Victoria Docks",
+            "Newhurst",
+            "Syde-On-Sea"
+          ],
+          "exceptions": {
+            "Northcote": 0.25,
+            "Elmtree House": 0.25,
+            "Henley Park": 0.25,
+            "Meryon": 0.25,
+            "Whetstone": 0.25
+          }
+        },
+        {
+          "name": "Regional",
+          "callingPoints": [
+            "Northcote",
+            "Elmtree House",
+            "Fortis Green",
+            "Henley Park",
+            "Leaton",
+            "Meryon",
+            "Whetstone",
+            "Abbey Road",
+            "Longbow Beach",
+            "Victoria Docks",
+            "Newhurst",
+            "Syde-On-Sea"
+          ],
+          "exceptions": {}
+        }
+      ]
+    },
+    {
+        "name": "Victoria Docks",
+        "callingPoints": [
+          "Northcote",
+          "Elmtree House",
+          "Fortis Green",
+          "Henley Park",
+          "Leaton",
+          "Meryon",
+          "Whetstone",
+          "Abbey Road",
+          {
+            "name": "Longbow Beach",
+            "daysOfOperation": ["Saturday", "Sunday"]
+          },
+          "Victoria Docks"
+        ],
+        "services": [
+          {
+                "name": "Intercity",
+                "callingPoints": [
+                  "Fortis Green",
+                  "Leaton",
+                  "Abbey Road",
+                  "Victoria Docks"
+                ],
+                "exceptions": {
+                  "Henley Park": false,
+                  "Elmtree House": false,
+                  "Northcote": false,
+                  "Fortis Green": 0.33,
+                  "Leaton": 0.66,
+                  "Meryon": false,
+                  "Whetstone": false,
+                  "Longbow Beach": false,
+                  "Abbey road": 0.33
+                  
+                }
+          },
+          {
+            "name": "Semi-Fast",
+            "callingPoints": [
+              "Northcote",
+              "Elmtree House",
+              "Fortis Green",
+              "Henley Park",
+              "Leaton",
+              "Meryon",
+              "Whetstone",
+              "Abbey Road",
+              "Longbow Beach",
+              "Victoria Docks"
+            ],
+            "exceptions": {
+              "Northcote": 0.25,
+              "Elmtree House": 0.25,
+              "Henley Park": 0.25,
+              "Meryon": 0.25,
+              "Whetstone": 0.25
+            }
+          },
+          {
+            "name": "Regional",
+            "callingPoints": [
+              "Northcote",
+              "Elmtree House",
+              "Fortis Green",
+              "Henley Park",
+              "Leaton",
+              "Meryon",
+              "Whetstone",
+              "Abbey Road",
+              "Longbow Beach",
+              "Victoria Docks"
+            ],
+            "exceptions": {}
+          }
+        ]
+      },
+      {
+        "name": "Ashdean",
+        "callingPoints": [
+          "Northcote",
+          "Elmtree House",
+          "Fortis Green",
+          "Henley Park",
+          "Leaton",
+          "Meryon",
+          "Whetstone",
+          "Abbey Road",
+          "Longbow",
+          "Russell Lane", 
+          "Osidge Hill",
+          "Ashdean Bridge",
+          "Ashdean"
+        ],
+        "services": [
+          {
+            "name": "Semi-Fast",
+            "callingPoints": [
+              "Northcote",
+              "Elmtree House",
+              "Fortis Green",
+              "Henley Park",
+              "Leaton",
+              "Meryon",
+              "Whetstone",
+              "Abbey Road",
+              "Longbow",
+              "Russell Lane",
+              "Osidge Hill",
+              "Ashdean Bridge",
+              "Ashdean"
+            ],
+            "exceptions": {
+              "Northcote": 0.25,
+              "Elmtree House": 0.25,
+              "Henley Park": 0.25,
+              "Meryon": 0.25,
+              "Whetstone": 0.25,
+              "Ashdean Bridge": false
+            }
+          },
+          {
+            "name": "Regional",
+            "callingPoints": [
+              "Northcote",
+              "Elmtree House",
+              "Fortis Green",
+              "Henley Park",
+              "Leaton",
+              "Meryon",
+              "Whetstone",
+              "Abbey Road",
+              "Longbow",
+              "Russell Lane",
+              "Osidge Hill",
+              "Ashdean Bridge",
+              "Ashdean"
+            ],
+            "exceptions": {
+              "Ashdean Bridge": 0.33
+            }
+          }
+        ]
+      },
+      {
+        "name": "Belmond Green",
+        "callingPoints": [
+          "Northcote",
+          "Elmtree House",
+          "Fortis Green",
+          "Henley Park",
+          "Leaton",
+          "Bawtry Road",
+          "Woodham",
+          "Belmond Green"
+        ],
+        "services": [
+          {
+            "name": "Intercity",
+            "callingPoints": [
+              "Fortis Green",
+              "Leaton",
+              "Belmond Green"
+            ],
+            "exceptions": {
+              "Henley Park": false,
+              "Elmtree House": false,
+              "Northcote": false,
+              "Fortis Green": 0.33,
+              "Leaton": 0.66,
+              "Bawtry Road": false,
+              "Woodham": false
+            }
+          },
+          {
+            "name": "Semi-Fast",
+            "callingPoints": [
+              "Northcote",
+              "Elmtree House",
+              "Fortis Green",
+              "Henley Park",
+              "Leaton",
+              "Bawtry Road",
+              "Woodham",
+              "Belmond Green"
+            ],
+            "exceptions": {
+              "Northcote": 0.25,
+              "Elmtree House": 0.25,
+              "Henley Park": 0.25,
+              "Bawtry Road": 0.25,
+              "Woodham": 0.25
+            }
+          },
+          {
+            "name": "Regional",
+            "callingPoints": [
+              "Northcote",
+              "Elmtree House",
+              "Fortis Green",
+              "Henley Park",
+              "Leaton",
+              "Bawtry Road",
+              "Woodham",
+              "Belmond Green"
+            ],
+            "exceptions": {}
+          }
+        ]
+      },
+      {
+        "name": "Fleetwood",
+        "callingPoints": [
+          "Northcote",
+          "Elmtree House",
+          "Fortis Green",
+          "Henley Park",
+          "Leaton",
+          "Bawtry Road",
+          "Woodham",
+          "Belmond Green",
+          "Rowton",
+          "Fleetwood"
+        ],
+        "services": [
+          {
+            "name": "Semi-Fast",
+            "callingPoints": [
+              "Northcote",
+              "Elmtree House",
+              "Fortis Green",
+              "Henley Park",
+              "Leaton",
+              "Bawtry Road",
+              "Woodham",
+              "Belmond Green",
+              "Rowton",
+              "Fleetwood"
+            ],
+            "exceptions": {
+              "Northcote": 0.25,
+              "Elmtree House": 0.25,
+              "Henley Park": 0.25,
+              "Bawtry Road": 0.25,
+              "Woodham": 0.25,
+              "Rowton": 0.25
+            }
+          },
+          {
+            "name": "Regional",
+            "callingPoints": [
+              "Northcote",
+              "Elmtree House",
+              "Fortis Green",
+              "Henley Park",
+              "Leaton",
+              "Bawtry Road",
+              "Woodham",
+              "Belmond Green",
+              "Rowton",
+              "Fleetwood"
+            ],
+            "exceptions": {}
+          }
+        ]
+      },
+      {
+        "name": "Leaton",
+        "callingPoints": [
+          "Northcote",
+          "Elmtree House",
+          "Fortis Green",
+          "Henley Park",
+          "Leaton",
+          "Meryon",
+          "Whetstone",
+          "Abbey Road",
+          "Longbow",
+          "Russell Lane",
+          "Broomfield",
+          "Meryon",
+          "Leaton"
+        ],
+        "services": [
+          {
+            "name": "Regional",
+            "callingPoints": [
+              "Northcote",
+              "Elmtree House",
+              "Fortis Green",
+              "Henley Park",
+              "Leaton",
+              "Meryon",
+              "Whetstone",
+              "Abbey Road",
+              "Longbow",
+              "Russell Lane",
+              "Broomfield",
+              "Meryon",
+              "Leaton"
+            ],
+            "exceptions": {
+            }
+          }
+        ]
+      }          
+  ]
+}
