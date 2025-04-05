@@ -1,0 +1,107 @@
+@font-face {
+  font-family: 'Dot Matrix';
+  src: url('London-Underground-Regular.ttf') format('truetype');
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.departure-board {
+  width: 1600px;
+  margin: 40px auto;
+  background-color: #0f0f0f;
+  padding: 20px;
+  border: 120px solid #0f0f0f;
+  box-shadow: 0 0 10px inset rgb(0, 0, 0);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 250px;
+  font-size: 52px;
+  font-family: 'Dot Matrix', monospace;
+  color: #ffffff;
+}
+
+.line1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+#line1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+#spot {
+  width: 10%;
+}
+
+#time {
+  width: 10%;
+}
+
+#destination {
+  width: 40%;
+  text-align: center;
+}
+
+#status {
+  width: 20%;
+  text-align: right;
+}
+
+#line2 {
+  overflow: hidden;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+.calling-points-container {
+  width: 1600px;
+  margin: 40px auto;
+  padding: 20px;
+  border: 120px solid #000000;
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 250px;
+  font-size: 52px;
+  font-family: 'Dot Matrix', monospace;
+  color: #ffffff;
+  z-index: 1;
+}
+
+#calling-points-label {
+  position: relative;
+  background-color: #0f0f0f;
+  border: 10px solid #0f0f0f;
+  white-space: nowrap;
+  display: inline;
+  width: 150px; /* Set a fixed width for the label */
+  top: 78px;
+  right: 20px;
+}
+
+#calling-points {
+  animation: line2-animation 40s linear infinite;
+  white-space: nowrap;
+  display: inline-block;
+  vertical-align: top; /* Align the calling points with the top of the label */
+  z-index: -1;
+}
+
+@keyframes line2-animation {
+  from {
+    transform: translateX(50%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
