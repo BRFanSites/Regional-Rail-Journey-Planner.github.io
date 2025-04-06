@@ -157,8 +157,8 @@ fetch('Leaton.json')
     }
   
     if (callingPointsSpan && randomizedDestinations[index] && randomizedDestinations[index].services && randomizedDestinations[index].services.length > 0) {
-      const callingPointsText = randomizedDestinations[index].services[0].randomizedCallingPoints.reverse().join(', ');
-      callingPointsSpan.textContent = callingPointsText;
+      const callingPointsText = `${callingPoints.reverse().join(', ')} and ${randomizedDestinations[0].name}. A ${serviceType} service formed of ${numCoaches} coaches.`;
+          callingPointsSpan.textContent = callingPointsText;
     }
   });
 
