@@ -170,7 +170,7 @@ stationSelect.addEventListener('change', () => {
   switch (selectedStation) {
     case 'Leaton':
       console.log('Loading Leaton.json...');
-      fetch('./leaton.json', { headers: { 'Content-Type': 'application/json' } })
+      fetch('./Leaton.json', { headers: { 'Content-Type': 'application/json' } })
         .then(response => response.json())
         .then(jsonData => {
           console.log('Leaton.json loaded successfully.');
