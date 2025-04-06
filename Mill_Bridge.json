@@ -14,19 +14,17 @@
         "Rowton",
         "Fleetwood",
         "Thornfield",
-        "Union Street",
-        "Avonhill"
+        "Union Street"
       ],
       "services": [
         {
-          "name": "Intercity",
+          "serviceType": "Intercity",
           "coachNumbers": [4, 5, 8, 9, 10, 12],
           "callingPoints": [
             "Fortis Green",
             "Leaton",
             "Belmond Green",
-            "Fleetwood",
-            "Avonhill"
+            "Fleetwood"
           ],
           "exceptions": {
             "Henley Park": false,
@@ -44,7 +42,7 @@
           }
         },
         {
-          "name": "Semi-Fast",
+          "serviceType": "Semi-Fast",
           "coachNumbers": [2, 3, 4, 5, 6, 7, 8, 9, 12],
           "callingPoints": [
             "Northcote",
@@ -58,8 +56,7 @@
             "Rowton",
             "Fleetwood",
             "Thornfield",
-            "Union Street",
-            "Avonhill"
+            "Union Street"
           ],
           "exceptions": {
             "Northcote": 0.25,
@@ -71,7 +68,7 @@
           }
         },
         {
-          "name": "Regional",
+          "serviceType": "Regional",
           "coachNumbers": [2, 3, 4, 5, 6, 7, 8],
           "callingPoints": [
             "Northcote",
@@ -85,8 +82,7 @@
             "Rowton",
             "Fleetwood",
             "Thornfield",
-            "Union Street",
-            "Avonhill"
+            "Union Street"
           ],
           "exceptions": {}
         }
@@ -108,12 +104,11 @@
           "daysOfOperation": ["Saturday", "Sunday"]
         },
         "Victoria Docks",
-        "Newhurst",
-        "Syde-On-Sea"
+        "Newhurst"
       ],
       "services": [
         {
-          "name": "Semi-Fast",
+          "serviceType": "Semi-Fast",
           "coachNumbers": [2, 3, 4, 5, 6],
           "callingPoints": [
             "Northcote",
@@ -124,10 +119,12 @@
             "Meryon",
             "Whetstone",
             "Abbey Road",
-            "Longbow Beach",
+            {
+              "name": "Longbow Beach",
+              "daysOfOperation": ["Saturday", "Sunday"]
+            },
             "Victoria Docks",
-            "Newhurst",
-            "Syde-On-Sea"
+            "Newhurst"
           ],
           "exceptions": {
             "Northcote": 0.25,
@@ -138,7 +135,7 @@
           }
         },
         {
-          "name": "Regional",
+          "serviceType": "Regional",
           "coachNumbers": [2, 3, 4, 5, 6],
           "callingPoints": [
             "Northcote",
@@ -149,10 +146,12 @@
             "Meryon",
             "Whetstone",
             "Abbey Road",
-            "Longbow Beach",
+            {
+              "name": "Longbow Beach",
+              "daysOfOperation": ["Saturday", "Sunday"]
+            },
             "Victoria Docks",
-            "Newhurst",
-            "Syde-On-Sea"
+            "Newhurst"
           ],
           "exceptions": {}
         }
@@ -172,12 +171,11 @@
           {
             "name": "Longbow Beach",
             "daysOfOperation": ["Saturday", "Sunday"]
-          },
-          "Victoria Docks"
+          }
         ],
         "services": [
           {
-                "name": "Intercity",
+                "serviceType": "Intercity",
                 "coachNumbers": [4, 5],
                 "callingPoints": [
                   "Fortis Green",
@@ -199,7 +197,7 @@
                 }
           },
           {
-            "name": "Semi-Fast",
+            "serviceType": "Semi-Fast",
             "coachNumbers": [2, 3, 4, 5, 6],
             "callingPoints": [
               "Northcote",
@@ -210,8 +208,10 @@
               "Meryon",
               "Whetstone",
               "Abbey Road",
-              "Longbow Beach",
-              "Victoria Docks"
+              {
+                "name": "Longbow Beach",
+                "daysOfOperation": ["Saturday", "Sunday"]
+              }
             ],
             "exceptions": {
               "Northcote": 0.25,
@@ -222,7 +222,7 @@
             }
           },
           {
-            "name": "Regional",
+            "serviceType": "Regional",
             "coachNumbers": [2, 3, 4, 5, 6],
             "callingPoints": [
               "Northcote",
@@ -233,8 +233,10 @@
               "Meryon",
               "Whetstone",
               "Abbey Road",
-              "Longbow Beach",
-              "Victoria Docks"
+              {
+                "name": "Longbow Beach",
+                "daysOfOperation": ["Saturday", "Sunday"]
+              }
             ],
             "exceptions": {}
           }
@@ -254,12 +256,11 @@
           "Longbow",
           "Russell Lane", 
           "Osidge Hill",
-          "Ashdean Bridge",
-          "Ashdean"
+          "Ashdean Bridge"
         ],
         "services": [
           {
-            "name": "Semi-Fast",
+            "serviceType": "Semi-Fast",
             "coachNumbers": [2, 3, 4, 5, 6],
             "callingPoints": [
               "Northcote",
@@ -273,8 +274,7 @@
               "Longbow",
               "Russell Lane",
               "Osidge Hill",
-              "Ashdean Bridge",
-              "Ashdean"
+              "Ashdean Bridge"
             ],
             "exceptions": {
               "Northcote": 0.25,
@@ -286,7 +286,7 @@
             }
           },
           {
-            "name": "Regional",
+            "serviceType": "Regional",
             "coachNumbers": [2, 3, 4, 5, 6],
             "callingPoints": [
               "Northcote",
@@ -300,8 +300,7 @@
               "Longbow",
               "Russell Lane",
               "Osidge Hill",
-              "Ashdean Bridge",
-              "Ashdean"
+              "Ashdean Bridge"
             ],
             "exceptions": {
               "Ashdean Bridge": 0.33
@@ -318,17 +317,15 @@
           "Henley Park",
           "Leaton",
           "Bawtry Road",
-          "Woodham",
-          "Belmond Green"
+          "Woodham"
         ],
         "services": [
           {
-            "name": "Intercity",
+            "serviceType": "Intercity",
             "coachNumbers": [4, 5, 8],
             "callingPoints": [
               "Fortis Green",
-              "Leaton",
-              "Belmond Green"
+              "Leaton"
             ],
             "exceptions": {
               "Henley Park": false,
@@ -341,7 +338,7 @@
             }
           },
           {
-            "name": "Semi-Fast",
+            "serviceType": "Semi-Fast",
             "coachNumbers": [2, 3, 4, 5, 6, 7, 8],
             "callingPoints": [
               "Northcote",
@@ -350,8 +347,7 @@
               "Henley Park",
               "Leaton",
               "Bawtry Road",
-              "Woodham",
-              "Belmond Green"
+              "Woodham"
             ],
             "exceptions": {
               "Northcote": 0.25,
@@ -362,7 +358,7 @@
             }
           },
           {
-            "name": "Regional",
+            "serviceType": "Regional",
             "coachNumbers": [2, 3, 4, 5, 6, 7, 8],
             "callingPoints": [
               "Northcote",
@@ -371,8 +367,7 @@
               "Henley Park",
               "Leaton",
               "Bawtry Road",
-              "Woodham",
-              "Belmond Green"
+              "Woodham"
             ],
             "exceptions": {}
           }
@@ -389,12 +384,11 @@
           "Bawtry Road",
           "Woodham",
           "Belmond Green",
-          "Rowton",
-          "Fleetwood"
+          "Rowton"
         ],
         "services": [
           {
-            "name": "Semi-Fast",
+            "serviceType": "Semi-Fast",
             "coachNumbers": [ 2, 3, 4],
             "callingPoints": [
               "Northcote",
@@ -405,8 +399,7 @@
               "Bawtry Road",
               "Woodham",
               "Belmond Green",
-              "Rowton",
-              "Fleetwood"
+              "Rowton"
             ],
             "exceptions": {
               "Northcote": 0.25,
@@ -418,7 +411,7 @@
             }
           },
           {
-            "name": "Regional",
+            "serviceType": "Regional",
             "coachNumbers": [ 2, 3, 4],
             "callingPoints": [
               "Northcote",
@@ -429,8 +422,7 @@
               "Bawtry Road",
               "Woodham",
               "Belmond Green",
-              "Rowton",
-              "Fleetwood"
+              "Rowton"
             ],
             "exceptions": {}
           }
@@ -450,12 +442,11 @@
           "Longbow",
           "Russell Lane",
           "Broomfield",
-          "Meryon",
-          "Leaton"
+          "Meryon"
         ],
         "services": [
           {
-            "name": "Regional",
+            "serviceType": "Regional",
             "coachNumbers": [ 2, 3, 4, 6],
             "callingPoints": [
               "Northcote",
@@ -469,8 +460,7 @@
               "Longbow",
               "Russell Lane",
               "Broomfield",
-              "Meryon",
-              "Leaton"
+              "Meryon"
             ],
             "exceptions": {
             }

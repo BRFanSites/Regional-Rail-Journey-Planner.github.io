@@ -19,12 +19,11 @@
           "daysOfOperation": ["Saturday", "Sunday"]
         },
         "Victoria Docks",
-        "Newhurst",
-        "Syde-On-Sea"
+        "Newhurst"
       ],
       "services": [
         {
-          "name": "Semi-Fast",
+          "serviceType": "Semi-Fast",
           "coachNumbers": [2, 3, 4, 5, 6],
           "callingPoints": [
             "Union Street",
@@ -38,10 +37,12 @@
             "Meryon",
             "Whetstone",
             "Abbey Road",
-            "Longbow Beach",
+            {
+              "name": "Longbow Beach",
+              "daysOfOperation": ["Saturday", "Sunday"]
+            },
             "Victoria Docks",
-            "Newhurst",
-            "Syde-On-Sea"
+            "Newhurst"
           ],
           "exceptions": {
             "Rowton": 0.25,
@@ -52,7 +53,7 @@
           }
         },
         {
-          "name": "Regional",
+          "serviceType": "Regional",
           "coachNumbers": [2, 3, 4, 5, 6],
           "callingPoints": [
             "Union Street",
@@ -66,10 +67,12 @@
             "Meryon",
             "Whetstone",
             "Abbey Road",
-            "Longbow Beach",
+            {
+              "name": "Longbow Beach",
+              "daysOfOperation": ["Saturday", "Sunday"]
+            },
             "Victoria Docks",
-            "Newhurst",
-            "Syde-On-Sea"
+            "Newhurst"
           ],
           "exceptions": {}
         }
@@ -92,19 +95,17 @@
           {
             "name": "Longbow Beach",
             "daysOfOperation": ["Saturday", "Sunday"]
-          },
-          "Victoria Docks"
+          }
         ],
         "services": [
           {
-                "name": "Intercity",
+                "serviceType": "Intercity",
                 "coachNumbers": [4, 5],
                 "callingPoints": [
                   "Fleetwood",
                   "Belmond Green",
                   "Leaton",
-                  "Abbey Road",
-                  "Victoria Docks"
+                  "Abbey Road"
                 ],
                 "exceptions": {
                   "Union Street": false,
@@ -121,7 +122,7 @@
                 }
           },
           {
-            "name": "Semi-Fast",
+            "serviceType": "Semi-Fast",
             "coachNumbers": [2, 3, 4, 5, 6],
             "callingPoints": [
               "Union Street",
@@ -135,8 +136,10 @@
               "Meryon",
               "Whetstone",
               "Abbey Road",
-              "Longbow Beach",
-              "Victoria Docks"
+              {
+                "name": "Longbow Beach",
+                "daysOfOperation": ["Saturday", "Sunday"]
+              }
             ],
             "exceptions": {
               "Rowton": 0.25,
@@ -147,7 +150,7 @@
             }
           },
           {
-            "name": "Regional",
+            "serviceType": "Regional",
             "coachNumbers": [2, 3, 4, 5, 6],
             "callingPoints": [
               "Union Street",
@@ -161,8 +164,10 @@
               "Meryon",
               "Whetstone",
               "Abbey Road",
-              "Longbow Beach",
-              "Victoria Docks"
+              {
+                "name": "Longbow Beach",
+                "daysOfOperation": ["Saturday", "Sunday"]
+              }
             ],
             "exceptions": {}
           }
@@ -185,12 +190,11 @@
           "Longbow",
           "Russell Lane", 
           "Osidge Hill",
-          "Ashdean Bridge",
-          "Ashdean"
+          "Ashdean Bridge"
         ],
         "services": [
           {
-            "name": "Semi-Fast",
+            "serviceType": "Semi-Fast",
             "coachNumbers": [2, 3, 4, 5, 6],
             "callingPoints": [
               "Union Street",
@@ -207,8 +211,7 @@
               "Longbow",
               "Russell Lane",
               "Osidge Hill",
-              "Ashdean Bridge",
-              "Ashdean"
+              "Ashdean Bridge"
             ],
             "exceptions": {
               "Rowton": 0.25,
@@ -220,7 +223,7 @@
             }
           },
           {
-            "name": "Regional",
+            "serviceType": "Regional",
             "coachNumbers": [2, 3, 4, 5, 6],
             "callingPoints": [
               "Union Street",
@@ -237,8 +240,7 @@
               "Longbow",
               "Russell Lane",
               "Osidge Hill",
-              "Ashdean Bridge",
-              "Ashdean"
+              "Ashdean Bridge"
             ],
             "exceptions": {
               "Ashdean Bridge": 0.33
@@ -260,19 +262,17 @@
           "Henley Park",
           "Fortis Green",
           "Elmtree House",
-          "Northcote",
-          "Mill Bridge"
+          "Northcote"
         ],
         "services": [
           {
-            "name": "Intercity",
+            "serviceType": "Intercity",
             "coachNumbers": [4, 5, 8, 9, 10, 12],
             "callingPoints": [
               "Fleetwood",
               "Belmond Green",
               "Leaton",
-              "Fortis Green",
-              "Mill Bridge"
+              "Fortis Green"
             ],
             "exceptions": {
               "Union Street": false,
@@ -290,7 +290,7 @@
             }
           },
           {
-            "name": "Semi-Fast",
+            "serviceType": "Semi-Fast",
             "coachNumbers": [2, 3, 4, 5, 6, 7, 8, 9, 12],
             "callingPoints": [
               "Union Street",
@@ -304,8 +304,7 @@
               "Henley Park",
               "Fortis Green",
               "Elmtree House",
-              "Northcote",
-              "Mill Bridge"
+              "Northcote"
             ],
             "exceptions": {
               "Rowton": 0.25,
@@ -317,7 +316,7 @@
             }
           },
           {
-            "name": "Regional",
+            "serviceType": "Regional",
             "coachNumbers": [2, 3, 4, 5, 6, 7, 8],
             "callingPoints": [
               "Union Street",
@@ -331,8 +330,7 @@
               "Henley Park",
               "Fortis Green",
               "Elmtree House",
-              "Northcote",
-              "Mill Bridge"
+              "Northcote"
             ],
             "exceptions": {}
           }
@@ -354,20 +352,18 @@
           "Forestdale",
           "Astly",
           "Hulme Heath",
-          "Stirling Street",
-          "Norrington"
+          "Stirling Street"
         ],
         "services": [
           {
-            "name": "Intercity",
+            "serviceType": "Intercity",
             "coachNumbers": [4, 5, 8, 9, 10, 12],
             "callingPoints": [
               "Fleetwood",
               "Belmond Green",
               "Leaton",
               "Freston Junction",
-              "Hulme Heath",
-              "Norrington"
+              "Hulme Heath"
             ],
             "exceptions": {
               "Union Street": false,
@@ -386,7 +382,7 @@
             }
           },
           {
-            "name": "Semi-Fast",
+            "serviceType": "Semi-Fast",
             "coachNumbers": [2, 3, 4, 5, 6, 7, 8, 9, 12],
             "callingPoints": [
               "Union Street",
@@ -401,8 +397,7 @@
               "Freston Junction",
               "Forestdale",
               "Astly",
-              "Hulme Heath",
-              "Norrington"
+              "Hulme Heath"
             ],
             "exceptions": {
               "Rowton": 0.25,
@@ -414,7 +409,7 @@
             }
           },
           {
-            "name": "Regional",
+            "serviceType": "Regional",
             "coachNumbers": [2, 3, 4, 5, 6, 7, 8],
             "callingPoints": [
               "Union Street",
@@ -430,8 +425,7 @@
               "Forestdale",
               "Astly",
               "Hulme Heath",
-              "Stirling Street",
-              "Norrington"
+              "Stirling Street"
             ],
             "exceptions": {
               "Stirling Street": 0.33
@@ -458,12 +452,11 @@
           "Stirling Street",
           "Norrington",
           "Wallsend",
-          "Ashby-in-Kirkside",
-          "Cuffley"
+          "Ashby-in-Kirkside"
         ],
         "services": [
           {
-            "name": "Intercity",
+            "serviceType": "Intercity",
             "coachNumbers": [4, 5, 8, 9, 10, 12],
             "callingPoints": [
               "Fleetwood",
@@ -472,8 +465,7 @@
               "Freston Junction",
               "Hulme Heath",
               "Norrington",
-              "Wallsend",
-              "Cuffley"
+              "Wallsend"
             ],
             "exceptions": {
               "Union Street": false,
@@ -496,7 +488,7 @@
             }
           },
           {
-            "name": "Semi-Fast",
+            "serviceType": "Semi-Fast",
             "coachNumbers": [2, 3, 4, 5, 6, 7, 8, 9, 12],
             "callingPoints": [
               "Union Street",
@@ -514,8 +506,7 @@
               "Hulme Heath",
               "Norrington",
               "Wallsend",
-              "Ashby-in-Kirkside",
-              "Cuffley"
+              "Ashby-in-Kirkside"
             ],
             "exceptions": {
               "Rowton": 0.25,
@@ -528,7 +519,7 @@
             }
           },
           {
-            "name": "Regional",
+            "serviceType": "Regional",
             "coachNumbers": [2, 3, 4, 5, 6, 7, 8],
             "callingPoints": [
               "Union Street",
@@ -547,8 +538,7 @@
               "Stirling Street",
               "Norrington",
               "Wallsend",
-              "Ashby-in-Kirkside",
-              "Cuffley"
+              "Ashby-in-Kirkside"
             ],
             "exceptions": {
               "Stirling Street": 0.33
@@ -565,12 +555,11 @@
         ],
         "services": [
           {
-            "name": "Regional",
+            "serviceType": "Regional",
             "coachNumbers": [ 2, 3, 4],
             "callingPoints": [
               "Union Street",
-              "Thornfield",
-              "Fleetwood"
+              "Thornfield"
             ],
             "exceptions": {}
           }

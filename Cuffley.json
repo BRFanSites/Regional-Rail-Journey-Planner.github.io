@@ -22,12 +22,11 @@
           "daysOfOperation": ["Saturday", "Sunday"]
         },
         "Victoria Docks",
-        "Newhurst",
-        "Syde-On-Sea"
+        "Newhurst"
       ],
       "services": [
         {
-          "name": "Semi-Fast",
+          "serviceType": "Semi-Fast",
           "coachNumbers": [2, 3, 4, 5, 6],
           "callingPoints": [
             "Ashby-in-Kirkside",
@@ -44,10 +43,12 @@
             "Meryon",
             "Whetstone",
             "Abbey Road",
-            "Longbow Beach",
+            {
+              "name": "Longbow Beach",
+              "daysOfOperation": ["Saturday", "Sunday"]
+            },
             "Victoria Docks",
-            "Newhurst",
-            "Syde-On-Sea"
+            "Newhurst"
           ],
           "exceptions": {
             "Ashby-in-Kirkside": 0.25,
@@ -60,7 +61,7 @@
           }
         },
         {
-          "name": "Regional",
+          "serviceType": "Regional",
           "coachNumbers": [2, 3, 4, 5, 6],
           "callingPoints": [
             "Ashby-in-Kirkside",
@@ -77,10 +78,12 @@
             "Meryon",
             "Whetstone",
             "Abbey Road",
-            "Longbow Beach",
+            {
+              "name": "Longbow Beach",
+              "daysOfOperation": ["Saturday", "Sunday"]
+            },
             "Victoria Docks",
-            "Newhurst",
-            "Syde-On-Sea"
+            "Newhurst"
           ],
           "exceptions": {
             "Stirling Street": 0.25
@@ -108,20 +111,18 @@
           {
             "name": "Longbow Beach",
             "daysOfOperation": ["Saturday", "Sunday"]
-          },
-          "Victoria Docks"
+          }
         ],
         "services": [
           {
-                "name": "Intercity",
+                "serviceType": "Intercity",
                 "coachNumbers": [4, 5],
                 "callingPoints": [
                   "Norrington",
                   "Hulme Heath",
                   "Freston Junction",
                   "Leaton",
-                  "Abbey Road",
-                  "Victoria Docks"
+                  "Abbey Road"
                 ],
                 "exceptions": {
                   "Norrington": 0.66,
@@ -139,7 +140,7 @@
                 }
           },
           {
-            "name": "Semi-Fast",
+            "serviceType": "Semi-Fast",
             "coachNumbers": [2, 3, 4, 5, 6],
             "callingPoints": [
               "Ashby-in-Kirkside",
@@ -156,8 +157,10 @@
               "Meryon",
               "Whetstone",
               "Abbey Road",
-              "Longbow Beach",
-              "Victoria Docks"
+              {
+                "name": "Longbow Beach",
+                "daysOfOperation": ["Saturday", "Sunday"]
+              }
             ],
             "exceptions": {
               "Ashby-in-Kirkside": 0.25,
@@ -170,7 +173,7 @@
             }
           },
           {
-            "name": "Regional",
+            "serviceType": "Regional",
             "coachNumbers": [2, 3, 4, 5, 6],
             "callingPoints": [
               "Ashby-in-Kirkside",
@@ -187,8 +190,10 @@
               "Meryon",
               "Whetstone",
               "Abbey Road",
-              "Longbow Beach",
-              "Victoria Docks"
+              {
+                "name": "Longbow Beach",
+                "daysOfOperation": ["Saturday", "Sunday"]
+              }
             ],
             "exceptions": {
               "Stirling Street": 0.25
@@ -216,12 +221,11 @@
           "Longbow",
           "Russell Lane", 
           "Osidge Hill",
-          "Ashdean Bridge",
-          "Ashdean"
+          "Ashdean Bridge"
         ],
         "services": [
           {
-            "name": "Semi-Fast",
+            "serviceType": "Semi-Fast",
             "coachNumbers": [2, 3, 4, 5, 6],
             "callingPoints": [
               "Ashby-in-Kirkside",
@@ -241,8 +245,7 @@
               "Longbow",
               "Russell Lane",
               "Osidge Hill",
-              "Ashdean Bridge",
-              "Ashdean"
+              "Ashdean Bridge"
             ],
             "exceptions": {
               "Ashby-in-Kirkside": 0.25,
@@ -256,7 +259,7 @@
             }
           },
           {
-            "name": "Regional",
+            "serviceType": "Regional",
             "coachNumbers": [2, 3, 4, 5, 6],
             "callingPoints": [
               "Ashby-in-Kirkside",
@@ -276,8 +279,7 @@
               "Longbow",
               "Russell Lane",
               "Osidge Hill",
-              "Ashdean Bridge",
-              "Ashdean"
+              "Ashdean Bridge"
             ],
             "exceptions": {
               "Stirling Street": 0.25,
@@ -303,12 +305,11 @@
           "Bawtry Road",
           "Woodham",
           "Belmond Green",
-          "Rowton",
-          "Fleetwood"
+          "Rowton"
         ],
         "services": [
           {
-            "name": "Regional",
+            "serviceType": "Regional",
             "coachNumbers": [ 2, 3, 4],
             "callingPoints": [
               "Ashby-in-Kirkside",
@@ -325,8 +326,7 @@
               "Bawtry Road",
               "Woodham",
               "Belmond Green",
-              "Rowton",
-              "Fleetwood"
+              "Rowton"
             ],
             "exceptions": {
               "Stirling Street": 0.33
@@ -349,19 +349,17 @@
           "St James Park",
           "Leaton",
           "Bawtry Road",
-          "Woodham",
-          "Belmond Green"
+          "Woodham"
         ],
         "services": [
           {
-            "name": "Intercity",
+            "serviceType": "Intercity",
             "coachNumbers": [4, 5, 8],
             "callingPoints": [
               "Norrington",
               "Hulme Heath",
               "Freston Junction",
-              "Leaton",
-              "Belmond Green"
+              "Leaton"
             ],
             "exceptions": {
               "Norrington": 0.66,
@@ -376,7 +374,7 @@
             }
           },
           {
-            "name": "Semi-Fast",
+            "serviceType": "Semi-Fast",
             "coachNumbers": [2, 3, 4, 5, 6, 7, 8],
             "callingPoints": [
               "Ashby-in-Kirkside",
@@ -390,8 +388,7 @@
               "St James Park",
               "Leaton",
               "Bawtry Road",
-              "Woodham",
-              "Belmond Green"
+              "Woodham"
             ],
             "exceptions": {
               "Ashby-in-Kirkside": 0.25,
@@ -403,7 +400,7 @@
             }
           },
           {
-            "name": "Regional",
+            "serviceType": "Regional",
             "coachNumbers": [2, 3, 4, 5, 6, 7, 8],
             "callingPoints": [
               "Ashby-in-Kirkside",
@@ -418,8 +415,7 @@
               "St James Park",
               "Leaton",
               "Bawtry Road",
-              "Woodham",
-              "Belmond Green"
+              "Woodham"
             ],
             "exceptions": {
               "Stirling Street": 0.33
@@ -447,12 +443,11 @@
           "Rowton",
           "Fleetwood",
           "Thornfield",
-          "Union Street",
-          "Avonhill"
+          "Union Street"
         ],
         "services": [
           {
-            "name": "Intercity",
+            "serviceType": "Intercity",
             "coachNumbers": [4, 5, 8, 9, 10, 12],
             "callingPoints": [
               "Norrington",
@@ -460,8 +455,7 @@
               "Freston Junction",
               "Leaton",
               "Belmond Green",
-              "Fleetwood",
-              "Avonhill"
+              "Fleetwood"
             ],
             "exceptions": {
               "Norrington": 0.66,
@@ -477,7 +471,7 @@
             }
           },
           {
-            "name": "Semi-Fast",
+            "serviceType": "Semi-Fast",
             "coachNumbers": [2, 3, 4, 5, 6, 7, 8, 9, 12],
             "callingPoints": [
               "Ashby-in-Kirkside",
@@ -493,8 +487,7 @@
               "Bawtry Road",
               "Woodham",
               "Belmond Green",
-              "Fleetwood",
-              "Avonhill"
+              "Fleetwood"
             ],
             "exceptions": {
               "Ashby-in-Kirkside": 0.25,
@@ -506,7 +499,7 @@
             }
           },
           {
-            "name": "Regional",
+            "serviceType": "Regional",
             "coachNumbers": [2, 3, 4, 5, 6, 7, 8],
             "callingPoints": [
               "Ashby-in-Kirkside",
@@ -523,8 +516,7 @@
               "Bawtry Road",
               "Woodham",
               "Belmond Green",
-              "Fleetwood",
-              "Avonhill"
+              "Fleetwood"
             ],
             "exceptions": {
               "Stirling Street": 0.33

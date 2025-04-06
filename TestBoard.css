@@ -44,7 +44,7 @@ body {
 }
 
 .station-select option:hover {
-  background-color: #e5e5e5;
+  background-color: #000000;
 }
 
 /* Add some space between the dropdown and the rest of the content */
