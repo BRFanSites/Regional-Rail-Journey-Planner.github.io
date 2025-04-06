@@ -161,7 +161,7 @@ fetch('Leaton.json')
         const serviceType = randomizedDestinations[0].services[0].serviceType;
         const coachNumbers = randomizedDestinations[0].services[0].coachNumbers;
         const numCoaches = coachNumbers[Math.floor(Math.random() * coachNumbers.length)];
-        const callingPoints = randomizedDestinations[0].services[0].randomizedCallingPoints;
+        const callingPoints = randomizedDestinations[index].services[0].randomizedCallingPoints;
         
         if (callingPoints.length === 0) {
           const callingPointsText = `Only ${randomizedDestinations[0].name}. This is a ${serviceType} service formed of ${numCoaches} coaches.`;
