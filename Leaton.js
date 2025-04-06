@@ -158,8 +158,8 @@ fetch('Leaton.json')
       }
     
       if (callingPointsSpan && randomizedDestinations[0] && randomizedDestinations[0].services && randomizedDestinations[0].services.length > 0) {
-        const serviceType = randomizedDestinations[0].services[0].serviceType;
-        const coachNumbers = randomizedDestinations[0].services[0].coachNumbers;
+        const serviceType = randomizedDestinations[index].services[0].serviceType;
+        const coachNumbers = randomizedDestinations[index].services[0].coachNumbers;
         const numCoaches = coachNumbers[Math.floor(Math.random() * coachNumbers.length)];
         const callingPoints = randomizedDestinations[index].services[0].randomizedCallingPoints;
         
