@@ -132,46 +132,35 @@ function randomizeCallingPoints(destinations) {
   
 // Fetch the destinations data
 fetch('Leaton.json')
-  .then(response => response.json())
-  .then(data => {
-    const destinations = data;
-    const randomizedDestinations = randomizeCallingPoints(destinations);
+.then(response => response.json())
+.then(data => {
+  const destinations = data;
+  const randomizedDestinations = randomizeCallingPoints(destinations);
 
-    // Use the randomized destinations in the display
-    const displays = document.querySelectorAll('.display-group'); // Define displays to reference the correct DOM elements
-    displays.forEach((displayGroup, index) => {
-      const destinationSpan = displayGroup.querySelector('.destination');
-      const departureTimeSpan = displayGroup.querySelector('.departure-time');
-      const callingPointsSpan = displayGroup.querySelector('.calling-points-text span');
-      
-    
-      if (randomizedDestinations[index] && randomizedDestinations[index].name) {
-        destinationSpan.textContent = randomizedDestinations[index].name;
-      } else {
-        destinationSpan.textContent = 'Unknown';
-      }
-    
-      if (departureTimes[index]) {
-        departureTimeSpan.textContent = departureTimes[index];
-      } else {
-        departureTimeSpan.textContent = 'N/A';
-      }
-    
-      if (callingPointsSpan && randomizedDestinations[0] && randomizedDestinations[0].services && randomizedDestinations[0].services.length > 0) {
-        const serviceType = randomizedDestinations[index].services[0].serviceType;
-        const coachNumbers = randomizedDestinations[index].services[0].coachNumbers;
-        const numCoaches = coachNumbers[Math.floor(Math.random() * coachNumbers.length)];
-        const callingPoints = randomizedDestinations[index].services[0].randomizedCallingPoints;
-        
-        if (callingPoints.length === 0) {
-          const callingPointsText = `Only ${randomizedDestinations[0].name}. This is a ${serviceType} service formed of ${numCoaches} coaches.`;
-          callingPointsSpan.textContent = callingPointsText;
-        } else {
-          const callingPointsText = `${callingPoints.reverse().join(', ')} and ${randomizedDestinations[0].name}. A ${serviceType} service formed of ${numCoaches} coaches.`;
-          callingPointsSpan.textContent = callingPointsText;
-        }
-      }
-    });
+  // Use the randomized destinations in the display
+  const displays = document.querySelectorAll('.display-group'); // Define displays to reference the correct DOM elements
+  displays.forEach((displayGroup, index) => {
+    const destinationSpan = displayGroup.querySelector('.destination');
+    const departureTimeSpan = displayGroup.querySelector('.departure-time');
+    const callingPointsSpan = displayGroup.querySelector('.calling-points-text span');
+  
+    if (randomizedDestinations[index] && randomizedDestinations[index].name) {
+      destinationSpan.textContent = randomizedDestinations[index].name;
+    } else {
+      destinationSpan.textContent = 'Unknown';
+    }
+  
+    if (departureTimes[index]) {
+      departureTimeSpan.textContent = departureTimes[index];
+    } else {
+      departureTimeSpan.textContent = 'N/A';
+    }
+  
+    if (callingPointsSpan && randomizedDestinations[index] && randomizedDestinations[index].services && randomizedDestinations[index].services.length > 0) {
+      const callingPointsText = randomizedDestinations[index].services[0].randomizedCallingPoints.reverse().join(', ');
+      callingPointsSpan.textContent = callingPointsText;
+    }
+  });
 
     setInterval(function() {
       var date = new Date();
