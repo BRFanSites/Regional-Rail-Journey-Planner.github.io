@@ -25,6 +25,7 @@
       "services": [
         {
           "name": "Semi-Fast",
+          "coachNumbers": [2, 3, 4, 5, 6],
           "callingPoints": [
             "Union Street",
             "Thornfield", 
@@ -52,6 +53,7 @@
         },
         {
           "name": "Regional",
+          "coachNumbers": [2, 3, 4, 5, 6],
           "callingPoints": [
             "Union Street",
             "Thornfield", 
@@ -96,6 +98,7 @@
         "services": [
           {
                 "name": "Intercity",
+                "coachNumbers": [4, 5],
                 "callingPoints": [
                   "Fleetwood",
                   "Belmond Green",
@@ -119,6 +122,7 @@
           },
           {
             "name": "Semi-Fast",
+            "coachNumbers": [2, 3, 4, 5, 6],
             "callingPoints": [
               "Union Street",
               "Thornfield",
@@ -144,6 +148,7 @@
           },
           {
             "name": "Regional",
+            "coachNumbers": [2, 3, 4, 5, 6],
             "callingPoints": [
               "Union Street",
               "Thornfield",
@@ -186,6 +191,7 @@
         "services": [
           {
             "name": "Semi-Fast",
+            "coachNumbers": [2, 3, 4, 5, 6],
             "callingPoints": [
               "Union Street",
               "Thornfield",
@@ -215,6 +221,7 @@
           },
           {
             "name": "Regional",
+            "coachNumbers": [2, 3, 4, 5, 6],
             "callingPoints": [
               "Union Street",
               "Thornfield", 
@@ -259,6 +266,7 @@
         "services": [
           {
             "name": "Intercity",
+            "coachNumbers": [4, 5, 8, 9, 10, 12],
             "callingPoints": [
               "Fleetwood",
               "Belmond Green",
@@ -283,6 +291,7 @@
           },
           {
             "name": "Semi-Fast",
+            "coachNumbers": [2, 3, 4, 5, 6, 7, 8, 9, 12],
             "callingPoints": [
               "Union Street",
               "Thornfield",
@@ -309,6 +318,7 @@
           },
           {
             "name": "Regional",
+            "coachNumbers": [2, 3, 4, 5, 6, 7, 8],
             "callingPoints": [
               "Union Street",
               "Thornfield",
@@ -350,6 +360,7 @@
         "services": [
           {
             "name": "Intercity",
+            "coachNumbers": [4, 5, 8, 9, 10, 12],
             "callingPoints": [
               "Fleetwood",
               "Belmond Green",
@@ -376,6 +387,7 @@
           },
           {
             "name": "Semi-Fast",
+            "coachNumbers": [2, 3, 4, 5, 6, 7, 8, 9, 12],
             "callingPoints": [
               "Union Street",
               "Thornfield",
@@ -403,6 +415,7 @@
           },
           {
             "name": "Regional",
+            "coachNumbers": [2, 3, 4, 5, 6, 7, 8],
             "callingPoints": [
               "Union Street",
               "Thornfield",
@@ -451,6 +464,7 @@
         "services": [
           {
             "name": "Intercity",
+            "coachNumbers": [4, 5, 8, 9, 10, 12],
             "callingPoints": [
               "Fleetwood",
               "Belmond Green",
@@ -483,6 +497,7 @@
           },
           {
             "name": "Semi-Fast",
+            "coachNumbers": [2, 3, 4, 5, 6, 7, 8, 9, 12],
             "callingPoints": [
               "Union Street",
               "Thornfield",
@@ -514,6 +529,7 @@
           },
           {
             "name": "Regional",
+            "coachNumbers": [2, 3, 4, 5, 6, 7, 8],
             "callingPoints": [
               "Union Street",
               "Thornfield",
@@ -550,6 +566,7 @@
         "services": [
           {
             "name": "Regional",
+            "coachNumbers": [ 2, 3, 4],
             "callingPoints": [
               "Union Street",
               "Thornfield",

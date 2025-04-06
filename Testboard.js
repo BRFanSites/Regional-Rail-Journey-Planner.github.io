@@ -140,43 +140,100 @@ function getRandomStatus() {
 const statusElement = document.getElementById('status');
 statusElement.textContent = getRandomStatus();
 
-// Fetch the destinations data
-fetch('Leaton.json')
-  .then(response => response.json())
-  .then(data => {
-    const destinations = data;
-    const randomizedDestinations = randomizeCallingPoints(destinations);
+const stationSelect = document.getElementById('station-select');
+// Get the selected station
+stationSelect.addEventListener('change', () => {
+  const selectedStation = stationSelect.value;
+  let data;
 
-    const displayGroup = document.querySelector('.departure');
-    const destinationSpan = document.getElementById('destination');
-    const departureTimeSpan = document.getElementById('time');
-    const callingPointsSpan = document.getElementById('calling-points');
+  switch (selectedStation) {
+    case 'Leaton':
+      fetch('./leaton.json')
+        .then(response => response.json())
+        .then(jsonData => {
+          data = jsonData;
+          updateDepartureBoard(data);
+        });
+      break;
+    case 'Avonhill':
+      fetch('./Avonhill.json')
+        .then(response => response.json())
+        .then(jsonData => {
+          data = jsonData;
+          updateDepartureBoard(data);
+        });
+      break;
+    case 'Mill Bridge':
+      fetch('./Mill_Bridge.json')
+        .then(response => response.json())
+        .then(jsonData => {
+          data = jsonData;
+          updateDepartureBoard(data);
+        });
+      break;
+    case 'Norrington':
+      fetch('./Norrington.json')
+        .then(response => response.json())
+        .then(jsonData => {
+          data = jsonData;
+          updateDepartureBoard(data);
+        });
+      break;
+    case 'Cuffley':
+      fetch('./Cuffley.json')
+        .then(response => response.json())
+        .then(jsonData => {
+          data = jsonData;
+          updateDepartureBoard(data);
+        });
+      break;
+    case 'Belmond Green':
+      fetch('./Belmond_Green.json')
+        .then(response => response.json())
+        .then(jsonData => {
+          data = jsonData;
+          updateDepartureBoard(data);
+        });
+      break;
+    default:
+      console.error('Invalid station selected');
+      return;
+  }
+});
 
-    if (randomizedDestinations[0] && randomizedDestinations[0].name) {
-      destinationSpan.textContent = randomizedDestinations[0].name;
+function updateDepartureBoard(data) {
+  const destinations = data;
+  const randomizedDestinations = randomizeCallingPoints(destinations);
+
+  const displayGroup = document.querySelector('.departure');
+  const destinationSpan = document.getElementById('destination');
+  const departureTimeSpan = document.getElementById('time');
+  const callingPointsSpan = document.getElementById('calling-points');
+
+  if (randomizedDestinations[0] && randomizedDestinations[0].name) {
+    destinationSpan.textContent = randomizedDestinations[0].name;
+  } else {
+    destinationSpan.textContent = 'Unknown';
+  }
+
+  if (departureTimes[0]) {
+    departureTimeSpan.textContent = departureTimes[0];
+  } else {
+    departureTimeSpan.textContent = 'N/A';
+  }
+
+  if (callingPointsSpan && randomizedDestinations[0] && randomizedDestinations[0].services && randomizedDestinations[0].services.length > 0) {
+    const serviceType = randomizedDestinations[0].services[0].serviceType;
+    const coachNumbers = randomizedDestinations[0].services[0].coachNumbers;
+    const numCoaches = coachNumbers[Math.floor(Math.random() * coachNumbers.length)];
+    const callingPoints = randomizedDestinations[0].services[0].randomizedCallingPoints;
+    
+    if (callingPoints.length === 0) {
+      const callingPointsText = `Only ${randomizedDestinations[0].name}. This is a ${serviceType} service formed of ${numCoaches} coaches.`;
+      callingPointsSpan.textContent = callingPointsText;
     } else {
-      destinationSpan.textContent = 'Unknown';
+      const callingPointsText = `${callingPoints.reverse().join(', ')} and ${randomizedDestinations[0].name}. A ${serviceType} service formed of ${numCoaches} coaches.`;
+      callingPointsSpan.textContent = callingPointsText;
     }
-
-    if (departureTimes[0]) {
-      departureTimeSpan.textContent = departureTimes[0];
-    } else {
-      departureTimeSpan.textContent = 'N/A';
-    }
-
-    if (callingPointsSpan && randomizedDestinations[0] && randomizedDestinations[0].services && randomizedDestinations[0].services.length > 0) {
-      const serviceType = randomizedDestinations[0].services[0].serviceType;
-      const coachNumbers = randomizedDestinations[0].services[0].coachNumbers;
-      const numCoaches = coachNumbers[Math.floor(Math.random() * coachNumbers.length)];
-      const callingPoints = randomizedDestinations[0].services[0].randomizedCallingPoints;
-      
-      if (callingPoints.length === 0) {
-        const callingPointsText = `Only ${randomizedDestinations[0].name}. This is a ${serviceType} service formed of ${numCoaches} coaches.`;
-        callingPointsSpan.textContent = callingPointsText;
-      } else {
-        const callingPointsText = `${callingPoints.reverse().join(', ')} and ${randomizedDestinations[0].name}. A ${serviceType} service formed of ${numCoaches} coaches.`;
-        callingPointsSpan.textContent = callingPointsText;
-      }
-    }
-  })
-  .catch(error => console.error('Error fetching destinations:', error));
+  }
+}

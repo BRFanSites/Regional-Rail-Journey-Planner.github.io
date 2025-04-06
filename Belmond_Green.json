@@ -20,6 +20,7 @@
       "services": [
         {
           "name": "Semi-Fast",
+          "coachNumbers": [2, 3, 4, 5, 6],
           "callingPoints": [
             "Woodham",
             "Bawtry Road",
@@ -41,6 +42,7 @@
         },
         {
           "name": "Regional",
+          "coachNumbers": [2, 3, 4, 5, 6],
           "callingPoints": [
             "Woodham",            
             "Bawtry Road",
@@ -75,6 +77,7 @@
         "services": [
           {
                 "name": "Intercity",
+                "coachNumbers": [4, 5],
                 "callingPoints": [
                   "Leaton",
                   "Abbey Road",
@@ -90,6 +93,7 @@
           },
           {
             "name": "Semi-Fast",
+            "coachNumbers": [2, 3, 4, 5, 6],
             "callingPoints": [
               "Woodham",
               "Bawtry Road",
@@ -109,6 +113,7 @@
           },
           {
             "name": "Regional",
+            "coachNumbers": [2, 3, 4, 5, 6],
             "callingPoints": [
               "Woodham",
               "Bawtry Road",
@@ -141,6 +146,7 @@
         "services": [
           {
             "name": "Semi-Fast",
+            "coachNumbers": [2, 3, 4, 5, 6],
             "callingPoints": [
               "Woodham",
               "Bawtry Road",
@@ -164,6 +170,7 @@
           },
           {
             "name": "Regional",
+            "coachNumbers": [2, 3, 4, 5, 6],
             "callingPoints": [
               "Woodham",
               "Bawtry Road",
@@ -198,6 +205,7 @@
         "services": [
           {
             "name": "Intercity",
+            "coachNumbers": [4, 5, 8, 9, 10, 12],
             "callingPoints": [
               "Leaton",
               "Fortis Green",
@@ -220,6 +228,7 @@
           },
           {
             "name": "Semi-Fast",
+            "coachNumbers": [2, 3, 4, 5, 6, 7, 8, 9, 12],
             "callingPoints": [
               "Woodham",
               "Bawtry Road",
@@ -241,6 +250,7 @@
           },
           {
             "name": "Regional",
+            "coachNumbers": [2, 3, 4, 5, 6, 7, 8],
             "callingPoints": [
               "Woodham",
               "Bawtry Road",
@@ -272,6 +282,7 @@
         "services": [
           {
             "name": "Intercity",
+            "coachNumbers": [4, 5, 8, 9, 10, 12],
             "callingPoints": [
               "Leaton",
               "Freston Junction",
@@ -292,6 +303,7 @@
           },
           {
             "name": "Semi-Fast",
+            "coachNumbers": [2, 3, 4, 5, 6, 7, 8, 9, 12],
             "callingPoints": [
               "Woodham",
               "Bawtry Road",
@@ -313,6 +325,7 @@
           },
           {
             "name": "Regional",
+            "coachNumbers": [2, 3, 4, 5, 6, 7, 8],
             "callingPoints": [
               "Woodham",
               "Bawtry Road",
@@ -351,6 +364,7 @@
         "services": [
           {
             "name": "Intercity",
+            "coachNumbers": [4, 5, 8, 9, 10, 12],
             "callingPoints": [
               "Leaton",
               "Freston Junction",
@@ -377,6 +391,7 @@
           },
           {
             "name": "Semi-Fast",
+            "coachNumbers": [2, 3, 4, 5, 6, 7, 8, 9, 12],
             "callingPoints": [
               "Woodham",
               "Bawtry Road",
@@ -402,6 +417,7 @@
           },
           {
             "name": "Regional",
+            "coachNumbers": [2, 3, 4, 5, 6, 7, 8],
             "callingPoints": [
               "Woodham",
               "Bawtry Road",
@@ -432,6 +448,7 @@
         "services": [
           {
             "name": "Regional",
+            "coachNumbers": [ 2, 3, 4],
             "callingPoints": [
               "Rowton",
               "Fleetwood"
@@ -452,6 +469,7 @@
         "services": [
           {
             "name": "Intercity",
+            "coachNumbers": [4, 5, 8, 9, 10, 12],
             "callingPoints": [
               "Rowton",
               "Fleetwood",
@@ -469,6 +487,7 @@
           },
           {
             "name": "Semi-Fast",
+            "coachNumbers": [2, 3, 4, 5, 6, 7, 8, 9, 12],
             "callingPoints": [
               "Rowton",
               "Fleetwood",
@@ -485,6 +504,7 @@
           },
           {
             "name": "Regional",
+            "coachNumbers": [2, 3, 4, 5, 6, 7, 8],
             "callingPoints": [
               "Rowton",
               "Fleetwood",

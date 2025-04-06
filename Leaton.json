@@ -449,21 +449,6 @@
         ],
         "services": [
           {
-            "serviceType": "Semi-Fast",
-            "coachNumbers": [ 2, 3, 4],
-            "callingPoints": [
-              "Bawtry Road",
-              "Woodham",
-              "Belmond Green",
-              "Rowton"
-            ],
-            "exceptions": {
-              "Bawtry Road": 0.25,
-              "Woodham": 0.25,
-              "Rowton": 0.25
-            }
-          },
-          {
             "serviceType": "Regional",
             "coachNumbers": [ 2, 3, 4],
             "callingPoints": [

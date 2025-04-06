@@ -20,6 +20,7 @@
       "services": [
         {
           "name": "Intercity",
+          "coachNumbers": [4, 5, 8, 9, 10, 12],
           "callingPoints": [
             "Fortis Green",
             "Leaton",
@@ -44,6 +45,7 @@
         },
         {
           "name": "Semi-Fast",
+          "coachNumbers": [2, 3, 4, 5, 6, 7, 8, 9, 12],
           "callingPoints": [
             "Northcote",
             "Elmtree House",
@@ -70,6 +72,7 @@
         },
         {
           "name": "Regional",
+          "coachNumbers": [2, 3, 4, 5, 6, 7, 8],
           "callingPoints": [
             "Northcote",
             "Elmtree House",
@@ -111,6 +114,7 @@
       "services": [
         {
           "name": "Semi-Fast",
+          "coachNumbers": [2, 3, 4, 5, 6],
           "callingPoints": [
             "Northcote",
             "Elmtree House",
@@ -135,6 +139,7 @@
         },
         {
           "name": "Regional",
+          "coachNumbers": [2, 3, 4, 5, 6],
           "callingPoints": [
             "Northcote",
             "Elmtree House",
@@ -173,6 +178,7 @@
         "services": [
           {
                 "name": "Intercity",
+                "coachNumbers": [4, 5],
                 "callingPoints": [
                   "Fortis Green",
                   "Leaton",
@@ -194,6 +200,7 @@
           },
           {
             "name": "Semi-Fast",
+            "coachNumbers": [2, 3, 4, 5, 6],
             "callingPoints": [
               "Northcote",
               "Elmtree House",
@@ -216,6 +223,7 @@
           },
           {
             "name": "Regional",
+            "coachNumbers": [2, 3, 4, 5, 6],
             "callingPoints": [
               "Northcote",
               "Elmtree House",
@@ -252,6 +260,7 @@
         "services": [
           {
             "name": "Semi-Fast",
+            "coachNumbers": [2, 3, 4, 5, 6],
             "callingPoints": [
               "Northcote",
               "Elmtree House",
@@ -278,6 +287,7 @@
           },
           {
             "name": "Regional",
+            "coachNumbers": [2, 3, 4, 5, 6],
             "callingPoints": [
               "Northcote",
               "Elmtree House",
@@ -314,6 +324,7 @@
         "services": [
           {
             "name": "Intercity",
+            "coachNumbers": [4, 5, 8],
             "callingPoints": [
               "Fortis Green",
               "Leaton",
@@ -331,6 +342,7 @@
           },
           {
             "name": "Semi-Fast",
+            "coachNumbers": [2, 3, 4, 5, 6, 7, 8],
             "callingPoints": [
               "Northcote",
               "Elmtree House",
@@ -351,6 +363,7 @@
           },
           {
             "name": "Regional",
+            "coachNumbers": [2, 3, 4, 5, 6, 7, 8],
             "callingPoints": [
               "Northcote",
               "Elmtree House",
@@ -382,6 +395,7 @@
         "services": [
           {
             "name": "Semi-Fast",
+            "coachNumbers": [ 2, 3, 4],
             "callingPoints": [
               "Northcote",
               "Elmtree House",
@@ -405,6 +419,7 @@
           },
           {
             "name": "Regional",
+            "coachNumbers": [ 2, 3, 4],
             "callingPoints": [
               "Northcote",
               "Elmtree House",
@@ -441,6 +456,7 @@
         "services": [
           {
             "name": "Regional",
+            "coachNumbers": [ 2, 3, 4, 6],
             "callingPoints": [
               "Northcote",
               "Elmtree House",

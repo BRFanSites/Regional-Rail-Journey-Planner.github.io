@@ -6,6 +6,51 @@
 body {
   overflow-x: hidden;
 }
+/* Center the dropdown horizontally */
+.station-select {
+  display: flex;
+  margin: 240px auto;
+  width: 400px; /* adjust the width to your liking */
+  height: 118px; /* adjust the height to your liking */
+  position: relative;
+  z-index: 100;
+}
+
+/* Style the dropdown */
+.station-select select {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #000000;
+  color: #ffffff;
+  text-align: center;
+  font-size: 50px;
+  font-family: Arial, sans-serif;
+  cursor: pointer;
+}
+
+/* Add some modern flair */
+.station-select select:focus {
+  outline: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Add some visual interest to the dropdown options */
+.station-select option {
+  padding: 10px;
+  background-color: #000000;
+  border-bottom: 1px solid #ccc;
+}
+
+.station-select option:hover {
+  background-color: #e5e5e5;
+}
+
+/* Add some space between the dropdown and the rest of the content */
+.station-select {
+  margin-bottom: 20px;
+}
 
 .departure-board {
   width: 1600px;

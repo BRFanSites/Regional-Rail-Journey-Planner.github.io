@@ -24,6 +24,7 @@
       "services": [
         {
           "name": "Semi-Fast",
+          "coachNumbers": [2, 3, 4, 5, 6],
           "callingPoints": [
             "Stirling Street",
             "Hulme Heath",
@@ -50,6 +51,7 @@
         },
         {
           "name": "Regional",
+          "coachNumbers": [2, 3, 4, 5, 6],
           "callingPoints": [
             "Stirling Street",
             "Hulme Heath",
@@ -94,6 +96,7 @@
         "services": [
           {
                 "name": "Intercity",
+                "coachNumbers": [4, 5],
                 "callingPoints": [
                   "Hulme Heath",
                   "Freston Junction",
@@ -117,6 +120,7 @@
           },
           {
             "name": "Semi-Fast",
+            "coachNumbers": [2, 3, 4, 5, 6],
             "callingPoints": [
               "Stirling Street",
               "Hulme Heath",
@@ -141,6 +145,7 @@
           },
           {
             "name": "Regional",
+            "coachNumbers": [2, 3, 4, 5, 6],
             "callingPoints": [
               "Stirling Street",
               "Hulme Heath",
@@ -183,6 +188,7 @@
         "services": [
           {
             "name": "Semi-Fast",
+            "coachNumbers": [2, 3, 4, 5, 6],
             "callingPoints": [
               "Stirling Street",
               "Hulme Heath",
@@ -211,6 +217,7 @@
           },
           {
             "name": "Regional",
+            "coachNumbers": [2, 3, 4, 5, 6],
             "callingPoints": [
               "Stirling Street",
               "Hulme Heath",
@@ -245,6 +252,7 @@
         "services": [
           {
             "name": "Intercity",
+            "coachNumbers": [4, 5, 8, 9, 10, 12],
             "callingPoints": [
               "Wallsend",
               "Cuffley"
@@ -258,6 +266,7 @@
           },
           {
             "name": "Semi-Fast",
+            "coachNumbers": [2, 3, 4, 5, 6, 7, 8, 9, 12],
             "callingPoints": [
               "Wallsend",
               "Ashby-in-Kirkside",
@@ -270,6 +279,7 @@
           },
           {
             "name": "Regional",
+            "coachNumbers": [2, 3, 4, 5, 6, 7, 8],
             "callingPoints": [
               "Wallsend",
               "Ashby-in-Kirkside",
@@ -300,6 +310,7 @@
         "services": [
           {
             "name": "Regional",
+            "coachNumbers": [ 2, 3, 4],
             "callingPoints": [
               "Stirling Street",
               "Hulme Heath",
@@ -337,6 +348,7 @@
         "services": [
           {
             "name": "Intercity",
+            "coachNumbers": [4, 5, 8],
             "callingPoints": [
               "Hulme Heath",
               "Freston Junction",
@@ -356,6 +368,7 @@
           },
           {
             "name": "Semi-Fast",
+            "coachNumbers": [2, 3, 4, 5, 6, 7, 8],
             "callingPoints": [
               "Stirling Street",
               "Hulme Heath",
@@ -377,6 +390,7 @@
           },
           {
             "name": "Regional",
+            "coachNumbers": [2, 3, 4, 5, 6, 7, 8],
             "callingPoints": [
               "Stirling Street",
               "Hulme Heath",
