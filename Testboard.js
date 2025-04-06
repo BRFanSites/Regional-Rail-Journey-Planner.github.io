@@ -261,7 +261,7 @@ const currentMinutes = currentTime.getMinutes();
 let hours = currentHours;
 let minutes = currentMinutes;
 while (true) {
-  hours = Math.floor(Math.random() * 24 - 1);
+  hours = Math.floor(Math.random() * 24) % 24; // Use modulo to ensure hours is between 0 and 23
   minutes = Math.floor(Math.random() * 60);
   const randomTime = new Date();
   randomTime.setHours(hours);
