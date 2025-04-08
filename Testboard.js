@@ -1,54 +1,81 @@
 function speakText() {
   try {
-    var time = document.getElementById('time').textContent;
-    //time = "00:00"; // Set a fixed time for testing
+    let time = document.getElementById('time').textContent;
+
+    // Format time for speech
     if (time === '00:00') {
       time = 'midnight';
     } else if (time.startsWith('00:')) {
-      var minute = time.substring(3, 5); // Extract the minute value
-      time = 'midnight ' + minute;
+      const minute = time.substring(3, 5);
+      time = `midnight ${minute}`;
     } else {
-      if (time.startsWith('0')) {
-        var hour = time.substring(1, 2);
-        var minute = time.substring(3, 5);
-        if (minute === '00') {
-          time = 'o ' + hour + ' hundred';
+      const hour = time.startsWith('0') ? time.substring(1, 2) : time.substring(0, 2);
+      const minute = time.substring(3, 5);
+      time = minute === '00' ? `${hour} hundred` : `${hour} ${minute}`;
+    }
+
+    const destination = document.getElementById('destination').textContent;
+    const callingPoints = document.getElementById('calling-points').textContent;
+    const status = document.getElementById('status').textContent;
+
+    const stationsWithPoints = [
+      'Ashdean', 'Syde-On-Sea', 'Victoria docks', 'Leaton', 'Norrington', 
+      'Cuffley', 'Belmond Green', 'Mill Bridge', 'Avonhill', 'Abbey Road', 
+      'Russell Lane'
+    ];
+
+    const reasons = [
+      'severe weather conditions', 'a points failure', 'damage to overhead line equipment',
+      'trespassing on the track', 'staff arriving late to depot', 'a signal failure',
+      'a problem with the train', 'a problem with the track', 'a problem with the signalling system',
+      'a problem with the power supply', 'trespassers on the track earlier today'
+    ];
+
+    const serviceTypeMatch = callingPoints.match(/(?:A|An)\s+([\w\s]+?)\s+service/i);
+    const serviceType = serviceTypeMatch ? serviceTypeMatch[1].trim() : 'unknown';
+
+    const showReason = Math.random() < 0.7; // 70% chance to show a reason
+    const reason = reasons[Math.floor(Math.random() * reasons.length)];
+
+    let message = '';
+
+    if (status === 'On Time') {
+      message = `The ${time} to ${destination} calling at ${callingPoints}`;
+    } else if (status === 'Delayed') {
+      if (showReason) {
+        if (['points failure', 'trespassing on the track', 'signal failure'].includes(reason)) {
+          message = `We are sorry that the ${time} to ${destination} is delayed due to ${reason} at ${stationsWithPoints[Math.floor(Math.random() * stationsWithPoints.length)]}. ${serviceType} apologises for this late running, and the inconvenience this may cause you.`;
         } else {
-          time = 'o ' + hour + ' ' + minute;
+          message = `We are sorry that the ${time} to ${destination} is delayed due to ${reason}. ${serviceType} apologises for this late running, and the inconvenience this may cause you.`;
         }
       } else {
-        var hour = time.substring(0, 2);
-        var minute = time.substring(3, 5);
-        if (minute === '00') {
-          time = hour + ' hundred';
+        message = `We are sorry that the ${time} to ${destination} is delayed. ${serviceType} apologises for this late running, and the inconvenience this may cause you.`;
+      }
+    } else if (status.match(/^\d{2}:\d{2}$/)) {
+      const delayedTime = status.replace(':', ' ');
+      if (showReason) {
+        if (['points failure', 'trespassing on the track', 'signal failure', 'trespassers on the track earlier today'].includes(reason)) {
+          message = `We are sorry that the ${time} to ${destination} is now expected to arrive at ${delayedTime}. This is due to ${reason} at ${stationsWithPoints[Math.floor(Math.random() * stationsWithPoints.length)]}. ${serviceType} apologises for this late running, and the inconvenience this may cause you.`;
         } else {
-          time = hour + ' ' + minute;
+          message = `We are sorry that the ${time} to ${destination} is now expected to arrive at ${delayedTime}. This is due to ${reason}. ${serviceType} apologises for this late running, and the inconvenience this may cause you.`;
         }
+      } else {
+        message = `We are sorry that the ${time} to ${destination} is now expected to arrive at ${delayedTime}. ${serviceType} apologises for this late running, and the inconvenience this may cause you.`;
+      }
+    } else if (status === 'Cancelled') {
+      if (showReason) {
+        if (['points failure', 'trespassing on the track', 'signal failure', 'trespassers on the track'].includes(reason)) {
+          message = `We are sorry to announce that the ${time} ${serviceType} to ${destination} has been cancelled. This is due to ${reason} at ${stationsWithPoints[Math.floor(Math.random() * stationsWithPoints.length)]}. ${serviceType} apologises for the disruption to your journey today.`;
+        } else {
+          message = `We are sorry to announce that the ${time} ${serviceType} to ${destination} has been cancelled. This is due to ${reason}. ${serviceType} apologises for the disruption to your journey today.`;
+        }
+      } else {
+        message = `We are sorry to announce that the ${time} ${serviceType} to ${destination} has been cancelled. ${serviceType} apologises for the disruption to your journey today.`;
       }
     }
-    var destination = document.getElementById('destination').textContent;
-    var callingPoints = document.getElementById('calling-points').textContent;
-    var status = document.getElementById('status').textContent; // get the status text
 
-    // Extract the service type from the calling points text
-    var serviceType = callingPoints.match(/(A|An) (\w+) service/)[2];
-
-    var message = '';
-    if (status === 'On Time') {
-      message = 'The ' + time + ' to ' + destination + ' calling at ' + callingPoints;
-    } else if (status === 'Delayed') {
-      message = 'We are sorry that the ' + time + ' ' + serviceType + ' to ' + destination + ' is delayed. ' + serviceType + ' apologises for this late running, and the inconvenience this may cause you.';
-    } else if (status.match(/^\d{2}:\d{2}$/)) {
-      var delayedTime = status.replace(':', ' '); // Remove the colon
-      message = 'We are sorry that the ' + time + ' to ' + destination + ' is now expected to arrive at ' + delayedTime + '. ' + serviceType + ' apologises for this late running, and the inconvenience this may cause you.';
-    } else if (status === 'Cancelled') {
-      message = 'We are sorry to announce that the ' + time + ' ' + serviceType + ' to ' + destination + ' has been cancelled. ' + serviceType + ' apologises for the disruption to your journey today.';
-    }
-
-    var utterance = new SpeechSynthesisUtterance(message);
-    var voice = window.speechSynthesis.getVoices().find(function(voice) {
-      return voice.lang === 'en-GB' && voice.name.includes('Female');
-    });
+    const utterance = new SpeechSynthesisUtterance(message);
+    const voice = window.speechSynthesis.getVoices().find(voice => voice.lang === 'en-GB' && voice.name.includes('Female'));
     utterance.voice = voice;
     utterance.lang = 'en-GB';
     utterance.rate = 0.6;
@@ -58,6 +85,8 @@ function speakText() {
     console.error('Error speaking text:', error);
   }
 }
+
+// Speak text every 5 minutes
 setInterval(speakText, 300000);
 
 function testTTS() {
