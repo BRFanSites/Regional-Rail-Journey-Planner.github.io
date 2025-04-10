@@ -164,3 +164,22 @@ body {
   border-color: #ffffff;
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
 }
+
+.clock {
+  z-index: 5; 
+  position: fixed; 
+  bottom: 300px; 
+  left: 50%; 
+  transform: translateX(-50%); 
+  color: white; 
+  font-size: 70px;
+  font-family: 'Dot Matrix';
+}
+
+.digit {
+  display: inline-block;
+  transition: transform 0.2s ease-in-out;
+}
+.digit.animate {
+  transform: scaleX(0.5);
+}

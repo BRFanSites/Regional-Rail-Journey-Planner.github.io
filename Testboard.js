@@ -392,7 +392,7 @@ function updateDepartureBoard(data) {
   const currentHours = currentTime.getHours();
   const currentMinutes = currentTime.getMinutes();
 
-  // Generate a random time that is within an hour of the current time
+  // Generate a random time that is within an hour of the current time and between 05:00 and 01:00
   let hours = currentHours;
   let minutes = currentMinutes;
   while (true) {
@@ -405,7 +405,12 @@ function updateDepartureBoard(data) {
     const randomTime = new Date();
     randomTime.setHours(hours);
     randomTime.setMinutes(minutes);
-    if (randomTime > currentTime && randomTime - currentTime < 60 * 60 * 1000) {
+    const randomHours = randomTime.getHours();
+    if (
+      randomTime > currentTime &&
+      randomTime - currentTime < 60 * 60 * 1000 &&
+      ((randomHours >= 5 && randomHours < 24) || randomHours === 0)
+    ) {
       break;
     }
   }
@@ -479,3 +484,37 @@ function updateDepartureBoard(data) {
     setTimeout(() => updateDepartureBoard(data), updateDelay); // Schedule the next update
   }, 100);
 }
+
+function updateClock() {
+  console.log('Clock updated every second');
+  const now = new Date();
+  const hours = String(now.getHours()).padStart(2, '0');
+  const minutes = String(now.getMinutes()).padStart(2, '0');
+  const seconds = String(now.getSeconds()).padStart(2, '0');
+
+  const digits = [
+    { id: 'hour-tens', value: hours[0] },
+    { id: 'hour-ones', value: hours[1] },
+    { id: 'minute-tens', value: minutes[0] },
+    { id: 'minute-ones', value: minutes[1] },
+    { id: 'second-tens', value: seconds[0] },
+    { id: 'second-ones', value: seconds[1] },
+  ];
+
+  digits.forEach(({ id, value }) => {
+    const digitElement = document.getElementById(id);
+    if (digitElement.textContent !== value) {
+      digitElement.classList.add('animate');
+      setTimeout(() => {
+        digitElement.textContent = value;
+        digitElement.classList.remove('animate');
+      }, 200);
+    }
+  });
+
+  // Schedule the next update to align with the next second
+  const nextUpdate = 1000 - (now.getMilliseconds());
+  setTimeout(updateClock, nextUpdate);
+}
+
+updateClock();
