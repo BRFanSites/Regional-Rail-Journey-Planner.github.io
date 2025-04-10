@@ -27,7 +27,6 @@
             "Thornfield": false,
             "Union Street": false,
             "fleetwood": 0.33
-            
           }
         },
         {
@@ -107,389 +106,382 @@
           ],
           "exceptions": {}
         }
-      ]
+      ]  
     },
     {
-        "name": "Victoria Docks",
-        "callingPoints": [
-          "Meryon",
-          "Whetstone",
-          "Abbey Road",
-          {
-            "name": "Longbow Beach",
-            "daysOfOperation": ["Saturday", "Sunday"]
+      "name": "Victoria Docks",
+      "callingPoints": [
+        "Meryon",
+        "Whetstone",
+        "Abbey Road",
+        {
+          "name": "Longbow Beach",
+          "daysOfOperation": ["Saturday", "Sunday"]
+        }
+      ],
+      "services": [
+        {
+          "serviceType": "Intercity",
+          "coachNumbers": [4, 5],
+          "callingPoints": [
+            "Abbey Road"
+          ],
+          "exceptions": {
+            "Meryon": false,
+            "Whetstone": false,
+            "Longbow Beach": false,
+            "Abbey road": 0.33
           }
-        ],
-        "services": [
-          {
-                "serviceType": "Intercity",
-                "coachNumbers": [4, 5],
-                "callingPoints": [
-                  "Abbey Road"
-                ],
-                "exceptions": {
-                  "Meryon": false,
-                  "Whetstone": false,
-                  "Longbow Beach": false,
-                  "Abbey road": 0.33
-                  
-                }
-          },
-          {
-            "serviceType": "Semi-Fast",
-            "coachNumbers": [2, 3, 4, 5, 6],
-            "callingPoints": [
-              "Meryon",
-              "Whetstone",
-              "Abbey Road",
-              "Longbow Beach"
-            ],
-            "exceptions": {
-              "Meryon": 0.25,
-              "Whetstone": 0.25
-            }
-          },
-          {
-            "serviceType": "Regional",
-            "coachNumbers": [2, 3, 4, 5, 6],
-            "callingPoints": [
-              "Meryon",
-              "Whetstone",
-              "Abbey Road",
-              "Longbow Beach"
-            ],
-            "exceptions": {}
+        },
+        {
+          "serviceType": "Semi-Fast",
+          "coachNumbers": [2, 3, 4, 5, 6],
+          "callingPoints": [
+            "Meryon",
+            "Whetstone",
+            "Abbey Road",
+            "Longbow Beach"
+          ],
+          "exceptions": {
+            "Meryon": 0.25,
+            "Whetstone": 0.25
           }
-        ]
-      },
-      {
-        "name": "Ashdean",
-        "callingPoints": [
-          "Meryon",
-          "Whetstone",
-          "Abbey Road",
-          "Longbow",
-          "Russell Lane", 
-          "Osidge Hill",
-          "Ashdean Bridge"
-        ],
-        "services": [
-          {
-            "serviceType": "Semi-Fast",
-            "coachNumbers": [2, 3, 4, 5, 6],
-            "callingPoints": [
-              "Meryon",
-              "Whetstone",
-              "Abbey Road",
-              "Longbow",
-              "Russell Lane",
-              "Osidge Hill",
-              "Ashdean Bridge"
-            ],
-            "exceptions": {
-              "Meryon": 0.25,
-              "Whetstone": 0.25,
-              "Ashdean Bridge": false
-            }
-          },
-          {
-            "serviceType": "Regional",
-            "coachNumbers": [2, 3, 4, 5, 6],
-            "callingPoints": [
-              "Meryon",
-              "Whetstone",
-              "Abbey Road",
-              "Longbow",
-              "Russell Lane",
-              "Osidge Hill",
-              "Ashdean Bridge"
-            ],
-            "exceptions": {
-              "Ashdean Bridge": 0.33
-            }
+        },
+        {
+          "serviceType": "Regional",
+          "coachNumbers": [2, 3, 4, 5, 6],
+          "callingPoints": [
+            "Meryon",
+            "Whetstone",
+            "Abbey Road",
+            "Longbow Beach"
+          ],
+          "exceptions": {}
+        }
+      ]  
+    },
+    {
+      "name": "Ashdean",
+      "callingPoints": [
+        "Meryon",
+        "Whetstone",
+        "Abbey Road",
+        "Longbow",
+        "Russell Lane",
+        "Osidge Hill",
+        "Ashdean Bridge"
+      ],
+      "services": [
+        {
+          "serviceType": "Semi-Fast",
+          "coachNumbers": [2, 3, 4, 5, 6],
+          "callingPoints": [
+            "Meryon",
+            "Whetstone",
+            "Abbey Road",
+            "Longbow",
+            "Russell Lane",
+            "Osidge Hill",
+            "Ashdean Bridge"
+          ],
+          "exceptions": {
+            "Meryon": 0.25,
+            "Whetstone": 0.25,
+            "Ashdean Bridge": false
           }
-        ]
-      },
-      {
-        "name": "Mill Bridge",
-        "callingPoints": [
-          "Henley Park",
-          "Fortis Green",
-          "Elmtree House",
-          "Northcote"
-        ],
-        "services": [
-          {
-            "serviceType": "Intercity",
-            "coachNumbers": [4, 5, 8, 9, 10, 12],
-            "callingPoints": [
-              "Fortis Green"
-            ],
-            "exceptions": {
-              "Henley Park": false,
-              "Elmtree House": false,
-              "Northcote": false,
-              "Fortis Green": 0.33
-                  
-            }
-          },
-          {
-            "serviceType": "Semi-Fast",
-            "coachNumbers": [2, 3, 4, 5, 6, 7, 8, 9, 12],
-            "callingPoints": [
-              "Henley Park",
-              "Fortis Green",
-              "Elmtree House",
-              "Northcote"
-            ],
-            "exceptions": {
-              "Henley Park": 0.25,
-              "Elmtree House": 0.25,
-              "Northcote": 0.25
-            }
-          },
-          {
-            "serviceType": "Regional",
-            "coachNumbers": [2, 3, 4, 5, 6, 7, 8],
-            "callingPoints": [
-              "Henley Park",
-              "Fortis Green",
-              "Elmtree House",
-              "Northcote"
-            ],
-            "exceptions": {}
+        },
+        {
+          "serviceType": "Regional",
+          "coachNumbers": [2, 3, 4, 5, 6],
+          "callingPoints": [
+            "Meryon",
+            "Whetstone",
+            "Abbey Road",
+            "Longbow",
+            "Russell Lane",
+            "Osidge Hill",
+            "Ashdean Bridge"
+          ],
+          "exceptions": {
+            "Ashdean Bridge": 0.33
           }
-        ]
-      },
-      {
-        "name": "Norrington",
-        "callingPoints": [
-          "St James Park",
-          "Freston Junction",
-          "Forestdale",
-          "Astly",
-          "Hulme Heath",
-          "Stirling Street"
-        ],
-        "services": [
-          {
-            "serviceType": "Intercity",
-            "coachNumbers": [4, 5, 8, 9, 10, 12],
-            "callingPoints": [
-              "Freston Junction",
-              "Hulme Heath"
-            ],
-            "exceptions": {
-              "St James Park": false,
-              "Forestdale": false,
-              "Astly": false,
-              "Stirling Street": false,
-              "Hulme Heath": 0.33
-                  
-            }
-          },
-          {
-            "serviceType": "Semi-Fast",
-            "coachNumbers": [2, 3, 4, 5, 6, 7, 8, 9, 12],
-            "callingPoints": [
-              "St James Park",
-              "Freston Junction",
-              "Forestdale",
-              "Astly",
-              "Hulme Heath"
-            ],
-            "exceptions": {
-              "Astly": 0.25,
-              "Forestdale": 0.25,
-              "Stirling Street": false
-            }
-          },
-          {
-            "serviceType": "Regional",
-            "coachNumbers": [2, 3, 4, 5, 6, 7, 8],
-            "callingPoints": [
-              "St James Park",
-              "Freston Junction",
-              "Forestdale",
-              "Astly",
-              "Hulme Heath",
-              "Stirling Street"
-            ],
-            "exceptions": {
-              "Stirling Street": 0.33
-            }
+        }
+      ]  
+    },
+    {
+      "name": "Mill Bridge",
+      "callingPoints": [
+        "Henley Park",
+        "Fortis Green",
+        "Elmtree House",
+        "Northcote"
+      ],
+      "services": [
+        {
+          "serviceType": "Intercity",
+          "coachNumbers": [4, 5, 8, 9, 10, 12],
+          "callingPoints": [
+            "Fortis Green"
+          ],
+          "exceptions": {
+            "Henley Park": false,
+            "Elmtree House": false,
+            "Northcote": false,
+            "Fortis Green": 0.33
           }
-        ]
-      },
-      {
-        "name": "Cuffley",
-        "callingPoints": [
-          "St James Park",
-          "Freston Junction",
-          "Forestdale",
-          "Astly",
-          "Hulme Heath",
-          "Stirling Street",
-          "Norrington",
-          "Wallsend",
-          "Ashby-in-Kirkside"
-        ],
-        "services": [
-          {
-            "serviceType": "Intercity",
-            "coachNumbers": [4, 5, 8, 9, 10, 12],
-            "callingPoints": [
-              "Freston Junction",
-              "Hulme Heath",
-              "Norrington",
-              "Wallsend"
-            ],
-            "exceptions": {
-              "St James Park": false,
-              "Forestdale": false,
-              "Astly": false,
-              "Stirling Street": false,
-              "Hulme Heath": 0.33,
-              "Norrington": 0.33,
-              "Wallsend": 0.33,
-              "Ashby-in-Kirkside": false
-              
-                  
-            }
-          },
-          {
-            "serviceType": "Semi-Fast",
-            "coachNumbers": [2, 3, 4, 5, 6, 7, 8, 9, 12],
-            "callingPoints": [
-              "St James Park",
-              "Freston Junction",
-              "Forestdale",
-              "Astly",
-              "Hulme Heath",
-              "Norrington",
-              "Wallsend",
-              "Ashby-in-Kirkside"
-            ],
-            "exceptions": {
-              "Astly": 0.25,
-              "Forestdale": 0.25,
-              "Stirling Street": false,
-              "Asbty-in-Kirkside": 0.25
-            }
-          },
-          {
-            "serviceType": "Regional",
-            "coachNumbers": [2, 3, 4, 5, 6, 7, 8],
-            "callingPoints": [
-              "St James Park",
-              "Freston Junction",
-              "Forestdale",
-              "Astly",
-              "Hulme Heath",
-              "Stirling Street",
-              "Norrington",
-              "Wallsend",
-              "Ashby-in-Kirkside"
-            ],
-            "exceptions": {
-              "Stirling Street": 0.33
-            }
+        },
+        {
+          "serviceType": "Semi-Fast",
+          "coachNumbers": [2, 3, 4, 5, 6, 7, 8, 9, 12],
+          "callingPoints": [
+            "Henley Park",
+            "Fortis Green",
+            "Elmtree House",
+            "Northcote"
+          ],
+          "exceptions": {
+            "Henley Park": 0.25,
+            "Elmtree House": 0.25,
+            "Northcote": 0.25
           }
-        ]
-      },
-      {
-        "name": "Belmond Green",
-        "callingPoints": [
-          "Bawtry Road",
-          "Woodham"
-        ],
-        "services": [
-          {
-            "serviceType": "Intercity",
-            "coachNumbers": [4, 5, 8],
-            "callingPoints": [
-              "Bawtry Road",
-              "Woodham"
-            ],
-            "exceptions": {
-              "Bawtry Road": false,
-              "Woodham": false
-            }
-          },
-          {
-            "serviceType": "Semi-Fast",
-            "coachNumbers": [2, 3, 4, 5, 6, 7, 8],
-            "callingPoints": [
-              "Bawtry Road",
-              "Woodham"
-            ],
-            "exceptions": {
-              "Bawtry Road": 0.25,
-              "Woodham": 0.25
-            }
-          },
-          {
-            "serviceType": "Regional",
-            "coachNumbers": [2, 3, 4, 5, 6, 7, 8],
-            "callingPoints": [
-              "Bawtry Road",
-              "Woodham"
-            ],
-            "exceptions": {}
+        },
+        {
+          "serviceType": "Regional",
+          "coachNumbers": [2, 3, 4, 5, 6, 7, 8],
+          "callingPoints": [
+            "Henley Park",
+            "Fortis Green",
+            "Elmtree House",
+            "Northcote"
+          ],
+          "exceptions": {}
+        }
+      ]  
+    },
+    {
+      "name": "Norrington",
+      "callingPoints": [
+        "St James Park",
+        "Freston Junction",
+        "Forestdale",
+        "Astly",
+        "Hulme Heath",
+        "Stirling Street"
+      ],
+      "services": [
+        {
+          "serviceType": "Intercity",
+          "coachNumbers": [4, 5, 8, 9, 10, 12],
+          "callingPoints": [
+            "Freston Junction",
+            "Hulme Heath"
+          ],
+          "exceptions": {
+            "St James Park": false,
+            "Forestdale": false,
+            "Astly": false,
+            "Stirling Street": false,
+            "Hulme Heath": 0.33
           }
-        ]
-      },
-      {
-        "name": "Fleetwood",
-        "callingPoints": [
-          "Bawtry Road",
-          "Woodham",
-          "Belmond Green",
-          "Rowton"
-        ],
-        "services": [
-          {
-            "serviceType": "Regional",
-            "coachNumbers": [ 2, 3, 4],
-            "callingPoints": [
-              "Bawtry Road",
-              "Woodham",
-              "Belmond Green",
-              "Rowton"
-            ],
-            "exceptions": {}
+        },
+        {
+          "serviceType": "Semi-Fast",
+          "coachNumbers": [2, 3, 4, 5, 6, 7, 8, 9, 12],
+          "callingPoints": [
+            "St James Park",
+            "Freston Junction",
+            "Forestdale",
+            "Astly",
+            "Hulme Heath"
+          ],
+          "exceptions": {
+            "Astly": 0.25,
+            "Forestdale": 0.25,
+            "Stirling Street": false
           }
-        ]
-      },
-      {
-        "name": "Leaton via Broomfield",
-        "callingPoints": [
-          "Meryon",
-          "Whetstone",
-          "Abbey Road",
-          "Longbow",
-          "Russell Lane",
-          "Broomfield",
-          "Meryon"
-        ],
-        "services": [
-          {
-            "serviceType": "Regional",
-            "coachNumbers": [ 2, 3, 4, 6],
-            "callingPoints": [
-              
-              "Meryon",
-              "Whetstone",
-              "Abbey Road",
-              "Longbow",
-              "Russell Lane",
-              "Broomfield",
-              "Meryon"
-            ],
-            "exceptions": {
-            }
+        },
+        {
+          "serviceType": "Regional",
+          "coachNumbers": [2, 3, 4, 5, 6, 7, 8],
+          "callingPoints": [
+            "St James Park",
+            "Freston Junction",
+            "Forestdale",
+            "Astly",
+            "Hulme Heath",
+            "Stirling Street"
+          ],
+          "exceptions": {
+            "Stirling Street": 0.33
           }
-        ]
-      }          
+        }
+      ]  
+    },
+    {
+      "name": "Cuffley",
+      "callingPoints": [
+        "St James Park",
+        "Freston Junction",
+        "Forestdale",
+        "Astly",
+        "Hulme Heath",
+        "Stirling Street",
+        "Norrington",
+        "Wallsend",
+        "Ashby-in-Kirkside"
+      ],
+      "services": [
+        {
+          "serviceType": "Intercity",
+          "coachNumbers": [4, 5, 8, 9, 10, 12],
+          "callingPoints": [
+            "Freston Junction",
+            "Hulme Heath",
+            "Norrington",
+            "Wallsend"
+          ],
+          "exceptions": {
+            "St James Park": false,
+            "Forestdale": false,
+            "Astly": false,
+            "Stirling Street": false,
+            "Hulme Heath": 0.33,
+            "Norrington": 0.33,
+            "Wallsend": 0.33,
+            "Ashby-in-Kirkside": false
+          }
+        },
+        {
+          "serviceType": "Semi-Fast",
+          "coachNumbers": [2, 3, 4, 5, 6, 7, 8, 9, 12],
+          "callingPoints": [
+            "St James Park",
+            "Freston Junction",
+            "Forestdale",
+            "Astly",
+            "Hulme Heath",
+            "Norrington",
+            "Wallsend",
+            "Ashby-in-Kirkside"
+          ],
+          "exceptions": {
+            "Astly": 0.25,
+            "Forestdale": 0.25,
+            "Stirling Street": false,
+            "Asbty-in-Kirkside": 0.25
+          }
+        },
+        {
+          "serviceType": "Regional",
+          "coachNumbers": [2, 3, 4, 5, 6, 7, 8],
+          "callingPoints": [
+            "St James Park",
+            "Freston Junction",
+            "Forestdale",
+            "Astly",
+            "Hulme Heath",
+            "Stirling Street",
+            "Norrington",
+            "Wallsend",
+            "Ashby-in-Kirkside"
+          ],
+          "exceptions": {
+            "Stirling Street": 0.33
+          }
+        }
+      ]  
+    },
+    {
+      "name": "Belmond Green",
+      "callingPoints": [
+        "Bawtry Road",
+        "Woodham"
+      ],
+      "services": [
+        {
+          "serviceType": "Intercity",
+          "coachNumbers": [4, 5, 8],
+          "callingPoints": [
+            "Bawtry Road",
+            "Woodham"
+          ],
+          "exceptions": {
+            "Bawtry Road": false,
+            "Woodham": false
+          }
+        },
+        {
+          "serviceType": "Semi-Fast",
+          "coachNumbers": [2, 3, 4, 5, 6, 7, 8],
+          "callingPoints": [
+            "Bawtry Road",
+            "Woodham"
+          ],
+          "exceptions": {
+            "Bawtry Road": 0.25,
+            "Woodham": 0.25
+          }
+        },
+        {
+          "serviceType": "Regional",
+          "coachNumbers": [2, 3, 4, 5, 6, 7, 8],
+          "callingPoints": [
+            "Bawtry Road",
+            "Woodham"
+          ],
+          "exceptions": {}
+        }
+      ]  
+    },
+    {
+      "name": "Fleetwood",
+      "callingPoints": [
+        "Bawtry Road",
+        "Woodham",
+        "Belmond Green",
+        "Rowton"
+      ],
+      "services": [
+        {
+          "serviceType": "Regional",
+          "coachNumbers": [2, 3, 4],
+          "callingPoints": [
+            "Bawtry Road",
+            "Woodham",
+            "Belmond Green",
+            "Rowton"
+          ],
+          "exceptions": {}
+        }
+      ]  
+    },
+    {
+      "name": "Leaton via Russell Lane",
+      "callingPoints": [
+        "Meryon",
+        "Whetstone",
+        "Abbey Road",
+        "Longbow",
+        "Russell Lane",
+        "Broomfield",
+        "Meryon"
+      ],
+      "services": [
+        {
+          "serviceType": "Regional",
+          "coachNumbers": [2, 3, 4, 6],
+          "callingPoints": [
+            "Meryon",
+            "Whetstone",
+            "Abbey Road",
+            "Longbow",
+            "Russell Lane",
+            "Broomfield",
+            "Meryon"
+          ],
+          "exceptions": {}
+        }
+      ]  
+    }
   ]
 }

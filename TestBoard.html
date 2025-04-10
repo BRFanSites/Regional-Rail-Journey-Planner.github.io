@@ -6,6 +6,7 @@
   <meta http-equiv="permissions" content="speechSynthesis">
 </head>
 <body>
+  <button id="test-tts-button" onclick="testTTS()">Test TTS</button>
   <div class="station-select">
     <select id="station-select">
       <option value="Leaton">Leaton</option>
@@ -24,10 +25,12 @@
       <div id="status">Status</div>
     </div>
     <div class="calling-points-container">
-      <div id="calling-points-label">Calling Points:</div>
+      <div id="calling-points-label">Calling At:</div>
     </div>
     <div class="line2">
-      <div id="calling-points"></div>
+      <div style="overflow: hidden;">
+        <marquee id="calling-points" behavior="scroll" direction="left" scrollamount="15"></marquee>
+      </div>
     </div>
   </div>
   <button onclick="testTTS()">Test TTS</button>

@@ -1,3 +1,7 @@
+let currentReason = ''; // Declare currentReason here
+let currentStationWithPoints = ''; // Declare currentStationWithPoints here
+let currentPlatform = ''; // Declare currentPlatform here
+
 function speakText() {
   try {
     let time = document.getElementById('time').textContent;
@@ -9,7 +13,7 @@ function speakText() {
       const minute = time.substring(3, 5);
       time = `midnight ${minute}`;
     } else {
-      const hour = time.startsWith('0') ? time.substring(1, 2) : time.substring(0, 2);
+      const hour = parseInt(time.substring(0, 2));
       const minute = time.substring(3, 5);
       time = minute === '00' ? `${hour} hundred` : `${hour} ${minute}`;
     }
@@ -18,69 +22,94 @@ function speakText() {
     const callingPoints = document.getElementById('calling-points').textContent;
     const status = document.getElementById('status').textContent;
 
-    const stationsWithPoints = [
-      'Ashdean', 'Syde-On-Sea', 'Victoria docks', 'Leaton', 'Norrington', 
-      'Cuffley', 'Belmond Green', 'Mill Bridge', 'Avonhill', 'Abbey Road', 
-      'Russell Lane'
-    ];
-
-    const reasons = [
-      'severe weather conditions', 'a points failure', 'damage to overhead line equipment',
-      'trespassing on the track', 'staff arriving late to depot', 'a signal failure',
-      'a problem with the train', 'a problem with the track', 'a problem with the signalling system',
-      'a problem with the power supply', 'trespassers on the track earlier today'
-    ];
-
     const serviceTypeMatch = callingPoints.match(/(?:A|An)\s+([\w\s]+?)\s+service/i);
     const serviceType = serviceTypeMatch ? serviceTypeMatch[1].trim() : 'unknown';
 
-    const showReason = Math.random() < 0.7; // 70% chance to show a reason
-    const reason = reasons[Math.floor(Math.random() * reasons.length)];
-
     let message = '';
+    let nextTrainMessage = '';
+
+    const currentTime = new Date();
+    const departureTime = new Date();
+    const [departureHour, departureMinute] = document.getElementById('time').textContent.split(':').map(Number);
+    departureTime.setHours(departureHour, departureMinute, 0, 0);
+
+    // Removed unused timeDifference calculation
 
     if (status === 'On Time') {
-      message = `The ${time} to ${destination} calling at ${callingPoints}`;
+      const departureTime = new Date();
+      departureTime.setHours(departureHour);
+      departureTime.setMinutes(departureMinute);
+      const currentTime = new Date();
+      const timeDifference = (departureTime - currentTime) / 60000; // convert to minutes
+    
+      if (timeDifference > 1) { 
+        nextTrainMessage = `The next train to depart from platform ${currentPlatform} is the ${time} to ${destination}, calling at ${callingPoints}`;
+      } else {
+        message = `Platform ${currentPlatform} for the ${time} to ${destination}, calling at ${callingPoints}.`;
+      }
     } else if (status === 'Delayed') {
-      if (showReason) {
-        if (['points failure', 'trespassing on the track', 'signal failure'].includes(reason)) {
-          message = `We are sorry that the ${time} to ${destination} is delayed due to ${reason} at ${stationsWithPoints[Math.floor(Math.random() * stationsWithPoints.length)]}. ${serviceType} apologises for this late running, and the inconvenience this may cause you.`;
+      if (currentReason) {
+        if (currentReason === 'a points failure') {
+          const locationMessage = currentStationWithPoints !== 'that is currently under investigation'
+            ? `at ${currentStationWithPoints}`
+            : 'that is currently under investigation somewhere on the network';
+          message = `We are sorry that the ${time} to ${destination}, is delayed due to a points failure ${locationMessage}. ${serviceType} apologises for this late running, and the inconvenience this may cause you.`;
+        } else if (['trespassers on the track', 'a signal failure'].includes(currentReason)) {
+          const randomCallingPoint = callingPoints.split(',').map(point => point.trim())[Math.floor(Math.random() * callingPoints.split(',').length)];
+          message = `We are sorry that the ${time} to ${destination}, is delayed due to ${currentReason} at ${randomCallingPoint}. ${serviceType} apologises for this late running, and the inconvenience this may cause you.`;
+        } else if (['damage to overhead line equipment'].includes(currentReason) && !['Ashdean', 'Victoria Docks, Syde-on-Sea'].includes(destination)) {
+          message = `We are sorry that the ${time} to ${destination}, is delayed due to ${currentReason}. ${serviceType} apologises for this late running, and the inconvenience this may cause you.`;
         } else {
-          message = `We are sorry that the ${time} to ${destination} is delayed due to ${reason}. ${serviceType} apologises for this late running, and the inconvenience this may cause you.`;
+          message = `We are sorry that the ${time} to ${destination}, is delayed due to ${currentReason}. ${serviceType} apologises for this late running, and the inconvenience this may cause you.`;
         }
-      } else {
-        message = `We are sorry that the ${time} to ${destination} is delayed. ${serviceType} apologises for this late running, and the inconvenience this may cause you.`;
       }
-    } else if (status.match(/^\d{2}:\d{2}$/)) {
-      const delayedTime = status.replace(':', ' ');
-      if (showReason) {
-        if (['points failure', 'trespassing on the track', 'signal failure', 'trespassers on the track earlier today'].includes(reason)) {
-          message = `We are sorry that the ${time} to ${destination} is now expected to arrive at ${delayedTime}. This is due to ${reason} at ${stationsWithPoints[Math.floor(Math.random() * stationsWithPoints.length)]}. ${serviceType} apologises for this late running, and the inconvenience this may cause you.`;
+      } else if (status.match(/^\d{2}:\d{2}$/)) {
+        const delayedTime = status.replace(':', ' ');
+        if (currentReason) {
+        if (currentReason === 'a points failure') {
+          message = `We are sorry that the ${time} to ${destination}, is now expected to arrive at ${delayedTime}. This is due to a points failure at ${currentStationWithPoints}. ${serviceType} apologises for this late running, and the inconvenience this may cause you.`;
+        } else if (['trespassers on the track', 'a signal failure'].includes(currentReason)) {
+          const randomCallingPoint = callingPoints.split(',').map(point => point.trim())[Math.floor(Math.random() * callingPoints.split(',').length)];
+          message = `We are sorry that the ${time} to ${destination}, is now expected to arrive at ${delayedTime}. This is due to ${currentReason} at ${randomCallingPoint}. ${serviceType} apologises for this late running, and the inconvenience this may cause you.`;
+        } else if (['damage to overhead line equipment'].includes(currentReason) && !['Ashdean', 'Victoria Docks, Syde-on-Sea'].includes(destination)) {
+          message = `We are sorry that the ${time} to ${destination}, is now expected to arrive at ${delayedTime}. This is due to ${currentReason}. ${serviceType} apologises for this late running, and the inconvenience this may cause you.`;
         } else {
-          message = `We are sorry that the ${time} to ${destination} is now expected to arrive at ${delayedTime}. This is due to ${reason}. ${serviceType} apologises for this late running, and the inconvenience this may cause you.`;
+          message = `We are sorry that the ${time} to ${destination}, is now expected to arrive at ${delayedTime}. This is due to ${currentReason}. ${serviceType} apologises for this late running, and the inconvenience this may cause you.`;
         }
-      } else {
-        message = `We are sorry that the ${time} to ${destination} is now expected to arrive at ${delayedTime}. ${serviceType} apologises for this late running, and the inconvenience this may cause you.`;
-      }
-    } else if (status === 'Cancelled') {
-      if (showReason) {
-        if (['points failure', 'trespassing on the track', 'signal failure', 'trespassers on the track'].includes(reason)) {
-          message = `We are sorry to announce that the ${time} ${serviceType} to ${destination} has been cancelled. This is due to ${reason} at ${stationsWithPoints[Math.floor(Math.random() * stationsWithPoints.length)]}. ${serviceType} apologises for the disruption to your journey today.`;
+        } 
+      } else if (status === 'Cancelled') {
+        if (currentReason) {
+        if (currentReason === 'a points failure') {
+          message = `We are sorry to announce that the ${time} ${serviceType} to ${destination}, has been cancelled. This is due to a points failure at ${currentStationWithPoints}. ${serviceType} apologises for the disruption to your journey today.`;
+        } else if (['trespassers on the track', 'a signal failure'].includes(currentReason)) {
+          const randomCallingPoint = callingPoints.split(',').map(point => point.trim())[Math.floor(Math.random() * callingPoints.split(',').length)];
+          message = `We are sorry to announce that the ${time} ${serviceType} to ${destination}, has been cancelled. This is due to ${currentReason} at ${randomCallingPoint}. ${serviceType} apologises for the disruption to your journey today.`;
+        } else if (['damage to overhead line equipment'].includes(currentReason) && !['Ashdean', 'Victoria Docks, Syde-on-Sea'].includes(destination)) {
+          message = `We are sorry to announce that the ${time} ${serviceType} to ${destination}, has been cancelled. This is due to ${currentReason}. ${serviceType} apologises for the disruption to your journey today.`;
         } else {
-          message = `We are sorry to announce that the ${time} ${serviceType} to ${destination} has been cancelled. This is due to ${reason}. ${serviceType} apologises for the disruption to your journey today.`;
+          message = `We are sorry to announce that the ${time} ${serviceType} to ${destination}, has been cancelled. This is due to ${currentReason}. ${serviceType} apologises for the disruption to your journey today.`;
         }
-      } else {
-        message = `We are sorry to announce that the ${time} ${serviceType} to ${destination} has been cancelled. ${serviceType} apologises for the disruption to your journey today.`;
-      }
+      } 
+      } 
+    if (nextTrainMessage) {
+      const nextTrainUtterance = new SpeechSynthesisUtterance(nextTrainMessage);
+      const voice = window.speechSynthesis.getVoices().find(voice => voice.lang === 'en-GB' && voice.name.includes('Female'));
+      nextTrainUtterance.voice = voice;
+      nextTrainUtterance.lang = 'en-GB';
+      nextTrainUtterance.rate = 0.7;
+      nextTrainUtterance.pitch = 1;
+      window.speechSynthesis.speak(nextTrainUtterance);
     }
 
-    const utterance = new SpeechSynthesisUtterance(message);
-    const voice = window.speechSynthesis.getVoices().find(voice => voice.lang === 'en-GB' && voice.name.includes('Female'));
-    utterance.voice = voice;
-    utterance.lang = 'en-GB';
-    utterance.rate = 0.6;
-    utterance.pitch = 1;
-    window.speechSynthesis.speak(utterance);
+    if (message) {
+      const utterance = new SpeechSynthesisUtterance(message);
+      const voice = window.speechSynthesis.getVoices().find(voice => voice.lang === 'en-GB' && voice.name.includes('Female'));
+      utterance.voice = voice;
+      utterance.lang = 'en-GB';
+      utterance.rate = 0.7;
+      utterance.pitch = 1;
+      window.speechSynthesis.speak(utterance);
+    }
   } catch (error) {
     console.error('Error speaking text:', error);
   }
@@ -89,7 +118,7 @@ function speakText() {
 // Speak text every 5 minutes
 setInterval(speakText, 300000);
 
-function testTTS() {
+window.testTTS = function() {
   speakText();
 }
 
@@ -121,22 +150,21 @@ function randomizeCallingPoints(destinations) {
 
       const dayOfWeek = new Date().toLocaleString('en-US', { weekday: 'long' });
 
-      callingPoints.forEach((callingPoint, index) => {
+      callingPoints.forEach((callingPoint) => {
         if (typeof callingPoint === 'object') {
-          if (callingPoint.daysOfOperation) {
-            if (callingPoint.daysOfOperation.includes(dayOfWeek)) {
-              randomizedCallingPoints.push(callingPoint.name);
-            }
-          } else {
+          if (callingPoint.daysOfOperation && callingPoint.daysOfOperation.includes(dayOfWeek)) {
             randomizedCallingPoints.push(callingPoint.name);
           }
         } else {
-          const originalCallingPoint = service.callingPoints[index];
-          if (exceptions[callingPoint] === false) {
-          } else if (exceptions[callingPoint] === true) {
-            randomizedCallingPoints.push(callingPoint);
-          } else if (typeof exceptions[callingPoint] === 'number') {
-            if (Math.random() < exceptions[callingPoint]) {
+          if (exceptions && exceptions[callingPoint] !== undefined) {
+            if (exceptions[callingPoint] === false) {
+            } else if (exceptions[callingPoint] === true) {
+              randomizedCallingPoints.push(callingPoint);
+            } else if (typeof exceptions[callingPoint] === 'number') {
+              if (Math.random() < exceptions[callingPoint]) {
+                randomizedCallingPoints.push(callingPoint);
+              }
+            } else {
               randomizedCallingPoints.push(callingPoint);
             }
           } else {
@@ -144,7 +172,7 @@ function randomizeCallingPoints(destinations) {
           }
         }
       });
-      service.randomizedCallingPoints = randomizedCallingPoints.reverse();
+      service.randomizedCallingPoints = randomizedCallingPoints;
     });
   });
   return randomizedDestinations;
@@ -162,7 +190,7 @@ if (status === "Random Time") {
   const randomHours = Math.floor(Math.random() * 2); // generate a random hour between 0 and 2
   const randomMinutes = Math.floor(Math.random() * 60); // generate a random minute between 0 and 59
   const newMinutes = (departureMinutes + randomMinutes) % 60; // ensure minutes are between 0 and 59
-  const newHours = departureHours + randomHours + Math.floor((departureMinutes + randomMinutes) / 60); // add any extra hours
+  const newHours = (departureHours + randomHours + Math.floor((departureMinutes + randomMinutes) / 60)) % 24; // add any extra hours and wrap around to 0 if necessary
   const newTime = `${String(newHours).padStart(2, '0')}:${String(newMinutes).padStart(2, '0')}`;
   return newTime;
 } else {
@@ -268,8 +296,87 @@ stationSelect.addEventListener('change', () => {
 function updateDepartureBoard(data) {
   const destinations = data;
   const randomizedDestinations = randomizeCallingPoints(destinations);
+  const callingPoints = randomizedDestinations[0].services[0].callingPoints;
 
-  const displayGroup = document.querySelector('.departure');
+  const stationsWithPoints = ['Leaton', 'Avonhill', 'Mill Bridge', 'Norrington', 'Cuffley', 'Belmond Green', 'Fleetwood', 'Ashdean', 'Victoria Docks', 'Newhurst'];
+  const validStations = callingPoints.filter(point => stationsWithPoints.includes(point));
+  if (validStations.length > 0) {
+    currentStationWithPoints = validStations[Math.floor(Math.random() * validStations.length)];
+  } else {
+    currentStationWithPoints = 'That is currently under invetsigation'; // Provide a meaningful fallback
+  }
+
+
+  const platformsByStation = {
+    'Leaton': {
+      '1': { maxCoaches: 12 },
+      '2': { maxCoaches: 12 },
+      '3': { maxCoaches: 6 },
+      '4': { maxCoaches: 6 },
+      '5': { maxCoaches: 12 }
+    },
+    'Avonhill': {
+      '1': { maxCoaches: 12 },
+      '2': { maxCoaches: 12 },
+      '3': { maxCoaches: 12 },
+      '4': { maxCoaches: 12 },
+      '5': { maxCoaches: 12 },
+      '6': { maxCoaches: 12 },
+      '7': { maxCoaches: 12 },
+      '8': { maxCoaches: 12 },
+      '9': { maxCoaches: 12 },
+      '10': { maxCoaches: 12 },
+      '11': { maxCoaches: 12 },
+      '12': { maxCoaches: 12 },
+      '13': { maxCoaches: 12 },
+      '14': { maxCoaches: 12 },
+      '15': { maxCoaches: 12 },
+      '16': { maxCoaches: 12 }
+    },
+    'Mill Bridge': {
+      '1': { maxCoaches: 12 },
+      '2': { maxCoaches: 12 },
+      '4': { maxCoaches: 12 }
+    },
+    'Norrington': {
+      '1': { maxCoaches: 12 },
+      '2': { maxCoaches: 6 },
+      '3': { maxCoaches: 6 },
+      '4': { maxCoaches: 12 }
+    },
+    'Cuffley': {
+      '1': { maxCoaches: 12 },
+      '2': { maxCoaches: 12 },
+      '3': { maxCoaches: 12 }
+    },
+    'Belmond Green': {
+      '1': { maxCoaches: 12 },
+      '2': { maxCoaches: 12 },
+      '3': { maxCoaches: 8 },
+      '4': { maxCoaches: 8 }
+    }
+  };
+
+  const selectedStation = document.getElementById("station-select").value;
+  const platforms = platformsByStation[selectedStation];
+  const platformKeys = Object.keys(platforms);
+  const randomPlatformKey = platformKeys[Math.floor(Math.random() * platformKeys.length)];
+  currentPlatform = randomPlatformKey;
+
+  
+const reasons = [
+  'a points failure', 'severe weather conditions', 'damage to overhead line equipment',
+  'trespassers on the track', 'staff arriving late to the depot', 'a signal failure',
+  'more trains than usual needing maintenance today',
+  'trespassers on the track earlier today', 'a signal failure earlier today',
+  'a points failure earlier today', 'damage to overhead line equipment earlier today', 
+  'a Shortage of train crew', 'leaves on the line', 'a track circuit failure', 
+  'a fault on a train', 'a vehicle colliding with a level crossing barrier', 
+  'a vehicle colliding with a bridge', 'emergency services dealing with an incident', 
+  'a passenger being taken ill', 'a late running freight train', 'sheep on the line'];
+  currentReason = reasons[Math.floor(Math.random() * reasons.length)];
+
+  // Removed unused displayGroup declaration
   const destinationSpan = document.getElementById('destination');
   const departureTimeSpan = document.getElementById('time');
   const callingPointsSpan = document.getElementById('calling-points');
@@ -281,27 +388,31 @@ function updateDepartureBoard(data) {
     destinationSpan.textContent = 'Unknown';
   }
 
-// Get the current time
-const currentTime = new Date();
-const currentHours = currentTime.getHours();
-const currentMinutes = currentTime.getMinutes();
+  // Get the current time
+  const currentTime = new Date();
+    const currentHours = currentTime.getHours();
+    const currentMinutes = currentTime.getMinutes();
+  
+    // Generate a random time that is within an hour of the current time
+    let hours = currentHours;
+    let minutes = currentMinutes;
+    while (true) {
+      const randomMinutes = Math.floor(Math.random() * 60); // generate a random number of minutes between 0 and 59
+      minutes = currentMinutes + randomMinutes;
+      if (minutes >= 60) {
+        hours = currentHours + 1;
+        minutes -= 60;
+      }
+      const randomTime = new Date();
+      randomTime.setHours(hours);
+      randomTime.setMinutes(minutes);
+      if (randomTime > currentTime && randomTime - currentTime < 60 * 60 * 1000) {
+        break;
+      }
+    }
 
-// Generate a random time that is after the current time
-let hours = currentHours;
-let minutes = currentMinutes;
-while (true) {
-  hours = Math.floor(Math.random() * 24) % 24; // Use modulo to ensure hours is between 0 and 23
-  minutes = Math.floor(Math.random() * 60);
-  const randomTime = new Date();
-  randomTime.setHours(hours);
-  randomTime.setMinutes(minutes);
-  if (randomTime > currentTime && (hours >= 5 || (hours < 5 && minutes < 30))) {
-    break;
-  }
-}
-
-const time = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`;
-departureTimeSpan.textContent = time;
+  const time = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`;
+  departureTimeSpan.textContent = time;
 
   // Generate random status
   const status = getRandomStatus();
@@ -311,17 +422,40 @@ departureTimeSpan.textContent = time;
     const serviceType = randomizedDestinations[0].services[0].serviceType;
     const coachNumbers = randomizedDestinations[0].services[0].coachNumbers;
     const numCoaches = coachNumbers[Math.floor(Math.random() * coachNumbers.length)];
-    const callingPoints = randomizedDestinations[0].services[0].randomizedCallingPoints;
+
     
-    if (callingPoints.length === 0) {
-      const callingPointsText = `Only ${randomizedDestinations[0].name}. This is a ${serviceType} service formed of ${numCoaches} coaches.`;
-      callingPointsSpan.textContent = callingPointsText;
-    } else {
-      const callingPointsText = `${callingPoints.reverse().join(', ')} and ${randomizedDestinations[0].name}. A ${serviceType} service formed of ${numCoaches} coaches.`;
-      callingPointsSpan.textContent = callingPointsText;
-    }
-  }
+
+    if (randomizedDestinations[0].services[0].divided) {
+          const divisionPoint = randomizedDestinations[0].services[0].divisionPoint;
+          const portions = randomizedDestinations[0].services[0].portions.reverse();
+    
+          let callingPointsText = '';
+                    callingPointsText += `${randomizedDestinations[0].services[0].callingPoints.join(', ')} and ${divisionPoint} where the train will divide. Please ensure you are travelling in the correct part of the train. Passengers for ${randomizedDestinations[0].services[0].callingPoints.join(', ')} and ${divisionPoint} may travel in any part of the train. `;
+                    
+                    const firstPortion = portions[0];
+                    const secondPortion = portions[1];
+                    
+                    callingPointsText += `  Passengers for ${secondPortion.callingPoints.join(', ')} and ${secondPortion.destination} should travel in the front ${secondPortion.cars} coaches of this train.`;
+                    callingPointsText += `  Passengers for ${firstPortion.callingPoints.join(', ')} and ${firstPortion.destination} should travel in the rear ${firstPortion.cars} coaches of this train.`;
+                    
+                    callingPointsText += ` A ${serviceType} service formed of ${numCoaches} coaches.`;
+                    callingPointsSpan.textContent = callingPointsText;
+
+        } else {
+          const callingPoints = randomizedDestinations[0].services[0].randomizedCallingPoints;
+    
+          if (callingPoints.length === 0) {
+            const callingPointsText = `${randomizedDestinations[0].name} only. This is a ${serviceType} service formed of ${numCoaches} coaches.`;
+            callingPointsSpan.textContent = callingPointsText;
+          } else {
+            const callingPointsText = `${callingPoints.join(', ')} and ${randomizedDestinations[0].name}. A ${serviceType} service formed of ${numCoaches} coaches.`;
+            callingPointsSpan.textContent = callingPointsText;
+          }
+        }
+      }
 
   // Call speakText after updating the departure board
-  setTimeout(speakText, 100); // add a small delay to ensure the elements have been updated
+  setTimeout(() => {
+    speakText(); // Ensure TTS is triggered after DOM updates
+  }, 100);
 }
