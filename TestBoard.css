@@ -141,3 +141,26 @@ body {
   vertical-align: top; /* Align the calling points with the top of the label */
   z-index: -1;
 }
+
+#test-tts-button {
+  position: absolute;
+  visibility: visible;
+  z-index: 1000;
+  background-color: #0f0f0f;
+  color: #ffffff;
+  border: 5px solid #0f0f0f;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 24px;
+  font-family: 'Dot Matrix', monospace;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+}
+
+#test-tts-button:hover {
+  background-color: #ffffff;
+  color: #0f0f0f;
+  border-color: #ffffff;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+}
