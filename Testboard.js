@@ -192,7 +192,8 @@ if (status === "Random Time") {
   const randomMinutes = Math.floor(Math.random() * 60); // generate a random minute between 0 and 59
   const newMinutes = (departureMinutes + randomMinutes) % 60; // ensure minutes are between 0 and 59
   const newHours = (departureHours + randomHours + Math.floor((departureMinutes + randomMinutes) / 60)) % 24; // add any extra hours and wrap around to 0 if necessary
-  const newTime = `${String(newHours).padStart(2, '0')}:${String(newMinutes).padStart(2, '0')}`;
+  const formattedNewHours = newHours === 24 ? 0 : newHours; // Convert 24 to 0 for midnight
+  const newTime = `${String(formattedNewHours).padStart(2, '0')}:${String(newMinutes).padStart(2, '0')}`;
   return newTime;
 } else {
   return status;
@@ -408,8 +409,9 @@ function updateDepartureBoard(data) {
       break;
     }
   }
-
-  const time = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`;
+  const formattedHours = hours === 24 ? 0 : hours; // Convert 24 to 0 for midnight
+  const time = `${String(formattedHours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`;
+  departureTimeSpan.textContent = time;
   departureTimeSpan.textContent = time;
 
   // Generate random status
