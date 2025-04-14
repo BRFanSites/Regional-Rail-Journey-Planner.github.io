@@ -523,6 +523,56 @@
             }
           }
         ]
+      },
+      {
+        "name": "StoneBrook Town",
+        "callingPoints": [
+          "Ashby-in-Kirkside",
+          "Wallsend",
+          "Ive",
+          "Norrington",
+          "Stirling Street",
+          "West Norrington",
+          "Bramleigh",
+          "Cressford"
+        ],
+        "services": [
+          {
+            "serviceType": "Regional",
+            "coachNumbers": [2, 3, 4, 5, 6],
+            "callingPoints": [
+              "Ashby-in-Kirkside",
+              "Wallsend",
+              "Ive",
+              "Norrington",
+              "Stirling Street",
+              "West Norrington",
+              "Bramleigh",
+              "Cressford"
+            ],
+            "exceptions": {
+              "Stirling Street": 0.33
+            }
+          },
+          {
+            "serviceType": "Semi-Fast",
+            "coachNumbers": [2, 3, 4, 5, 6],
+            "callingPoints": [
+              "Ashby-in-Kirkside",
+              "Wallsend",
+              "Ive",
+              "Norrington",
+              "West Norrington",
+              "Bramleigh",
+              "Cressford"
+            ],
+            "exceptions": {
+              "Ashby-in-Kirkside": 0.25,
+              "Ive": 0.25,
+              "Stirling Street": false
+            }
+          }
+        ]
       }
     ]
 }

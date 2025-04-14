@@ -466,6 +466,61 @@
             }
           }
         ]
-      }          
+      },
+      {
+        "name": "Fayre",
+        "callingPoints": [
+          "Northcote",
+          "Elmtree House",
+          "Fortis Green",
+          "Henley Park",
+          "Leaton",
+          "Meryon",
+          "Whetstone",
+          "Abbey Road",
+          {
+            "name": "Longbow Beach",
+            "daysOfOperation": ["Saturday", "Sunday"]
+          },
+          "Victoria Docks",
+          {
+            "name": "Longbow Beach",
+            "daysOfOperation": ["Saturday", "Sunday"]
+          },
+          "Abbey Road",
+          "Rosebury Park",
+          "Arkley"
+        ],
+        "services": [
+          {
+            "serviceType": "Regional",
+            "coachNumbers": [ 2, 3, 4, 5],
+            "callingPoints": [
+              "Northcote",
+              "Elmtree House",
+              "Fortis Green",
+              "Henley Park",
+              "Leaton",
+              "Meryon", 
+              "Whetstone",
+              "Abbey Road",
+              {
+                "name": "Longbow Beach",
+                "daysOfOperation": ["Saturday", "Sunday"]
+              },
+              "Victoria Docks",
+              {
+                "name": "Longbow Beach",
+                "daysOfOperation": ["Saturday", "Sunday"]
+              },
+              "Abbey Road",
+              "Rosebury Park",
+              "Arkley"
+            ],
+            "exceptions": {
+            }
+          }
+        ]
+      }      
   ]
 }

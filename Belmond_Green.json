@@ -499,6 +499,82 @@
             "exceptions": {}
           }
         ]
+      },
+      {
+        "name": "StoneBrook Town",
+        "callingPoints": [
+          "Union Street",
+          "Thornfield",
+          "Fleetwood",
+          "Rowton",
+          "Belmond Green",
+          "Woodham",
+          "Bawtry Road",
+          "Leaton",
+          "St James Park",
+          "Freston Junction",
+          "Forestdale",
+          "Astly",
+          "Hulme Heath",
+          "Stirling Street",
+          "Norrington",
+          "Stirling Street",
+          "West Norrington",
+          "Bramleigh",
+          "Cressford"
+        ],
+        "services": [
+          {
+            "serviceType": "Regional",
+            "coachNumbers": [2, 3, 4, 5, 6],
+            "callingPoints": [
+              "Belmond Green",
+              "Woodham",
+              "Bawtry Road",
+              "Leaton",
+              "St James Park",
+              "Freston Junction",
+              "Forestdale",
+              "Astly",
+              "Hulme Heath",
+              "Stirling Street",
+              "Norrington",
+              "Stirling Street",
+              "West Norrington",
+              "Bramleigh",
+              "Cressford"
+            ],
+            "exceptions": {
+              "Stirling Street": 0.33
+            }
+          },
+          {
+            "serviceType": "Semi-Fast",
+            "coachNumbers": [2, 3, 4, 5, 6],
+            "callingPoints": [
+              "Belmond Green",
+              "Woodham",
+              "Bawtry Road",
+              "Leaton",
+              "St James Park",
+              "Freston Junction",
+              "Forestdale",
+              "Astly",
+              "Hulme Heath",
+              "Norrington",
+              "West Norrington",
+              "Bramleigh",
+              "Cressford"
+            ],
+            "exceptions": {
+              "Woodham": 0.25,
+              "Bawtry Road": 0.25,
+              "Astly": 0.25,
+              "Forestdale": 0.25,
+              "Stirling Street": false
+            }
+          }
+        ]
       }
     ]
 }

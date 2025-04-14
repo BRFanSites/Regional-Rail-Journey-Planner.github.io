@@ -401,6 +401,62 @@
             }
           }
         ]
+      },
+      {
+        "name": "StoneBrook Town",
+        "callingPoints": [
+          "Stirling Street",
+          "West Norrington",
+          "Bramleigh",
+          "Cressford"
+        ],
+        "services": [
+          {
+            "serviceType": "Regional",
+            "coachNumbers": [2, 3, 4, 5, 6],
+            "callingPoints": [
+              "Stirling Street",
+              "West Norrington",
+              "Bramleigh",
+              "Cressford"
+            ],
+            "exceptions": {
+              "Stirling Street": 0.33
+            }
+          },
+          {
+            "serviceType": "Semi-Fast",
+            "coachNumbers": [2, 3, 4, 5, 6],
+            "callingPoints": [
+              "West Norrington",
+              "Bramleigh",
+              "Cressford"
+            ],
+            "exceptions": {
+              "Stirling Street": false
+            }
+          }
+        ]
+      },
+      {
+        "name": "Hulme Heath",
+        "callingPoints": [
+          "Stirling Street",
+          "Hulme Heath"
+        ],
+        "services": [
+          {
+            "serviceType": "Regional",
+            "coachNumbers": [2, 3],
+            "callingPoints": [
+              "Stirling Street",
+              "Hulme Heath"
+            ],
+            "exceptions": {
+              "Stirling Street": 0.33
+            }
+          }
+        ]
       }
     ]
 }
