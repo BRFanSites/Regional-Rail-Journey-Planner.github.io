@@ -89,14 +89,17 @@ header h1 {
 }
 
 footer {
-  color: #fff;
+  color: #f0f0f0; /* Softer white for better contrast */
   text-align: center;
   padding: 20px;
   font-size: 16px;
   position: fixed;
   bottom: 0;
   width: 100%;
+  background-color: #1e1e1e; /* Subtle background for footer */
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5); /* Add shadow for depth */
 }
+
 .button-contact {
   background-color: #ff5722; /* Vibrant orange */
   color: white; /* White text */
@@ -112,10 +115,12 @@ footer {
   display: inline-block;
   margin: 10px 5px; /* Adjust margins */
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effect */
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease; /* Smooth hover effect */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
 }
 
 .button-contact:hover {
   background-color: #e64a19; /* Darker orange on hover */
   transform: scale(1.05); /* Slight zoom effect */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3); /* Enhance shadow on hover */
 }
