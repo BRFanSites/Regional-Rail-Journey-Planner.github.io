@@ -16,20 +16,22 @@ function speakText() {
     } else {
       const hour = parseInt(time.substring(0, 2));
       const minute = time.substring(3, 5);
-      time = minute === '00' ? `${hour} hundred` : `${hour} ${minute}`;
+      const formattedHour = hour.toString().startsWith('0') ? `oh ${hour.toString().substring(1)}` : hour;
+      const formattedMinute = minute.startsWith('0') ? `oh ${minute.substring(1)}` : minute;
+      time = minute === '00' ? `${formattedHour} hundred` : `${formattedHour} ${formattedMinute}`;
     }
 
     const destination = document.getElementById('destination').textContent;
     const callingPoints = document.getElementById('calling-points').textContent;
     const status = document.getElementById('status').textContent;
-
-    const serviceTypeMatch = callingPoints.match(/(?:A|An)\s+([\w\s]+?)\s+service/i);
-    const serviceType = serviceTypeMatch ? serviceTypeMatch[1].trim() : 'unknown';
+    const serviceType = document.getElementById('calling-points').textContent.includes('service') 
+      ? document.getElementById('calling-points').textContent.split('service')[0].trim().split(' ').pop() 
+      : ''; // Extract serviceType from calling-points text
 
     let message = '';
     let nextTrainMessage = '';
 
-    const currentTime = new Date();
+    // Removed redundant currentTime declaration
     const departureTime = new Date();
     const [departureHour, departureMinute] = document.getElementById('time').textContent.split(':').map(Number);
     departureTime.setHours(departureHour, departureMinute, 0, 0);
@@ -68,7 +70,7 @@ function speakText() {
         const delayedTime = status.replace(':', ' ');
         if (currentReason) {
         if (currentReason === 'a points failure') {
-          message = `May I have your attention please on platform ${currentPlatform}. We are sorry that the ${time} to ${destination}, is now expected to arrive at ${delayedTime}. This is due to a points failure at ${currentStationWithPoints}. ${serviceType} apologises for this late running, and the inconvenience this may cause you.`;
+          message = `May I have your attention please on platform ${currentPlatform}. We are sorry that the ${time} to ${destination}, is now expected to arrive at ${delayedTime}. This is due to a points failure  ${currentStationWithPoints}. ${serviceType} apologises for this late running, and the inconvenience this may cause you.`;
         } else if (['trespassers on the track', 'a signal failure'].includes(currentReason)) {
           const randomCallingPoint = callingPoints.split(',').map(point => point.trim())[Math.floor(Math.random() * callingPoints.split(',').length)];
           message = `May I have your attention please on platform ${currentPlatform}. We are sorry that the ${time} to ${destination}, is now expected to arrive at ${delayedTime}. This is due to ${currentReason} at ${randomCallingPoint}. ${serviceType} apologises for this late running, and the inconvenience this may cause you.`;
@@ -155,6 +157,8 @@ function randomizeCallingPoints(destinations) {
         if (typeof callingPoint === 'object') {
           if (callingPoint.daysOfOperation && callingPoint.daysOfOperation.includes(dayOfWeek)) {
             randomizedCallingPoints.push(callingPoint.name);
+          } else if (!callingPoint.daysOfOperation) {
+            randomizedCallingPoints.push(callingPoint.name); // Ensure calling points without specific days are included
           }
         } else {
           if (exceptions && exceptions[callingPoint] !== undefined) {
@@ -312,8 +316,8 @@ function updateDepartureBoard(data) {
     'Leaton': {
       '1': { maxCoaches: 12 },
       '2': { maxCoaches: 12 },
-      '3': { maxCoaches: 6 },
-      '4': { maxCoaches: 6 },
+      '3': { maxCoaches: 8 },
+      '4': { maxCoaches: 8 },
       '5': { maxCoaches: 12 }
     },
     'Avonhill': {
@@ -361,19 +365,37 @@ function updateDepartureBoard(data) {
   const selectedStation = document.getElementById("station-select").value;
   const platforms = platformsByStation[selectedStation];
   const platformKeys = Object.keys(platforms);
-  const randomPlatformKey = platformKeys[Math.floor(Math.random() * platformKeys.length)];
-  currentPlatform = randomPlatformKey;
+
+  // Filter platforms based on the number of coaches
+  const numCoaches = randomizedDestinations[0].services[0].coachNumbers[Math.floor(Math.random() * randomizedDestinations[0].services[0].coachNumbers.length)];
+  const validPlatforms = platformKeys.filter(platformKey => platforms[platformKey].maxCoaches >= numCoaches);
+
+  if (validPlatforms.length > 0) {
+    const randomPlatformKey = validPlatforms[Math.floor(Math.random() * validPlatforms.length)];
+    currentPlatform = randomPlatformKey;
+  } else {
+    console.warn(`No valid platform found for ${numCoaches} coaches at ${selectedStation}.`);
+    currentPlatform = 'Unknown'; // Fallback if no valid platform is found
+  }
 
   const reasons = [
     'a points failure', 'severe weather conditions', 'damage to overhead line equipment',
     'trespassers on the track', 'staff arriving late to the depot', 'a signal failure',
-    'more trains than usual needing maintenance today',
+    'more trains than usual needing repairs at the same time',
     'trespassers on the track earlier today', 'a signal failure earlier today',
     'a points failure earlier today', 'damage to overhead line equipment earlier today', 
     'a Shortage of train crew', 'leaves on the line', 'a track circuit failure', 
     'a fault on a train', 'a vehicle colliding with a level crossing barrier', 
     'a vehicle colliding with a bridge', 'emergency services dealing with an incident', 
-    'a passenger being taken ill', 'a late running freight train', 'sheep on the line'];
+    'a passenger being taken ill', 'a late running freight train', 'sheep on the line',
+    'floodwater making the railway potentially unsafe', 
+    'engineers dealing with a track defect', 'engineering works not being finished on-time',
+    'a shortage of train conductors', 'this train being late from the depot',
+    'a fault occurring when attaching part of the train', 'a speed restriction due to high track temperatures',
+    'waiting for a train crew member', 'an obstruction on the track', 'Flooding',
+    'a late running train being in front of this one', 'a fire next to the track', 
+    'a fire next to the track earlier today', 'a broken down train', 'a problem that is currently under investigation', 
+    'a problem with line-side equipment'];
   currentReason = reasons[Math.floor(Math.random() * reasons.length)];
 
   const destinationSpan = document.getElementById('destination');

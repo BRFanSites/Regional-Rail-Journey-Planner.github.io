@@ -5,13 +5,45 @@
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      position: relative;
+    }
+
+    .background-image {
+      background-image: url('IndexBackground.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      opacity: 0.5; /* Adjust opacity as needed */
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+  </style>
+  <div class="background-image"></div>
   <header>
     <h1>Welcome to Our Transportation Website</h1>
   </header>
   <div class="button-container">
     <button class="button-regional" onclick="window.location.href='regional.html'">Regional Journey Planner</button>
-    <button class="button-intercity" onclick="window.location.href='Intercity.html'">Intercity Journey Planner 2</button>
+    <button class="button-intercity" onclick="window.location.href='Intercity.html'">Intercity Journey Planner</button>
     <button class="button-stations" onclick="window.location.href='stations.html'">Popular Stations</button>
   </div>
+  <footer>
+    <p><button class="button-contact" onclick="window.location.href='https://github.com/BRFanSites/Regional-Rail-Journey-Planner.github.io'">Contact Us</button>: NAN</p>
+    <p>&copy; 2025 Regional Rail. All rights reserved. 
+      <img src="copyright-logo-png-clipart-best-5.png" alt="Regional Rail Logo" style="vertical-align: middle; width: 20px; height: 20px;">
+    </p>
+  </footer>
 </body>
 </html>

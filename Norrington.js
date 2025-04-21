@@ -161,68 +161,93 @@ fetch('Norrington.json')
       }
     });
 
-    setInterval(function() {
-      var date = new Date();
-      var hours = date.getHours();
-      var minutes = date.getMinutes();
-      var seconds = date.getSeconds();
-    
-      console.log('Hours:', hours);
-      console.log('Minutes:', minutes);
-      console.log('Seconds:', seconds);
-    
-      var hoursTensFlaps = document.querySelectorAll('.hours-tens .flap');
-      var hoursOnesFlaps = document.querySelectorAll('.hours-ones .flap');
-      var minutesTensFlaps = document.querySelectorAll('.minutes-tens .flap');
-      var minutesOnesFlaps = document.querySelectorAll('.minutes-ones .flap');
-      var secondsTensFlaps = document.querySelectorAll('.seconds-tens .flap');
-      var secondsOnesFlaps = document.querySelectorAll('.seconds-ones .flap');
-    
+    let currentOffset = 0; // Default timezone offset
+
+    setInterval(function () {
+      const date = new Date();
+      const adjustedTime = new Date(date.getTime() + currentOffset * 60 * 60 * 1000); // Adjust time by offset in hours
+
+      const hours = adjustedTime.getUTCHours(); // Use UTC hours to avoid local timezone interference
+      const minutes = adjustedTime.getUTCMinutes();
+      const seconds = adjustedTime.getUTCSeconds();
+
+      const hoursTensFlaps = document.querySelectorAll('.hours-tens .flap');
+      const hoursOnesFlaps = document.querySelectorAll('.hours-ones .flap');
+      const minutesTensFlaps = document.querySelectorAll('.minutes-tens .flap');
+      const minutesOnesFlaps = document.querySelectorAll('.minutes-ones .flap');
+      const secondsTensFlaps = document.querySelectorAll('.seconds-tens .flap');
+      const secondsOnesFlaps = document.querySelectorAll('.seconds-ones .flap');
+
       // Clear all active classes
-      hoursTensFlaps.forEach(function(flap) {
-        flap.classList.remove('active');
+      hoursTensFlaps.forEach(function (flap) {
+      flap.classList.remove('active');
       });
-      hoursOnesFlaps.forEach(function(flap) {
-        flap.classList.remove('active');
+      hoursOnesFlaps.forEach(function (flap) {
+      flap.classList.remove('active');
       });
-      minutesTensFlaps.forEach(function(flap) {
-        flap.classList.remove('active');
+      minutesTensFlaps.forEach(function (flap) {
+      flap.classList.remove('active');
       });
-      minutesOnesFlaps.forEach(function(flap) {
-        flap.classList.remove('active');
+      minutesOnesFlaps.forEach(function (flap) {
+      flap.classList.remove('active');
       });
-      secondsTensFlaps.forEach(function(flap) {
-        flap.classList.remove('active');
+      secondsTensFlaps.forEach(function (flap) {
+      flap.classList.remove('active');
       });
-      secondsOnesFlaps.forEach(function(flap) {
-        flap.classList.remove('active');
+      secondsOnesFlaps.forEach(function (flap) {
+      flap.classList.remove('active');
       });
-    
+
       // Add active class to correct flaps
-      var hoursTens = Math.floor(hours / 10);
-      var hoursOnes = hours % 10;
-      var minutesTens = Math.floor(minutes / 10);
-      var minutesOnes = minutes % 10;
-      var secondsTens = Math.floor(seconds / 10);
-      var secondsOnes = seconds % 10;
-    
+      const hoursTens = Math.floor(hours / 10);
+      const hoursOnes = hours % 10;
+      const minutesTens = Math.floor(minutes / 10);
+      const minutesOnes = minutes % 10;
+      const secondsTens = Math.floor(seconds / 10);
+      const secondsOnes = seconds % 10;
+
       if (hoursTens >= 0 && hoursTens <= 2) {
-        hoursTensFlaps[hoursTens].classList.add('active');
+      hoursTensFlaps[hoursTens].classList.add('active');
       }
       if (hoursOnes >= 0 && hoursOnes <= 9) {
-        hoursOnesFlaps[hoursOnes].classList.add('active');
+      hoursOnesFlaps[hoursOnes].classList.add('active');
       }
       if (minutesTens >= 0 && minutesTens <= 5) {
-        minutesTensFlaps[minutesTens].classList.add('active');
+      minutesTensFlaps[minutesTens].classList.add('active');
       }
       if (minutesOnes >= 0 && minutesOnes <= 9) {
-        minutesOnesFlaps[minutesOnes].classList.add('active');
+      minutesOnesFlaps[minutesOnes].classList.add('active');
       }
       if (secondsTens >= 0 && secondsTens <= 5) {
-        secondsTensFlaps[secondsTens].classList.add('active');
+      secondsTensFlaps[secondsTens].classList.add('active');
       }
       if (secondsOnes >= 0 && secondsOnes <= 9) {
-        secondsOnesFlaps[secondsOnes].classList.add('active');
+      secondsOnesFlaps[secondsOnes].classList.add('active');
       }
     }, 1000);
+
+    const timeZone = document.getElementById('Timezone');
+    const timeZoneOffsets = {
+      honolulu: -10, // UTC -10
+      los_angeles: -8, // UTC -8
+      denver: -7, // UTC -7
+      chicago: -6, // UTC -6
+      new_york: -5, // UTC -5
+      london: 0, // UTC +0
+      paris: 1, // UTC +1
+      athens: 2, // UTC +2
+      moscow: 3, // UTC +3
+      dubai: 4, // UTC +4
+      delhi: 5.5, // UTC +5:30
+      bangkok: 7, // UTC +7
+      beijing: 8, // UTC +8
+      tokyo: 9, // UTC +9
+      sydney: 10, // UTC +10
+      auckland: 12, // UTC +12
+    };
+
+    timeZone.addEventListener('change', function () {
+      const selectedStation = timeZone.value;
+      currentOffset = timeZoneOffsets[selectedStation] || 0; // Update the current offset
+    });
   });

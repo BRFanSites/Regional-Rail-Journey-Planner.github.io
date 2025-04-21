@@ -1,12 +1,20 @@
+@font-face {
+  font-family: 'BR';
+  src: url('britrln_.ttf') format('truetype');
+  font-display: swap;
+}
+
 body {
-  font-family: Arial, sans-serif;
+  letter-spacing: 0.30em; /* Adjust spacing between letters */
+  background-color: #252323;
+  font-family: BR, sans-serif;
 }
 
 header {
-  background-color: #333;
   color: #fff;
   padding: 20px;
   text-align: center;
+  font-size: 36px;
 }
 
 header h1 {
@@ -19,14 +27,18 @@ header h1 {
 }
 
 .button-regional {
-  background-color: #007bff; /* Green */
-  border: none;
-  color: rgb(0, 0, 0);
+  background-color: #00329e; /* Green */
+  border-radius: 10px; /* Rounded corners */
+  border: rgb(0, 132, 255) 2px solid; /* White border */
+  color: white; /* White text */
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+  font-weight: bold;
+  font-family: BR, sans-serif;
+  letter-spacing: 0.15em; /* Adjust spacing between letters */
   margin: 4px 2px;
   cursor: pointer;
 }
@@ -35,14 +47,18 @@ header h1 {
 }
 
 .button-intercity {
-  background-color: #ffff00; /* Green */
-  border: none;
-  color: rgb(0, 0, 0);
+  background-color: #afaf00; /* Green */
+  border-radius: 10px; /* Rounded corners */
+  border: rgb(251, 255, 0) 2px solid; /* White border */
+  color: white; /* White text */
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+  font-weight: bold;
+  font-family: BR, sans-serif;
+  letter-spacing: 0.15em; /* Adjust spacing between letters */
   margin: 4px 2px;
   cursor: pointer;
 }
@@ -52,18 +68,54 @@ header h1 {
 }
 
 .button-stations {
-  background-color: #00ff37; /* Green */
-  border: none;
-  color: rgb(0, 0, 0);
+  background-color: #00a724; /* Green */
+  border: rgb(43, 255, 0) 2px solid; /* White border */
+  border-radius: 10px; /* Rounded corners */
+  color: white;
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+  font-weight: bold;
+  font-family: BR, sans-serif;
+  letter-spacing: 0.15em; /* Adjust spacing between letters */
   margin: 4px 2px;
   cursor: pointer;
 }
 
 .button-stations:hover {
   background-color: #00cc2e; /* Darker green */
+}
+
+footer {
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  font-size: 16px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+.button-contact {
+  background-color: #ff5722; /* Vibrant orange */
+  color: white; /* White text */
+  border: none; /* No border */
+  border-radius: 50px; /* Fully rounded corners */
+  padding: 12px 24px; /* Adjust padding for better proportions */
+  font-size: 16px; /* Standard font size */
+  font-weight: bold; /* Bold text */
+  font-family: BR, sans-serif; /* Consistent font */
+  letter-spacing: 0.1em; /* Slight letter spacing */
+  text-align: center;
+  text-decoration: none; /* Remove underline */
+  display: inline-block;
+  margin: 10px 5px; /* Adjust margins */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effect */
+}
+
+.button-contact:hover {
+  background-color: #e64a19; /* Darker orange on hover */
+  transform: scale(1.05); /* Slight zoom effect */
 }
