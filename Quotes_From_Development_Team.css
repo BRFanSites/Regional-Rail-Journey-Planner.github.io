@@ -1,0 +1,96 @@
+body {
+  background-color: #032b44; /* dark blue background */
+  font-family: Arial, sans-serif;
+  color: #333333; /* dark gray text */
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #ffffff; /* medium blue text */
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.container-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* adjust the number of columns as needed */
+  grid-gap: 20px;
+  width: 80%;
+  margin: 0 auto;
+  place-items: center; /* add this to center the containers both horizontally and vertically */
+  background-color: #6495ed; /* medium blue background */
+  padding: 20px;
+  border: 1px solid #032b44; /* dark blue border */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+  background-color: #87ceeb; /* light blue background */
+  padding: 20px;
+  border: 1px solid #4682b4; /* medium blue border */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  aspect-ratio: 1; /* make the container a perfect square */
+  z-index: 0;
+}
+
+.image {
+  width: 75%;
+  height: 75%;
+  object-fit: cover;
+  border-radius: 50%; /* changed to 50% for a circular border */
+  margin: auto;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1; /* ensure the image is above the background */
+  background-color: #8e44ad; /* light-medium purple background */
+}
+
+.text-container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  background-color: #b1b1b1; /* light blue background */
+}
+
+.text-1 {
+  font-weight: bold;
+  text-decoration: underline;
+  color: #032b44; /* dark blue text */
+  font-size: 32px;
+}
+
+.text-2 {
+  font-style: italic;
+  color: #4682b4; /* medium blue text */
+  font-size: 28px;
+}
+
+.text-1, .text-2 {
+  margin-bottom: 10px;
+}
+
+.back-button {
+  background-color: #4682b4; /* medium blue background */
+  color: #ffffff; /* white text */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 20px auto;
+  display: block;
+}
+
+.back-button:hover {
+  background-color: #6495ed; /* light blue background */
+}

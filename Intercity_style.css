@@ -25,22 +25,33 @@ body:hover::-webkit-scrollbar {
   opacity: 1;
 }
 
+#from-station, #to-station {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: #ffe4b5; /* Changed to a warm color */
+  color: #333;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+#from-station:hover, #to-station:hover {
+  background-color: #ffcc99; /* Slightly darker warm color */
+  color: #000;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
 .container {
   width: 90%;
   max-width: 1200px;
   margin: 20px auto;
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  background-color: #ffffff34;
-}
-
-.station-dropdown {
-  width: 98%;
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  background-color: #f0e68c; /* Changed to a soft yellow */
 }
 
 .northern-rail-logo img {
@@ -100,18 +111,6 @@ form label {
   border-bottom: 1px solid #ffe600;
 }
 
-#from-station, #to-station {
-  width: 98.2%;
-  padding: 10px;
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-  font-family: Arial, sans-serif;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  color: #000;
-}
-
 .journey-planner-header h2 {
   font-size: 24px;
   margin: 10;
@@ -141,23 +140,6 @@ form label {
 
 .button:hover {
   background-color: #ffcc00;
-}
-
-input[type="text"] {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-  font-family: Arial, sans-serif;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  color: #000;
-}
-
-input[type="text"]:focus {
-  border-color: #aaa;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 .journey-info {

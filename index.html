@@ -5,7 +5,7 @@
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-  <img src="Site-logo.webp" alt="Regional Rail Logo" style="vertical-align: middle; width: 200px; height: 200px;">
+  <img src="Site-logo.webp" alt="Regional Rail Logo" style="vertical-align: middle; width: 200px; height: 200px;" onclick="window.location.href='https://youtu.be/hvL1339luv0?si=4iTUOu6M3SRlnqCG';">
   <style>
     @font-face {
   font-family: 'BR';
@@ -118,6 +118,74 @@ header h1 {
   background-color: #00cc2e; /* Darker green */
 }
 
+.button-container-new {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.button-event-team {
+  background-color: #ff9100; /* Blue */
+  border-radius: 10px; /* Rounded corners */
+  border: #ffc400 2px solid; /* White border */
+  color: white; /* White text */
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: BR, sans-serif;
+  letter-spacing: 0.15em; /* Adjust spacing between letters */
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.button-event-team:hover {
+  background-color: #ffc400; /* Darker blue */
+}
+
+.button-moderation-team {
+  background-color: #8b32ff; /* Red */
+  border-radius: 10px; /* Rounded corners */
+  border: #4400ff 2px solid; /* White border */
+  color: white; /* White text */
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: BR, sans-serif;
+  letter-spacing: 0.15em; /* Adjust spacing between letters */
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.button-moderation-team:hover {
+  background-color: #4400ff; /* Darker red */
+}
+
+.button-development-team {
+  background-color: #0059ff; /* Purple */
+  border: #0011ff 2px solid; /* White border */
+  border-radius: 10px; /* Rounded corners */
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: BR, sans-serif;
+  letter-spacing: 0.15em; /* Adjust spacing between letters */
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.button-development-team:hover {
+  background-color: #0011ff; /* Darker purple */
+}
+
 footer {
   color: #f0f0f0; /* Softer white for better contrast */
   text-align: center;
@@ -160,12 +228,19 @@ footer {
     <h1>Welcome to Our Transportation Website</h1>
   </header>
   <div class="button-container">
-    <button class="button-regional" onclick="window.location.href='regional.html'">Regional Journey Planner</button>
-    <button class="button-intercity" onclick="window.location.href='Intercity.html'">Intercity Journey Planner</button>
-    <button class="button-stations" onclick="window.location.href='stations.html'">Popular Stations</button>
+    <button class="button-regional" onclick="if (event.button === 0) { window.location.href='regional.html'; }" onauxclick="if (event.button === 1) { window.open('regional.html', '_blank'); }">Regional Journey Planner</button>
+    <button class="button-intercity" onclick="if (event.button === 0) { window.location.href='Intercity.html'; }" onauxclick="if (event.button === 1) { window.open('Intercity.html', '_blank'); }">Intercity Journey Planner</button>
+    <button class="button-stations" onclick="if (event.button === 0) { window.location.href='stations.html'; }" onauxclick="if (event.button === 1) { window.open('stations.html', '_blank'); }">Popular Stations</button>
+  </div>
+  <div class="button-container-new">
+    <button class="button-event-team" onclick="if (event.button === 0) { window.location.href='Quotes_From_Event_Hosts.html'; }" onauxclick="if (event.button === 1) { window.open('Quotes_From_Event_Hosts.html', '_blank'); }">Quotes From Event Hosts</button>
+    <button class="button-moderation-team" onclick="if (event.button === 0) { window.location.href='Quotes_From_Moderation_Team.html'; }" onauxclick="if (event.button === 1) { window.open('Quotes_From_Moderation_Team.html', '_blank'); }">Quotes From Moderation Team</button>
+    <button class="button-development-team" onclick="if (event.button === 0) { window.location.href='Quotes_From_Development_Team.html'; }" onauxclick="if (event.button === 1) { window.open('Quotes_From_Development_Team.html', '_blank'); }">Quotes From Development Team</button>
   </div>
   <footer>
-    <p><button class="button-contact" onclick="window.location.href='https://github.com/BRFanSites/Regional-Rail-Journey-Planner.github.io'">Contact Us</button>: NAN</p>
+    <p>
+      <button class="button-contact" onclick="if (event.button === 0) { window.location.href='https://discord.gg/BBsZMyjm'; }" onauxclick="if (event.button === 1) { window.open('https://discord.gg/BBsZMyjm', '_blank'); }">Contact Us</button>: Contact us on the Fourth Rail Discord Server. <br> Note: This site is not affiliated with the Fourth Rail Discord Server. For issues, please report to 07:10 Virgin Voyager to Holyhead.
+    </p>
     <p> <img src="copyright-logo-png-clipart-best-5.png" alt="Regional Rail Logo" style="vertical-align: middle; width: 20px; height: 20px;"> 2025 Regional Rail. All rights reserved. 
     </p>
   </footer>

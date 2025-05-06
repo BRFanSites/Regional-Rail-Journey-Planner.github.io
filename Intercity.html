@@ -87,7 +87,7 @@
       </marquee>
       <p style="font-size: 18px; text-align: center; color: #000000;">All station names are required to be correctly cappitalized check route map below for accurate results. Some station names may contain special characters, please make sure to include them for accurate results. If no routes generate between your selected stations try clearing your cache and cookies and try again.</p>
       <button onclick="window.location.href = 'https://github.com/BRFanSites/Regional-Rail-Journey-Planner.github.io';" style="float: right;">GitHub</button>
-      <button onclick="window.location.href = 'index.html';">Regional Rail Planner</button>
+      <button onclick="window.location.href = 'regional.html';">Regional Rail Planner</button>
       <button class="back-button" onclick="window.location.href='index.html'">Back to Home</button>
     </div>
 
@@ -99,8 +99,36 @@
             <h2>Journey Planner</h2>
         </div>
         <div id="search-form" style="display: block;">
-            <input type="text" id="from-station" placeholder="From station">
-            <input type="text" id="to-station" placeholder="To station">
+            <select id="from-station">
+                <option value="" disabled selected>From station</option>
+                <option value="Avonhill">Avonhill</option>
+                <option value="Fleetwood">Fleetwood</option>
+                <option value="Belmond Green">Belmond Green</option>
+                <option value="Leaton">Leaton</option>
+                <option value="Freston Junction">Freston Junction</option>
+                <option value="Hulme Heath">Hulme Heath</option>
+                <option value="Norrington">Norrington</option>
+                <option value="Wallsend">Wallsend</option>
+                <option value="Cuffley">Cuffley</option>
+                <option value="Abbey road">Abbey road</option>
+                <option value="Victoria Docks">Victoria Docks</option>
+                <!-- Add more station options here -->
+            </select>
+            <select id="to-station">
+                <option value="" disabled selected>To station</option>
+                <option value="Avonhill">Avonhill</option>
+                <option value="Fleetwood">Fleetwood</option>
+                <option value="Belmond Green">Belmond Green</option>
+                <option value="Leaton">Leaton</option>
+                <option value="Freston Junction">Freston Junction</option>
+                <option value="Hulme Heath">Hulme Heath</option>
+                <option value="Norrington">Norrington</option>
+                <option value="Wallsend">Wallsend</option>
+                <option value="Cuffley">Cuffley</option>
+                <option value="Abbey road">Abbey road</option>
+                <option value="Victoria Docks">Victoria Docks</option>
+                <!-- Add more station options here -->
+            </select>
             <button class="button">Plan Journey</button>
             <div Class="image-container">
                 <img src="Intercity_Map.webp" alt="Intercity Background">

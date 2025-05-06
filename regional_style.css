@@ -1,34 +1,53 @@
 ::-webkit-scrollbar {
-  width: 15px;
-  height: 10px;
+  width: 12px;
+  height: 8px;
   opacity: 0;
   transition: opacity 0.2s ease-in-out;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #ccc;
-  border-radius: 10px;
+  background-color: #888;
+  border-radius: 6px;
   transition: background-color 0.2s ease-in-out;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #666;
+  background-color: #555;
 }
 
 ::-webkit-scrollbar-track {
-  background-color: #fff;
-  border-radius: 10px;
+  background-color: #f0f0f0;
+  border-radius: 6px;
 }
 
-/* Show scrollbar when scrolling */
 body:hover::-webkit-scrollbar {
   opacity: 1;
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background-color: #0077ff;
+  font-family: 'Roboto', Arial, sans-serif;
+  background-color: #f4f4f9;
   margin: 100px;
+  color: #333;
+}
+
+#from-station, #to-station {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: #ffe4b5; /* Changed to a warm color */
+  color: #333;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+#from-station:hover, #to-station:hover {
+  background-color: #ffcc99; /* Slightly darker warm color */
+  color: #000;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .container {
@@ -36,17 +55,9 @@ body {
   max-width: 1200px;
   margin: 20px auto;
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  background-color: #ffffff34;
-}
-
-.station-dropdown {
-  width: 98%;
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  background-color: #f0e68c; /* Changed to a soft yellow */
 }
 
 .northern-rail-logo img {
@@ -59,18 +70,18 @@ body {
 .button {
   display: block;
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   font-size: 16px;
   color: #fff;
-  background-color: #007bff;
+  background-color: #4a90e2;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
   text-align: center;
 }
 
 .button:hover {
-  background-color: #0056b3;
+  background-color: #357abd;
 }
 
 form label {
@@ -79,85 +90,23 @@ form label {
   font-weight: bold;
 }
 
-.ui-autocomplete {
-  max-height: 200px; /* adjust the height as needed */
-  overflow-y: auto;
-  scrollbar-width: thin; /* add this to make the scrollbar thinner */
-}
-
-.station-dropdown:focus {
-  border-color: #66afe9;
-  box-shadow: 0 0 10px rgba(102, 175, 233, 0.6);
-}
-
-.northern-rail-logo img {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-}
-
 .journey-planner-header {
-  background-color: #0065bd;
+  background-color: #4a90e2;
   color: #fff;
-  padding: 10px;
+  padding: 15px;
   margin-top: -50px;
   text-align: center;
-  border-bottom: 1px solid #0065bd;
-}
-
-#from-station, #to-station {
-  width: 98.2%;
-  padding: 10px;
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-  font-family: Arial, sans-serif;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-bottom: 2px solid #357abd;
 }
 
 .journey-planner-header h2 {
   font-size: 24px;
-  margin: 10;
+  margin: 0;
 }
 
-.from-station-label {
+.from-station-label, .to-station-label {
   font-size: 16px;
   margin-bottom: 10px;
-}
-
-.to-station-label {
-  font-size: 16px;
-  margin-bottom: 10px;
-}
-
-.button {
-  background-color: #0065bd;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.button:hover {
-  background-color: #0047b3;
-}
-
-input[type="text"] {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-  font-family: Arial, sans-serif;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-input[type="text"]:focus {
-  border-color: #aaa;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 .journey-info {
@@ -169,40 +118,40 @@ input[type="text"]:focus {
 }
 
 marquee {
-  font: Ubuntu, sans-serif;
-  font-size: 25px;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 22px;
   font-weight: bold;
-  color: #ffffff;
+  color: #4a90e2;
 }
 
 .image-container {
-  position: relative !important; /* keep the image in the normal document flow */
-  clear: both !important; /* clear any floating elements */
-  margin-top: 20px !important; /* add some space between the button and the image */
-  text-align: center !important; /* center the image horizontally */
+  position: relative !important;
+  clear: both !important;
+  margin-top: 20px !important;
+  text-align: center !important;
 }
 
 button {
-  background-color: #007bff; /* blue background color */
-  color: #ffffff; /* white text color */
-  padding: 10px 20px; /* add some padding to make the button bigger */
-  border: none; /* remove the default border */
-  border-radius: 5px; /* add a rounded corner effect */
-  cursor: pointer; /* change the cursor to a pointing hand */
-  font-size: 16px; /* increase the font size */
-  font-weight: bold; /* make the text bold */
+  background-color: #4a90e2;
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
 }
 
 button:hover {
-  background-color: #0056b3; /* darker blue background color on hover */
+  background-color: #357abd;
 }
 
 .back-button {
-  background-color: #4CAF50;
+  background-color: #50c878;
   color: #fff;
-  padding: 10px 20px;
+  padding: 12px 20px;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
 }
 
