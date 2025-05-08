@@ -4,9 +4,9 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
     </style>
-    <link rel="icon" href="Regional_logo.ico" type="image/ico">
-    <title>Regional Journey Planner</title>
-    <link rel="stylesheet" type="text/css" href="./regional_style.css">
+    <link rel="icon" href="../../Images/Intercity_logo.ico" type="image/ico">
+    <title>Intercity Journey Planner</title>
+    <link rel="stylesheet" type="text/css" href="./Intercity_style.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -79,21 +79,21 @@
         <div class="image-container"></div>
     </div>
 
-    <div id="scrolling-text-bar" style="position: fixed; top: 0; left: 0; width: 100%; background-color: #0065bd; padding: 10px; border-bottom: 1px solid #0065bd; z-index: 1;">
-        <marquee behavior="scroll" direction="left" scrollamount="10;">
-            Welcome to the Regional Journey Planner! Plan your journey with ease and convenience. 
-            <a href="https://github.com/BRFanSites/Regional-Rail-Journey-Planner.github.io" target="_blank" style="color: white; text-decoration: underline;">Have suggestions or issues? Visit our GitHub repository.</a>
-            Thank you for using our service!
-        </marquee>
-        <p style="font-size: 18px; text-align: center; color: #ffffff;">All station names are required to be correctly cappitalized check route map below for accurate results. Some station names may contain special characters, please make sure to include them for accurate results. If no routes generate between your selected stations try clearing your cache and cookies and try again.</p>
-        <button onclick="window.location.href = 'https://github.com/BRFanSites/Regional-Rail-Journey-Planner.github.io';" style="float: right;">GitHub</button>
-        <button onclick="window.location.href = 'Intercity.html';">Intercity Rail Planner</button>
-        <button class="back-button" onclick="window.location.href='index.html'">Back to Home</button>
+    <div id="scrolling-text-bar" style="position: fixed; top: 0; left: 0; width: 100%; background-color: #ffcc00; padding: 10px; border-bottom: 1px solid #ffcc00; z-index: 1;">
+      <marquee behavior="scroll" direction="left" scrollamount="10;">
+        Welcome to the Intercity Journey Planner! Plan your journey with ease and convenience. 
+        <a href="https://github.com/BRFanSites/Regional-Rail-Journey-Planner.github.io" target="_blank" style="color: #000; text-decoration: underline;">Have suggestions or issues? Visit our GitHub repository.</a>
+        Thank you for using our service!
+      </marquee>
+      <p style="font-size: 18px; text-align: center; color: #000000;">All station names are required to be correctly cappitalized check route map below for accurate results. Some station names may contain special characters, please make sure to include them for accurate results. If no routes generate between your selected stations try clearing your cache and cookies and try again.</p>
+      <button onclick="window.location.href = 'https://github.com/BRFanSites/Regional-Rail-Journey-Planner.github.io';" style="float: right;">GitHub</button>
+      <button onclick="window.location.href = '../../Pages/Regional Planner/regional.html';">Regional Rail Planner</button>
+      <button class="back-button" onclick="window.location.href='../../Pages/Index/index.html'">Back to Home</button>
     </div>
 
     <div class="container">
         <div class="northern-rail-logo">
-            <img src="Regional_logo.webp" alt="Regional Rail Logo">
+            <img src="../../Images/Intercity_logo.webp" alt="Regional Rail Logo">
         </div>
         <div class="journey-planner-header">
             <h2>Journey Planner</h2>
@@ -102,80 +102,36 @@
             <select id="from-station">
                 <option value="" disabled selected>From station</option>
                 <option value="Avonhill">Avonhill</option>
-                <option value="Union Street">Union Street</option>
-                <option value="Thornfield">Thornfield</option>
                 <option value="Fleetwood">Fleetwood</option>
-                <option value="Rowton">Rowton</option>
                 <option value="Belmond Green">Belmond Green</option>
-                <option value="Woodham">Woodham</option>
-                <option value="Bawtry Road">Bawtry Road</option>
                 <option value="Leaton">Leaton</option>
-                <option value="St James Park">St James Park</option>
                 <option value="Freston Junction">Freston Junction</option>
-                <option value="Forestdale">Forestdale</option>
-                <option value="Astley">Astley</option>
                 <option value="Hulme Heath">Hulme Heath</option>
-                <option value="Stirling Street">Stirling Street</option>
                 <option value="Norrington">Norrington</option>
-                <option value="Ive">Ive</option>
                 <option value="Wallsend">Wallsend</option>
-                <option value="Ashby-In-Kirkside">Ashby-In-Kirkside</option>
                 <option value="Cuffley">Cuffley</option>
-                <option value="Meryon">Meryon</option>
-                <option value="Whetstone">Whetstone</option>
                 <option value="Abbey road">Abbey road</option>
                 <option value="Victoria Docks">Victoria Docks</option>
-                <option value="Newhurst">Newhurst</option>
-                <option value="Syde-On-Sea">Syde-On-Sea</option>
-                <option value="Rosebury Park">Rosebury Park</option>
-                <option value="Arkley">Arkley</option>
-                <option value="Fayre">Fayre</option>
-                <option value="West Norrington">West Norrington</option>
-                <option value="Bramleigh">Bramleigh</option>
-                <option value="Cressford">Cressford</option>
-                <option value="Stonebrook Town">Stonebrook Town</option>
                 <!-- Add more station options here -->
             </select>
             <select id="to-station">
                 <option value="" disabled selected>To station</option>
                 <option value="Avonhill">Avonhill</option>
-                <option value="Union Street">Union Street</option>
-                <option value="Thornfield">Thornfield</option>
                 <option value="Fleetwood">Fleetwood</option>
-                <option value="Rowton">Rowton</option>
                 <option value="Belmond Green">Belmond Green</option>
-                <option value="Woodham">Woodham</option>
-                <option value="Bawtry Road">Bawtry Road</option>
                 <option value="Leaton">Leaton</option>
-                <option value="St James Park">St James Park</option>
                 <option value="Freston Junction">Freston Junction</option>
-                <option value="Forestdale">Forestdale</option>
-                <option value="Astley">Astley</option>
                 <option value="Hulme Heath">Hulme Heath</option>
-                <option value="Stirling Street">Stirling Street</option>
                 <option value="Norrington">Norrington</option>
-                <option value="Ive">Ive</option>
                 <option value="Wallsend">Wallsend</option>
-                <option value="Ashby-In-Kirkside">Ashby-In-Kirkside</option>
                 <option value="Cuffley">Cuffley</option>
-                <option value="Meryon">Meryon</option>
-                <option value="Whetstone">Whetstone</option>
                 <option value="Abbey road">Abbey road</option>
                 <option value="Victoria Docks">Victoria Docks</option>
-                <option value="Newhurst">Newhurst</option>
-                <option value="Syde-On-Sea">Syde-On-Sea</option>
-                <option value="Rosebury Park">Rosebury Park</option>
-                <option value="Arkley">Arkley</option>
-                <option value="Fayre">Fayre></option>
-                <option value="West Norrington">West Norrington</option>
-                <option value="Bramleigh">Bramleigh</option>
-                <option value="Cressford">Cressford</option>
-                <option value="Stonebrook Town">Stonebrook Town</option>
                 <!-- Add more station options here -->
             </select>
             <button class="button">Plan Journey</button>
             <div Class="image-container">
-                <img src="Regional_Map.webp" alt="Regional Map">
+                <img src="../../Images/Intercity_Map.webp" alt="Intercity Background">
             </div>
         </div>
         <div id="journey-info" style="display: none;">
@@ -190,10 +146,10 @@
 
     <script>
         const backgroundImages = [
-            'regional_background1.png',
-            'regional_background2.png',
-            'regional_background3.png',
-            'regional_background4.png',
+            '../../Images/intercity_background1.png',
+            '../../Images/intercity_background2.png',
+            '../../Images/intercity_background3.png',
+            '../../Images/intercity_background4.png',
             // add more images here
         ];
 
@@ -223,6 +179,6 @@
             }, 2000);
         }, 10000); // change the background image every 10 seconds
     </script>
-    <script type="module" src="regional_routing.js"></script>
+    <script type="module" src="Intercity_routing.js"></script>
 </body>
 </html>
