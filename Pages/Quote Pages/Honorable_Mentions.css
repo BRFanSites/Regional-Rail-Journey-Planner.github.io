@@ -73,7 +73,7 @@ h1 {
     color: #c0c0c0; /* silver text */
     font-size: 24px; /* slightly smaller size for better balance */
     margin: 10px 0; /* consistent vertical spacing */
-    text-align: center; /* ensure the text is centered */
+    text-align: left; /* align text to the left */
     line-height: 1.5; /* improve readability with line spacing */
 }
 
