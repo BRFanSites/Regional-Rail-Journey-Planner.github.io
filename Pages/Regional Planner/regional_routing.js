@@ -1,7 +1,7 @@
 let routes;
 const increment = 0.25;
 
-fetch('https://www.regionalrail.co.uk/regional_routes.json')
+fetch('https://www.regionalrail.co.uk/Pages/Regional%20Planner/regional_routes.json')
   .then(response => {
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
