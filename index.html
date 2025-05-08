@@ -5,7 +5,7 @@
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-  <img src="../../Images\Site-logo.webp" alt="Regional Rail Logo" style="vertical-align: middle; width: 200px; height: 200px;" onclick="window.location.href='https://youtu.be/hvL1339luv0?si=4iTUOu6M3SRlnqCG';">
+  <img src="../../Images/Site-logo.webp" alt="Regional Rail Logo" style="vertical-align: middle; width: 200px; height: 200px;" onclick="window.location.href='https://youtu.be/hvL1339luv0?si=4iTUOu6M3SRlnqCG';">
   <style>
     @font-face {
   font-family: 'BR';
@@ -186,6 +186,27 @@ header h1 {
   background-color: #0011ff; /* Darker purple */
 }
 
+.button-honorable-mentions {
+  background-color: #ff1493; /* Pink */
+  border: #c71585 2px solid; /* Dark pink border */
+  border-radius: 10px; /* Rounded corners */
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: BR, sans-serif;
+  letter-spacing: 0.15em; /* Adjust spacing between letters */
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.button-honorable-mentions:hover {
+  background-color: #c71585; /* Darker pink */
+}
+
 footer {
   color: #f0f0f0; /* Softer white for better contrast */
   text-align: center;
@@ -236,12 +257,13 @@ footer {
     <button class="button-event-team" onclick="if (event.button === 0) { window.location.href='../../Pages/Quote Pages/Quotes_From_Event_Hosts.html'; }" onauxclick="if (event.button === 1) { window.open('../../Pages/Quote Pages/Quotes_From_Event_Hosts.html', '_blank'); }">Quotes From Event Hosts</button>
     <button class="button-moderation-team" onclick="if (event.button === 0) { window.location.href='../../Pages/Quote Pages/Quotes_From_Moderation_Team.html'; }" onauxclick="if (event.button === 1) { window.open('../../Pages/Quote Pages/Quotes_From_Moderation_Team.html', '_blank'); }">Quotes From Moderation Team</button>
     <button class="button-development-team" onclick="if (event.button === 0) { window.location.href='../../Pages/Quote Pages/Quotes_From_Development_Team.html'; }" onauxclick="if (event.button === 1) { window.open('../../Pages/Quote Pages/Quotes_From_Development_Team.html', '_blank'); }">Quotes From Development Team</button>
+    <button class="button-honorable-mentions" onclick="if (event.button === 0) { window.location.href='../../Pages/Quote Pages/Honorable_Mentions.html'; }" onauxclick="if (event.button === 1) { window.open('../../Pages/Quote Pages/Honorable_Mentions.html', '_blank'); }">Quotes of Honorable Mentions</button>
   </div>
   <footer>
     <p>
       <button class="button-contact" onclick="if (event.button === 0) { window.location.href='https://discord.gg/BBsZMyjm'; }" onauxclick="if (event.button === 1) { window.open('https://discord.gg/BBsZMyjm', '_blank'); }">Contact Us</button>: Contact us on the Fourth Rail Discord Server. <br> Note: This site is not affiliated with the Fourth Rail Discord Server. For issues, please report to 07:10 Virgin Voyager to Holyhead.
     </p>
-    <p> <img src="../../Images\copyright-logo-png-clipart-best-5.png" alt="Regional Rail Logo" style="vertical-align: middle; width: 20px; height: 20px;"> 2025 Regional Rail. All rights reserved. 
+    <p> <img src="../../Images/copyright-logo-png-clipart-best-5.png" alt="Regional Rail Logo" style="vertical-align: middle; width: 20px; height: 20px;"> 2025 Regional Rail. All rights reserved. 
     </p>
   </footer>
 </body>

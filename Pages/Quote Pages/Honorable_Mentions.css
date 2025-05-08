@@ -1,0 +1,96 @@
+body {
+    background-color: #1c1c1c; /* dark gray background */
+    font-family: Arial, sans-serif;
+    color: #f5f5f5; /* light gray text */
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #ffd700; /* gold text */
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.container-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* adjust the number of columns as needed */
+    grid-gap: 20px;
+    width: 80%;
+    margin: 0 auto;
+    place-items: center; /* center the containers both horizontally and vertically */
+    background-color: #333333; /* dark gray background */
+    padding: 20px;
+    border: 1px solid #ffd700; /* gold border */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5); /* gold glow */
+}
+
+.container {
+    background-color: #c0c0c0; /* silver background */
+    padding: 20px;
+    border: 1px solid #cd7f32; /* bronze border */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    aspect-ratio: 1; /* make the container a perfect square */
+    z-index: 0;
+}
+
+.image {
+    width: 75%;
+    height: 75%;
+    object-fit: cover;
+    border-radius: 50%; /* circular border */
+    margin: auto;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1; /* ensure the image is above the background */
+    background-color: #ffd700; /* gold background */
+}
+
+.text-container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    background-color: #4f4f4f; /* dark gray background */
+}
+
+.text-1 {
+    font-weight: bold;
+    text-decoration: underline;
+    color: #ffd700; /* gold text */
+    font-size: 32px;
+}
+
+.text-2 {
+    font-style: italic;
+    color: #c0c0c0; /* silver text */
+    font-size: 28px;
+}
+
+.text-1, .text-2 {
+    margin-bottom: 10px;
+}
+
+.back-button {
+    background-color: #cd7f32; /* bronze background */
+    color: #ffffff; /* white text */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 20px auto;
+    display: block;
+}
+
+.back-button:hover {
+    background-color: #ffd700; /* gold background */
+}
