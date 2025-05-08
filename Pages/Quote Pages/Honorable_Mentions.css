@@ -71,7 +71,10 @@ h1 {
 .text-2 {
     font-style: italic;
     color: #c0c0c0; /* silver text */
-    font-size: 28px;
+    font-size: 24px; /* slightly smaller size for better balance */
+    margin: 10px 0; /* consistent vertical spacing */
+    text-align: center; /* ensure the text is centered */
+    line-height: 1.5; /* improve readability with line spacing */
 }
 
 .text-1, .text-2 {
