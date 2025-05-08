@@ -187,8 +187,8 @@ header h1 {
 }
 
 .button-honorable-mentions {
-  background-color: #ff1493; /* Pink */
-  border: #c71585 2px solid; /* Dark pink border */
+  background: linear-gradient(45deg, #ffd700, #ffcc00); /* Gradient from gold to a lighter gold */
+  border: #ffbf00 2px solid; /* Gold border */
   border-radius: 10px; /* Rounded corners */
   color: white;
   padding: 15px 32px;
@@ -201,10 +201,12 @@ header h1 {
   letter-spacing: 0.15em; /* Adjust spacing between letters */
   margin: 4px 2px;
   cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease; /* Smooth hover effect */
 }
 
 .button-honorable-mentions:hover {
-  background-color: #c71585; /* Darker pink */
+  background: linear-gradient(45deg, #ffcc00, #ffd700); /* Reverse gradient on hover */
+  transform: scale(1.05); /* Slight zoom effect */
 }
 
 footer {
