@@ -1,0 +1,101 @@
+@font-face {
+  font-family: 'Dot Matrix';
+  src: url('../../Fonts/London-Underground-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  background-color: #000; /* Ensure a consistent background */
+}
+
+/* Center the dropdown */
+.station-select {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  height: 118px;
+  margin: 20px 0;
+  position: relative;
+  z-index: 100;
+}
+
+/* Style the dropdown */
+.station-select select {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #000000;
+  color: #ffffff;
+  text-align: center;
+  font-size: 50px;
+  font-family: 'Dot Matrix', monospace; /* Use Dot_Matrix font */
+  cursor: pointer;
+}
+
+/* Departure board */
+.departure-board {
+  width: 90%; /* Make it responsive */
+  max-width: 1600px;
+  margin: 20px auto;
+  background-color: #0f0f0f;
+  padding: 20px;
+  border: 10px solid #0f0f0f;
+  box-shadow: 0 0 10px inset rgb(0, 0, 0);
+  text-align: center;
+  font-size: 52px;
+  font-family: 'Dot Matrix', monospace;
+  color: #ffffff;
+}
+
+/* Calling points container */
+.calling-points-container {
+  width: 90%; /* Make it responsive */
+  max-width: 1600px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 10px solid #000000;
+  background-color: #0f0f0f;
+  text-align: center;
+  font-size: 52px;
+  font-family: 'Dot Matrix', monospace;
+  color: #ffffff;
+  z-index: 1;
+}
+
+/* Test TTS button */
+#test-tts-button {
+  position: relative;
+  visibility: visible;
+  z-index: 1000;
+  background-color: #0f0f0f;
+  color: #ffffff;
+  border: 5px solid #0f0f0f;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 24px;
+  font-family: 'Dot Matrix', monospace;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+  margin: 20px auto;
+}
+
+
+/* Clock */
+.clock {
+  position: static; /* Remove fixed positioning */
+  font-size: 52px; /* Match the font size of the departure board */
+  margin-left: 20px; /* Add spacing if needed */
+  color: white;
+  font-family: 'Dot Matrix';
+}

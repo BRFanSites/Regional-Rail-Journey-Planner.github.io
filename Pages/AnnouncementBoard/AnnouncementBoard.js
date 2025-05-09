@@ -213,7 +213,7 @@ let selectedStation = 'Avonhill'; // Declare selectedStation here
 // Auto update on page load
 document.addEventListener('DOMContentLoaded', () => {
   stationSelect.value = selectedStation; // Set default station to Avonhill
-  fetch('./Avonhill.json')
+  fetch('../../Pages/Avonhill/Avonhill.json')
     .then(response => response.json())
     .then(jsonData => {
       console.log('Avonhill.json loaded successfully.');
@@ -233,7 +233,7 @@ stationSelect.addEventListener('change', () => {
   switch (selectedStation) {
     case 'Leaton':
       console.log('Loading Leaton.json...');
-      fetch('./Leaton.json', { headers: { 'Content-Type': 'application/json' } })
+      fetch('../../Pages/Leaton/Leaton.json', { headers: { 'Content-Type': 'application/json' } })
         .then(response => response.json())
         .then(jsonData => {
           console.log('Leaton.json loaded successfully.');
@@ -243,7 +243,7 @@ stationSelect.addEventListener('change', () => {
       break;
     case 'Avonhill':
       console.log('Loading Avonhill.json...');
-      fetch('./Avonhill.json', { headers: { 'Content-Type': 'application/json' } })
+      fetch('../../Pages/Avonhill/Avonhill.json', { headers: { 'Content-Type': 'application/json' } })
         .then(response => response.json())
         .then(jsonData => {
           console.log('Avonhill.json loaded successfully.');
@@ -253,7 +253,7 @@ stationSelect.addEventListener('change', () => {
       break;
     case 'Mill Bridge':
       console.log('Loading Mill_Bridge.json...');
-      fetch('./Mill_Bridge.json', { headers: { 'Content-Type': 'application/json' } })
+      fetch('../../Pages/Mill Bridge/Mill_Bridge.json', { headers: { 'Content-Type': 'application/json' } })
         .then(response => response.json())
         .then(jsonData => {
           console.log('Mill_Bridge.json loaded successfully.');
@@ -263,7 +263,7 @@ stationSelect.addEventListener('change', () => {
       break;
     case 'Norrington':
       console.log('Loading Norrington.json...');
-      fetch('./Norrington.json', { headers: { 'Content-Type': 'application/json' } })
+      fetch('../../Pages/Norrington/Norrington.json', { headers: { 'Content-Type': 'application/json' } })
         .then(response => response.json())
         .then(jsonData => {
           console.log('Norrington.json loaded successfully.');
@@ -273,7 +273,7 @@ stationSelect.addEventListener('change', () => {
       break;
     case 'Cuffley':
       console.log('Loading Cuffley.json...');
-      fetch('./Cuffley.json', { headers: { 'Content-Type': 'application/json' } })
+      fetch('../../Pages/Cuffley/Cuffley.json', { headers: { 'Content-Type': 'application/json' } })
         .then(response => response.json())
         .then(jsonData => {
           console.log('Cuffley.json loaded successfully.');
@@ -283,7 +283,7 @@ stationSelect.addEventListener('change', () => {
       break;
     case 'Belmond Green':
       console.log('Loading Belmond_Green.json...');
-      fetch('./Belmond_Green.json', { headers: { 'Content-Type': 'application/json' } })
+      fetch('../../Pages/Belmond Green/Belmond_Green.json', { headers: { 'Content-Type': 'application/json' } })
         .then(response => response.json())
         .then(jsonData => {
           console.log('Belmond_Green.json loaded successfully.');
