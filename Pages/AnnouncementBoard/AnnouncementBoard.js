@@ -204,15 +204,17 @@ if (status === "Random Time") {
 }
 }
 
-const statusElement = document.getElementById('status');
-statusElement.textContent = getRandomStatus();
-
-const stationSelect = document.getElementById('station-select');
 let selectedStation = 'Avonhill'; // Declare selectedStation here
 
-// Auto update on page load
 document.addEventListener('DOMContentLoaded', () => {
-  stationSelect.value = selectedStation; // Set default station to Avonhill
+  const stationSelect = document.getElementById('station-select');
+  const statusElement = document.getElementById('status');
+
+  // Set default station and status
+  stationSelect.value = selectedStation;
+  statusElement.textContent = getRandomStatus();
+
+  // Initial board load
   fetch('../../Pages/Avonhill/Avonhill.json')
     .then(response => response.json())
     .then(jsonData => {
@@ -220,81 +222,72 @@ document.addEventListener('DOMContentLoaded', () => {
       updateDepartureBoard(jsonData);
     })
     .catch(error => console.error('Error loading Avonhill.json:', error));
-});
 
-// Get the selected station
-stationSelect.addEventListener('change', () => {
-  selectedStation = stationSelect.value; // Get the current value of the select element
-  if (!selectedStation) { // If no value is selected, default to Avonhill
-    selectedStation = 'Avonhill';
-    stationSelect.value = selectedStation; // Update the select element's value
-  }
+  // Listen for station changes
+  stationSelect.addEventListener('change', () => {
+    selectedStation = stationSelect.value || 'Avonhill';
+    statusElement.textContent = getRandomStatus();
 
-  switch (selectedStation) {
-    case 'Leaton':
-      console.log('Loading Leaton.json...');
-      fetch('../../Pages/Leaton/Leaton.json', { headers: { 'Content-Type': 'application/json' } })
-        .then(response => response.json())
-        .then(jsonData => {
-          console.log('Leaton.json loaded successfully.');
-          updateDepartureBoard(jsonData);
-        })
-        .catch(error => console.error('Error loading Leaton.json:', error));
-      break;
-    case 'Avonhill':
-      console.log('Loading Avonhill.json...');
-      fetch('../../Pages/Avonhill/Avonhill.json', { headers: { 'Content-Type': 'application/json' } })
-        .then(response => response.json())
-        .then(jsonData => {
-          console.log('Avonhill.json loaded successfully.');
-          updateDepartureBoard(jsonData);
-        })
-        .catch(error => console.error('Error loading Avonhill.json:', error));
-      break;
-    case 'Mill Bridge':
-      console.log('Loading Mill_Bridge.json...');
-      fetch('../../Pages/Mill Bridge/Mill_Bridge.json', { headers: { 'Content-Type': 'application/json' } })
-        .then(response => response.json())
-        .then(jsonData => {
-          console.log('Mill_Bridge.json loaded successfully.');
-          updateDepartureBoard(jsonData);
-        })
-        .catch(error => console.error('Error loading Mill_Bridge.json:', error));
-      break;
-    case 'Norrington':
-      console.log('Loading Norrington.json...');
-      fetch('../../Pages/Norrington/Norrington.json', { headers: { 'Content-Type': 'application/json' } })
-        .then(response => response.json())
-        .then(jsonData => {
-          console.log('Norrington.json loaded successfully.');
-          updateDepartureBoard(jsonData);
-        })
-        .catch(error => console.error('Error loading Norrington.json:', error));
-      break;
-    case 'Cuffley':
-      console.log('Loading Cuffley.json...');
-      fetch('../../Pages/Cuffley/Cuffley.json', { headers: { 'Content-Type': 'application/json' } })
-        .then(response => response.json())
-        .then(jsonData => {
-          console.log('Cuffley.json loaded successfully.');
-          updateDepartureBoard(jsonData);
-        })
-        .catch(error => console.error('Error loading Cuffley.json:', error));
-      break;
-    case 'Belmond Green':
-      console.log('Loading Belmond_Green.json...');
-      fetch('../../Pages/Belmond Green/Belmond_Green.json', { headers: { 'Content-Type': 'application/json' } })
-        .then(response => response.json())
-        .then(jsonData => {
-          console.log('Belmond_Green.json loaded successfully.');
-          updateDepartureBoard(jsonData);
-        })
-        .catch(error => console.error('Error loading Belmond_Green.json:', error));
-      break;
-    default:
-      console.error('Invalid station selected');
-      return;
-  }
+    switch (selectedStation) {
+      case 'Leaton':
+        fetch('../../Pages/Leaton/Leaton.json', { headers: { 'Content-Type': 'application/json' } })
+          .then(response => response.json())
+          .then(jsonData => {
+            console.log('Leaton.json loaded successfully.');
+            updateDepartureBoard(jsonData);
+          })
+          .catch(error => console.error('Error loading Leaton.json:', error));
+        break;
+      case 'Avonhill':
+        fetch('../../Pages/Avonhill/Avonhill.json', { headers: { 'Content-Type': 'application/json' } })
+          .then(response => response.json())
+          .then(jsonData => {
+            console.log('Avonhill.json loaded successfully.');
+            updateDepartureBoard(jsonData);
+          })
+          .catch(error => console.error('Error loading Avonhill.json:', error));
+        break;
+      case 'Mill Bridge':
+        fetch('../../Pages/Mill Bridge/Mill_Bridge.json', { headers: { 'Content-Type': 'application/json' } })
+          .then(response => response.json())
+          .then(jsonData => {
+            console.log('Mill_Bridge.json loaded successfully.');
+            updateDepartureBoard(jsonData);
+          })
+          .catch(error => console.error('Error loading Mill_Bridge.json:', error));
+        break;
+      case 'Norrington':
+        fetch('../../Pages/Norrington/Norrington.json', { headers: { 'Content-Type': 'application/json' } })
+          .then(response => response.json())
+          .then(jsonData => {
+            console.log('Norrington.json loaded successfully.');
+            updateDepartureBoard(jsonData);
+          })
+          .catch(error => console.error('Error loading Norrington.json:', error));
+        break;
+      case 'Cuffley':
+        fetch('../../Pages/Cuffley/Cuffley.json', { headers: { 'Content-Type': 'application/json' } })
+          .then(response => response.json())
+          .then(jsonData => {
+            console.log('Cuffley.json loaded successfully.');
+            updateDepartureBoard(jsonData);
+          })
+          .catch(error => console.error('Error loading Cuffley.json:', error));
+        break;
+      case 'Belmond Green':
+        fetch('../../Pages/Belmond Green/Belmond_Green.json', { headers: { 'Content-Type': 'application/json' } })
+          .then(response => response.json())
+          .then(jsonData => {
+            console.log('Belmond_Green.json loaded successfully.');
+            updateDepartureBoard(jsonData);
+          })
+          .catch(error => console.error('Error loading Belmond_Green.json:', error));
+        break;
+      default:
+        console.error('Invalid station selected');
+        return;
+    }
+  });
 });
 
 // Rest of the code remains the same
@@ -302,64 +295,29 @@ stationSelect.addEventListener('change', () => {
 function updateDepartureBoard(data) {
   const destinations = data;
   const randomizedDestinations = randomizeCallingPoints(destinations);
-  const callingPoints = randomizedDestinations[0].services[0].callingPoints;
 
-  const stationsWithPoints = ['Leaton', 'Avonhill', 'Mill Bridge', 'Norrington', 'Cuffley', 'Belmond Green', 'Fleetwood', 'Ashdean', 'Victoria Docks', 'Newhurst'];
+  // Get the first service and its calling points
+  const service = randomizedDestinations[0].services[0];
+  const callingPoints = service.randomizedCallingPoints || service.callingPoints || [];
+
+  const stationsWithPoints = [
+    'Leaton', 'Avonhill', 'Mill Bridge', 'Norrington', 'Cuffley', 'Belmond Green',
+    'Fleetwood', 'Ashdean', 'Victoria Docks', 'Newhurst'
+  ];
   const validStations = callingPoints.filter(point => stationsWithPoints.includes(point));
   if (validStations.length > 0) {
     currentStationWithPoints = validStations[Math.floor(Math.random() * validStations.length)];
   } else {
-    currentStationWithPoints = 'That is currently under invetsigation'; // Provide a meaningful fallback
+    currentStationWithPoints = 'that is currently under investigation'; // Provide a meaningful fallback
   }
 
   const platformsByStation = {
-    'Leaton': {
-      '1': { maxCoaches: 12 },
-      '2': { maxCoaches: 12 },
-      '3': { maxCoaches: 8 },
-      '4': { maxCoaches: 8 },
-      '5': { maxCoaches: 12 }
-    },
-    'Avonhill': {
-      '1': { maxCoaches: 12 },
-      '2': { maxCoaches: 12 },
-      '3': { maxCoaches: 12 },
-      '4': { maxCoaches: 12 },
-      '5': { maxCoaches: 12 },
-      '6': { maxCoaches: 12 },
-      '7': { maxCoaches: 12 },
-      '8': { maxCoaches: 12 },
-      '9': { maxCoaches: 12 },
-      '10': { maxCoaches: 12 },
-      '11': { maxCoaches: 12 },
-      '12': { maxCoaches: 12 },
-      '13': { maxCoaches: 12 },
-      '14': { maxCoaches: 12 },
-      '15': { maxCoaches: 12 },
-      '16': { maxCoaches: 12 }
-    },
-    'Mill Bridge': {
-      '1': { maxCoaches: 12 },
-      '2': { maxCoaches: 12 },
-      '4': { maxCoaches: 12 }
-    },
-    'Norrington': {
-      '1': { maxCoaches: 12 },
-      '2': { maxCoaches: 6 },
-      '3': { maxCoaches: 6 },
-      '4': { maxCoaches: 12 }
-    },
-    'Cuffley': {
-      '1': { maxCoaches: 12 },
-      '2': { maxCoaches: 12 },
-      '3': { maxCoaches: 12 }
-    },
-    'Belmond Green': {
-      '1': { maxCoaches: 12 },
-      '2': { maxCoaches: 12 },
-      '3': { maxCoaches: 8 },
-      '4': { maxCoaches: 8 }
-    }
+    'Leaton': { '1': { maxCoaches: 12 }, '2': { maxCoaches: 12 }, '3': { maxCoaches: 8 }, '4': { maxCoaches: 8 }, '5': { maxCoaches: 12 } },
+    'Avonhill': { '1': { maxCoaches: 12 }, '2': { maxCoaches: 12 }, '3': { maxCoaches: 12 }, '4': { maxCoaches: 12 }, '5': { maxCoaches: 12 }, '6': { maxCoaches: 12 }, '7': { maxCoaches: 12 }, '8': { maxCoaches: 12 }, '9': { maxCoaches: 12 }, '10': { maxCoaches: 12 }, '11': { maxCoaches: 12 }, '12': { maxCoaches: 12 }, '13': { maxCoaches: 12 }, '14': { maxCoaches: 12 }, '15': { maxCoaches: 12 }, '16': { maxCoaches: 12 } },
+    'Mill Bridge': { '1': { maxCoaches: 12 }, '2': { maxCoaches: 12 }, '4': { maxCoaches: 12 } },
+    'Norrington': { '1': { maxCoaches: 12 }, '2': { maxCoaches: 6 }, '3': { maxCoaches: 6 }, '4': { maxCoaches: 12 } },
+    'Cuffley': { '1': { maxCoaches: 12 }, '2': { maxCoaches: 12 }, '3': { maxCoaches: 12 } },
+    'Belmond Green': { '1': { maxCoaches: 12 }, '2': { maxCoaches: 12 }, '3': { maxCoaches: 8 }, '4': { maxCoaches: 8 } }
   };
 
   const selectedStation = document.getElementById("station-select").value;
@@ -367,7 +325,7 @@ function updateDepartureBoard(data) {
   const platformKeys = Object.keys(platforms);
 
   // Filter platforms based on the number of coaches
-  const numCoaches = randomizedDestinations[0].services[0].coachNumbers[Math.floor(Math.random() * randomizedDestinations[0].services[0].coachNumbers.length)];
+  const numCoaches = service.coachNumbers[Math.floor(Math.random() * service.coachNumbers.length)];
   const validPlatforms = platformKeys.filter(platformKey => platforms[platformKey].maxCoaches >= numCoaches);
 
   if (validPlatforms.length > 0) {
@@ -378,165 +336,81 @@ function updateDepartureBoard(data) {
     currentPlatform = 'Unknown'; // Fallback if no valid platform is found
   }
 
-  const reasons = [
-    'a points failure', 'severe weather conditions', 'damage to overhead line equipment',
-    'trespassers on the track', 'staff arriving late to the depot', 'a signal failure',
-    'more trains than usual needing repairs at the same time',
-    'trespassers on the track earlier today', 'a signal failure earlier today',
-    'a points failure earlier today', 'damage to overhead line equipment earlier today', 
-    'a Shortage of train crew', 'leaves on the line', 'a track circuit failure', 
-    'a fault on a train', 'a vehicle colliding with a level crossing barrier', 
-    'a vehicle colliding with a bridge', 'emergency services dealing with an incident', 
-    'a passenger being taken ill', 'a late running freight train', 'sheep on the line',
-    'floodwater making the railway potentially unsafe', 
-    'engineers dealing with a track defect', 'engineering works not being finished on-time',
-    'a shortage of train conductors', 'this train being late from the depot',
-    'a fault occurring when attaching part of the train', 'a speed restriction due to high track temperatures',
-    'waiting for a train crew member', 'an obstruction on the track', 'Flooding',
-    'a late running train being in front of this one', 'a fire next to the track', 
-    'a fire next to the track earlier today', 'a broken down train', 'a problem that is currently under investigation', 
-    'a problem with line-side equipment'];
-  currentReason = reasons[Math.floor(Math.random() * reasons.length)];
-
+  // DOM elements
   const destinationSpan = document.getElementById('destination');
   const departureTimeSpan = document.getElementById('time');
   const callingPointsSpan = document.getElementById('calling-points');
   const statusSpan = document.getElementById('status');
+  const serviceSpan = document.getElementById('service');
+  const coachSpan = document.getElementById('coaches');
+  const platformSpan = document.getElementById('platform');
 
+  // Set destination
   if (randomizedDestinations[0] && randomizedDestinations[0].name) {
     destinationSpan.textContent = randomizedDestinations[0].name;
   } else {
     destinationSpan.textContent = 'Unknown';
   }
 
-  // Get the current time
+  // Generate a random time within the next hour
   const currentTime = new Date();
-  const currentHours = currentTime.getHours();
-  const currentMinutes = currentTime.getMinutes();
-
-  // Generate a random time that is within an hour of the current time and between 05:00 and 01:00
-  let hours = currentHours;
-  let minutes = currentMinutes;
+  let hours = currentTime.getHours();
+  let minutes = currentTime.getMinutes();
   while (true) {
-    const randomMinutes = Math.floor(Math.random() * 60); // generate a random number of minutes between 0 and 59
-    minutes = currentMinutes + randomMinutes;
-    if (minutes >= 60) {
-      hours = currentHours + 1;
-      minutes -= 60;
-    }
-    const randomTime = new Date();
-    randomTime.setHours(hours);
-    randomTime.setMinutes(minutes);
-    const randomHours = randomTime.getHours();
-    if (
-      randomTime > currentTime &&
-      randomTime - currentTime < 60 * 60 * 1000 &&
-      ((randomHours >= 5 && randomHours < 24) || randomHours === 0)
-    ) {
-      break;
-    }
+    const randomMinutes = Math.floor(Math.random() * 60);
+    minutes = currentTime.getMinutes() + randomMinutes;
+    if (minutes < 60) break;
+    hours++;
+    minutes -= 60;
   }
-  const formattedHours = hours === 24 ? 0 : hours; // Convert 24 to 0 for midnight
-  const time = `${String(formattedHours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`;
-  departureTimeSpan.textContent = time;
-  departureTimeSpan.textContent = time;
+  if (hours >= 24) hours -= 24;
+  const formattedHours = String(hours).padStart(2, '0');
+  const formattedMinutes = String(minutes).padStart(2, '0');
+  const newTime = `${formattedHours}:${formattedMinutes}`;
+  departureTimeSpan.textContent = newTime;
 
-  // Generate random status
-  const status = getRandomStatus();
-  statusSpan.textContent = status;
+  // Update coach and service information
+  serviceSpan.textContent = service.name || 'Unknown Service';
+  coachSpan.textContent = `Coaches: ${numCoaches}`;
+  platformSpan.textContent = `Platform ${currentPlatform}`;
 
-  if (callingPointsSpan && randomizedDestinations[0] && randomizedDestinations[0].services && randomizedDestinations[0].services.length > 0) {
-    const serviceType = randomizedDestinations[0].services[0].serviceType;
-    const coachNumbers = randomizedDestinations[0].services[0].coachNumbers;
-    const numCoaches = coachNumbers[Math.floor(Math.random() * coachNumbers.length)];
-
-    if (randomizedDestinations[0].services[0].divided) {
-      const divisionPoint = randomizedDestinations[0].services[0].divisionPoint;
-      const portions = randomizedDestinations[0].services[0].portions.reverse();
-
-      let callingPointsText = '';
-      callingPointsText += `${randomizedDestinations[0].services[0].callingPoints.join(', ')} and ${divisionPoint} where the train will divide. Please ensure you are travelling in the correct part of the train. Passengers for ${randomizedDestinations[0].services[0].callingPoints.join(', ')} and ${divisionPoint} may travel in any part of the train. `;
-      
-      const firstPortion = portions[0];
-      const secondPortion = portions[1];
-      
-      callingPointsText += `  Passengers for ${secondPortion.callingPoints.join(', ')} and ${secondPortion.destination} should travel in the front ${secondPortion.cars} coaches of this train.`;
-      callingPointsText += `  Passengers for ${firstPortion.callingPoints.join(', ')} and ${firstPortion.destination} should travel in the rear ${firstPortion.cars} coaches of this train.`;
-      
-      callingPointsText += ` A ${serviceType} service formed of ${numCoaches} coaches.`;
-      callingPointsSpan.textContent = callingPointsText;
-
-    } else {
-      const callingPoints = randomizedDestinations[0].services[0].randomizedCallingPoints;
-
-      if (callingPoints.length === 0) {
-        const callingPointsText = `${randomizedDestinations[0].name} only. This is a ${serviceType} service formed of ${numCoaches} coaches.`;
-        callingPointsSpan.textContent = callingPointsText;
-      } else {
-        const callingPointsText = `${callingPoints.join(', ')} and ${randomizedDestinations[0].name}. A ${serviceType} service formed of ${numCoaches} coaches.`;
-        callingPointsSpan.textContent = callingPointsText;
-      }
-    }
-  }
-
-  // Determine when to update the board
-  let updateDelay;
-  if (status.match(/^\d{2}:\d{2}$/)) {
-    const [statusHours, statusMinutes] = status.split(':').map(Number);
-    const statusTime = new Date();
-    statusTime.setHours(statusHours, statusMinutes, 0, 0);
-    updateDelay = Math.max(statusTime - currentTime, 0) + 60000; // Update 1 minute after status time
-  } else if (status === 'Delayed') {
-    const [departureHours, departureMinutes] = departureTimeSpan.textContent.split(':').map(Number);
-    const departureTime = new Date();
-    departureTime.setHours(departureHours, departureMinutes, 0, 0);
-    updateDelay = Math.max(departureTime - currentTime, 0) + 300000; // Update 5 minutes after departure time
-  } else if (status === 'Cancelled' || status === 'On Time') {
-    const [departureHours, departureMinutes] = departureTimeSpan.textContent.split(':').map(Number);
-    const departureTime = new Date();
-    departureTime.setHours(departureHours, departureMinutes, 0, 0);
-    updateDelay = Math.max(departureTime - currentTime, 0) + 60000; // Update 1 minute after departure time
+  // Show calling points (fix)
+  if (service.randomizedCallingPoints && service.randomizedCallingPoints.length > 0) {
+    callingPointsSpan.textContent = service.randomizedCallingPoints.join(', ');
+  } else if (service.callingPoints && service.callingPoints.length > 0) {
+    callingPointsSpan.textContent = service.callingPoints.join(', ');
   } else {
-    updateDelay = 60000; // Default to 1 minute for other statuses
+    callingPointsSpan.textContent = 'No calling points';
   }
 
-  // Call speakText after updating the departure board
-  setTimeout(() => {
-    speakText(); // Ensure TTS is triggered after DOM updates
-    setTimeout(() => updateDepartureBoard(data), updateDelay); // Schedule the next update
-  }, 100);
+  // Update status with a random delay or cancellation
+  const statusOptions = ['On Time', 'Delayed', 'Cancelled'];
+  const randomStatus = statusOptions[Math.floor(Math.random() * statusOptions.length)];
+  statusSpan.textContent = randomStatus;
+
+  // If delayed, add a reason and new expected time
+  if (randomStatus === 'Delayed') {
+    const delayReasons = [
+      'a points failure', 'a signal failure', 'trespassers on the track',
+      'damage to overhead line equipment', 'staff shortages', 'severe weather conditions'
+    ];
+    const randomDelayReason = delayReasons[Math.floor(Math.random() * delayReasons.length)];
+    currentReason = randomDelayReason;
+
+    // Calculate a new expected time
+    const delayMinutes = Math.floor(Math.random() * 60) + 1;
+    const depTime = new Date();
+    depTime.setHours(hours, minutes, 0, 0);
+    const newExpectedTime = new Date(depTime.getTime() + delayMinutes * 60000);
+    const expectedHour = newExpectedTime.getHours();
+    const expectedMinute = newExpectedTime.getMinutes();
+    const formattedExpectedHour = expectedHour.toString().padStart(2, '0');
+    const formattedExpectedMinute = expectedMinute.toString().padStart(2, '0');
+    const newExpectedTimeString = `${formattedExpectedHour}:${formattedExpectedMinute}`;
+
+    statusSpan.textContent = `Delayed - ${newExpectedTimeString}`;
+  }
 }
 
-function updateClock() {
-  console.log('Clock updated every second');
-  const now = new Date();
-  const hours = String(now.getHours()).padStart(2, '0');
-  const minutes = String(now.getMinutes()).padStart(2, '0');
-  const seconds = String(now.getSeconds()).padStart(2, '0');
-
-  const digits = [
-    { id: 'hour-tens', value: hours[0] },
-    { id: 'hour-ones', value: hours[1] },
-    { id: 'minute-tens', value: minutes[0] },
-    { id: 'minute-ones', value: minutes[1] },
-    { id: 'second-tens', value: seconds[0] },
-    { id: 'second-ones', value: seconds[1] },
-  ];
-
-  digits.forEach(({ id, value }) => {
-    const digitElement = document.getElementById(id);
-    if (digitElement.textContent !== value) {
-      digitElement.classList.add('animate');
-      setTimeout(() => {
-        digitElement.textContent = value;
-        digitElement.classList.remove('animate');
-      }, 200);
-    }
-  });
-
-  // Schedule the next update to align with the next second
-  const nextUpdate = 1000 - (now.getMilliseconds());
-  setTimeout(updateClock, nextUpdate);
-}
-
+// Initial clock update
 updateClock();

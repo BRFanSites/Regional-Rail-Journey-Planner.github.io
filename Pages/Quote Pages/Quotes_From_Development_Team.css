@@ -1,96 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap');
+@font-face {
+  font-family: 'BR';
+  src: url('../../britrln_.ttf') format('truetype');
+  font-display: swap;
+}
+
 body {
-  background-color: #032b44; /* dark blue background */
-  font-family: Arial, sans-serif;
-  color: #333333; /* dark gray text */
+  background: linear-gradient(120deg, #032b44 0%, #4682b4 100%);
+  font-family: 'BR', 'Ubuntu', Arial, sans-serif;
+  color: #eaf6ff;
   margin: 0;
-  padding: 20px;
+  padding: 0;
+  min-height: 100vh;
 }
 
 h1 {
   text-align: center;
-  color: #ffffff; /* medium blue text */
-  font-size: 36px;
-  margin-bottom: 20px;
+  color: #eaf6ff;
+  font-size: 3.2em;
+  margin: 80px 0 40px 0;
+  letter-spacing: 0.12em;
+  font-family: 'BR', 'Ubuntu', Arial, sans-serif;
+  text-shadow: 0 2px 8px rgba(70, 130, 180, 0.18);
 }
 
 .container-list {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* adjust the number of columns as needed */
-  grid-gap: 20px;
-  width: 80%;
-  margin: 0 auto;
-  place-items: center; /* add this to center the containers both horizontally and vertically */
-  background-color: #6495ed; /* medium blue background */
-  padding: 20px;
-  border: 1px solid #032b44; /* dark blue border */
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px;
+  margin: 0 auto 64px auto;
+  max-width: 1400px;
+  background: rgba(70, 130, 180, 0.10);
+  border-radius: 24px;
+  box-shadow: 0 12px 40px 0 rgba(3, 43, 68, 0.18);
+  padding: 48px 0;
 }
 
 .container {
-  background-color: #87ceeb; /* light blue background */
-  padding: 20px;
-  border: 1px solid #4682b4; /* medium blue border */
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  aspect-ratio: 1; /* make the container a perfect square */
-  z-index: 0;
+  background: rgba(70, 130, 180, 0.22);
+  border-radius: 24px;
+  box-shadow: 0 12px 40px 0 rgba(70, 130, 180, 0.18);
+  backdrop-filter: blur(10px);
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 420px;
+  min-height: 420px;
+  border: 4px solid #87ceeb;
+  transition: box-shadow 0.2s, border 0.2s;
+}
+.container:hover {
+  box-shadow: 0 18px 48px 0 rgba(100, 149, 237, 0.28);
+  border-color: #eaf6ff;
 }
 
 .image {
-  width: 75%;
-  height: 75%;
+  width: 160px;
+  height: 160px;
   object-fit: cover;
-  border-radius: 50%; /* changed to 50% for a circular border */
-  margin: auto;
-  position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: -1; /* ensure the image is above the background */
-  background-color: #8e44ad; /* light-medium purple background */
+  border-radius: 50%;
+  margin-bottom: 24px;
+  background: #eaf6ff;
+  box-shadow: 0 6px 24px rgba(100, 149, 237, 0.18);
+  border: 3px solid #87ceeb;
 }
 
 .text-container {
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  z-index: 1;
-  background-color: #b1b1b1; /* light blue background */
+  text-align: center;
+  background: rgba(255,255,255,0.13);
+  border-radius: 16px;
+  padding: 20px 14px;
+  margin-top: 12px;
 }
 
 .text-1 {
   font-weight: bold;
   text-decoration: underline;
-  color: #032b44; /* dark blue text */
-  font-size: 32px;
+  color: #032b44;
+  font-size: 1.7em;
+  margin-bottom: 12px;
+  font-family: 'BR', 'Ubuntu', Arial, sans-serif;
 }
 
 .text-2 {
   font-style: italic;
-  color: #4682b4; /* medium blue text */
-  font-size: 28px;
-}
-
-.text-1, .text-2 {
-  margin-bottom: 10px;
+  color: #4682b4;
+  font-size: 1.3em;
+  margin-bottom: 12px;
+  font-family: 'Ubuntu', Arial, sans-serif;
 }
 
 .back-button {
-  background-color: #4682b4; /* medium blue background */
-  color: #ffffff; /* white text */
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 18px;
+  background: #4682b4;
+  color: #eaf6ff;
+  border: 2.5px solid #87ceeb;
+  border-radius: 10px;
+  padding: 16px 40px;
+  font-size: 1.4em;
+  font-family: 'BR', 'Ubuntu', Arial, sans-serif;
   font-weight: bold;
-  margin: 20px auto;
+  cursor: pointer;
+  margin: 48px auto 0 auto;
   display: block;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+}
+.back-button:hover {
+  background: #eaf6ff;
+  color: #032b44;
+  border: 2.5px solid #4682b4;
 }
 
-.back-button:hover {
-  background-color: #6495ed; /* light blue background */
+@media (max-width: 1100px) {
+  .container-list {
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+  .container {
+    width: 95vw;
+    min-width: 0;
+    padding: 28px 4vw;
+  }
+}
+@media (max-width: 700px) {
+  h1 {
+    margin-top: 40px;
+    font-size: 2em;
+  }
+  .container-list {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 12px 0;
+  }
+  .container {
+    width: 98vw;
+    padding: 16px 2vw;
+    min-height: 0;
+  }
+  .image {
+    width: 90px;
+    height: 90px;
+  }
+  .back-button {
+    font-size: 1.1em;
+    padding: 10px 18px;
+  }
 }
