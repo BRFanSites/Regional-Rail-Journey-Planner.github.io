@@ -1,272 +1,384 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Welcome to Our Transportation Website</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
-</head>
-<body>
-  <img src="../../Images/Site-logo.webp" alt="Regional Rail Logo" style="vertical-align: middle; width: 200px; height: 200px;" onclick="window.location.href='https://youtu.be/hvL1339luv0?si=4iTUOu6M3SRlnqCG';">
+  <meta charset="UTF-8">
+  <title>Welcome to Regional Rail</title>
+  <link rel="stylesheet" href="style.css">
   <style>
     @font-face {
-  font-family: 'BR';
-  src: url('britrln_.ttf') format('truetype');
-  font-display: swap;
-}
-
-body {
-  letter-spacing: 0.30em; /* Adjust spacing between letters */
-  background-color: #252323;
-  font-family: BR, sans-serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 75vh;
-  margin: 0;
-  position: relative;
-}
-
-.background-image {
-  background-image: url('../../Images/IndexBackground.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  opacity: 0.5; /* Adjust opacity as needed */
-  position: absolute;
-  top: 5vh;;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-}
-
-header {
-  color: #fff;
-  padding: 20px;
-  text-align: center;
-  font-size: 36px;
-}
-
-header h1 {
-  margin: 0;
-}
-
-.button-container {
-  text-align: center;
-  margin-top: 20px;
-}
-
-.button-regional {
-  background-color: #00329e; /* Green */
-  border-radius: 10px; /* Rounded corners */
-  border: rgb(0, 132, 255) 2px solid; /* White border */
-  color: white; /* White text */
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  font-weight: bold;
-  font-family: BR, sans-serif;
-  letter-spacing: 0.15em; /* Adjust spacing between letters */
-  margin: 4px 2px;
-  cursor: pointer;
-}
-.button-regional:hover {
-  background-color: #0056b3; /* Darker green */
-}
-
-.button-intercity {
-  background-color: #afaf00; /* Green */
-  border-radius: 10px; /* Rounded corners */
-  border: rgb(251, 255, 0) 2px solid; /* White border */
-  color: white; /* White text */
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  font-weight: bold;
-  font-family: BR, sans-serif;
-  letter-spacing: 0.15em; /* Adjust spacing between letters */
-  margin: 4px 2px;
-  cursor: pointer;
-}
-
-.button-intercity:hover {
-    background-color: #ffcc00; /* Darker green */
-}
-
-.button-stations {
-  background-color: #00a724; /* Green */
-  border: rgb(43, 255, 0) 2px solid; /* White border */
-  border-radius: 10px; /* Rounded corners */
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  font-weight: bold;
-  font-family: BR, sans-serif;
-  letter-spacing: 0.15em; /* Adjust spacing between letters */
-  margin: 4px 2px;
-  cursor: pointer;
-}
-
-.button-stations:hover {
-  background-color: #00cc2e; /* Darker green */
-}
-
-.button-container-new {
-  text-align: center;
-  margin-top: 20px;
-}
-
-.button-event-team {
-  background-color: #ff9100; /* Blue */
-  border-radius: 10px; /* Rounded corners */
-  border: #ffc400 2px solid; /* White border */
-  color: white; /* White text */
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  font-weight: bold;
-  font-family: BR, sans-serif;
-  letter-spacing: 0.15em; /* Adjust spacing between letters */
-  margin: 4px 2px;
-  cursor: pointer;
-}
-
-.button-event-team:hover {
-  background-color: #ffc400; /* Darker blue */
-}
-
-.button-moderation-team {
-  background-color: #8b32ff; /* Red */
-  border-radius: 10px; /* Rounded corners */
-  border: #4400ff 2px solid; /* White border */
-  color: white; /* White text */
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  font-weight: bold;
-  font-family: BR, sans-serif;
-  letter-spacing: 0.15em; /* Adjust spacing between letters */
-  margin: 4px 2px;
-  cursor: pointer;
-}
-
-.button-moderation-team:hover {
-  background-color: #4400ff; /* Darker red */
-}
-
-.button-development-team {
-  background-color: #0059ff; /* Purple */
-  border: #0011ff 2px solid; /* White border */
-  border-radius: 10px; /* Rounded corners */
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  font-weight: bold;
-  font-family: BR, sans-serif;
-  letter-spacing: 0.15em; /* Adjust spacing between letters */
-  margin: 4px 2px;
-  cursor: pointer;
-}
-
-.button-development-team:hover {
-  background-color: #0011ff; /* Darker purple */
-}
-
-.button-honorable-mentions {
-  background: linear-gradient(45deg, #ffd700, #ffcc00); /* Gradient from gold to a lighter gold */
-  border: #ffbf00 2px solid; /* Gold border */
-  border-radius: 10px; /* Rounded corners */
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  font-weight: bold;
-  font-family: BR, sans-serif;
-  letter-spacing: 0.15em; /* Adjust spacing between letters */
-  margin: 4px 2px;
-  cursor: pointer;
-  transition: background 0.3s ease, transform 0.2s ease; /* Smooth hover effect */
-}
-
-.button-honorable-mentions:hover {
-  background: linear-gradient(45deg, #ffcc00, #ffd700); /* Reverse gradient on hover */
-  transform: scale(1.05); /* Slight zoom effect */
-}
-
-footer {
-  color: #f0f0f0; /* Softer white for better contrast */
-  text-align: center;
-  padding: 20px;
-  font-size: 16px;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background-color: #1e1e1e; /* Subtle background for footer */
-  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5); /* Add shadow for depth */
-}
-
-.button-contact {
-  background-color: #ff5722; /* Vibrant orange */
-  color: white; /* White text */
-  border: none; /* No border */
-  border-radius: 50px; /* Fully rounded corners */
-  padding: 12px 24px; /* Adjust padding for better proportions */
-  font-size: 16px; /* Standard font size */
-  font-weight: bold; /* Bold text */
-  font-family: BR, sans-serif; /* Consistent font */
-  letter-spacing: 0.1em; /* Slight letter spacing */
-  text-align: center;
-  text-decoration: none; /* Remove underline */
-  display: inline-block;
-  margin: 10px 5px; /* Adjust margins */
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease; /* Smooth hover effect */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
-}
-
-.button-contact:hover {
-  background-color: #e64a19; /* Darker orange on hover */
-  transform: scale(1.05); /* Slight zoom effect */
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3); /* Enhance shadow on hover */
-}
+      font-family: 'BR';
+      src: url('britrln_.ttf') format('truetype');
+      font-display: swap;
+    }
+    body {
+      letter-spacing: 0.30em;
+      background-color: #252323;
+      font-family: BR, sans-serif;
+      min-height: 100vh;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      position: relative;
+      overflow-x: hidden;
+    }
+    main {
+      width: 100%;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+    .background-image {
+      background-image: url('../../Images/IndexBackground.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      opacity: 0.5;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      pointer-events: none;
+      user-select: none;
+    }
+    header {
+      color: #fff;
+      padding: 32px 0 12px 0;
+      text-align: center;
+      font-size: 2.5em;
+      font-weight: bold;
+      letter-spacing: 0.18em;
+    }
+    .site-logo {
+      width: 160px;
+      height: 160px;
+      margin: 24px auto 12px auto;
+      display: block;
+      border-radius: 50%;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .site-logo:hover {
+      transform: scale(1.05) rotate(-2deg);
+    }
+    /* Burger menu styles */
+    .burger {
+      position: fixed;
+      top: 32px;
+      left: 32px;
+      width: 44px;
+      height: 44px;
+      background: none;
+      border: none;
+      z-index: 1001;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .burger:focus {
+      outline: 2px solid #ffd700;
+    }
+    .burger-bar {
+      width: 32px;
+      height: 4px;
+      background: #fff;
+      margin: 4px 0;
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+    /* Sidebar styles */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: -270px;
+      width: 260px;
+      height: 100vh;
+      background: #23243a;
+      box-shadow: 2px 0 16px rgba(0,0,0,0.18);
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      padding: 32px 0 0 0;
+      transition: left 0.3s;
+    }
+    .sidebar.open {
+      left: 0;
+    }
+    .sidebar .sidebar-header {
+      color: #ffd700;
+      font-size: 1.3em;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 24px;
+      letter-spacing: 0.12em;
+      font-family: BR, sans-serif;
+    }
+    .sidebar-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 0 24px;
+    }
+    /* Modern, distinct button styles for sidebar and footer */
+    .sidebar-nav button,
+    .sidebar-nav .sidebar-link,
+    .button-contact {
+      border: none;
+      border-radius: 10px;
+      font-family: BR, 'Segoe UI', Arial, sans-serif;
+      font-weight: bold;
+      font-size: 1.08em;
+      letter-spacing: 0.08em;
+      margin: 0;
+      padding: 14px 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      transition: background 0.18s, color 0.18s, box-shadow 0.18s, transform 0.12s;
+      text-decoration: none;
+      display: block;
+      text-align: left;
+      outline: none;
+      cursor: pointer;
+    }
+    /* Distinct color for each main button */
+    .sidebar-nav button:nth-child(1) {
+      background: linear-gradient(90deg, #00329e 60%, #0065bd 100%);
+      color: #fff;
+    }
+    .sidebar-nav button:nth-child(1):hover {
+      background: linear-gradient(90deg, #0056b3 60%, #00329e 100%);
+      color: #ffd700;
+      transform: translateX(4px) scale(1.03);
+    }
+    .sidebar-nav button:nth-child(2) {
+      background: linear-gradient(90deg, #ffd700 60%, #ffcc00 100%);
+      color: #23243a;
+    }
+    .sidebar-nav button:nth-child(2):hover {
+      background: linear-gradient(90deg, #ffcc00 60%, #ffd700 100%);
+      color: #00329e;
+      transform: translateX(4px) scale(1.03);
+    }
+    .sidebar-nav button:nth-child(3) {
+      background: linear-gradient(90deg, #00a724 60%, #00e676 100%);
+      color: #fff;
+    }
+    .sidebar-nav button:nth-child(3):hover {
+      background: linear-gradient(90deg, #00e676 60%, #00a724 100%);
+      color: #23243a;
+      transform: translateX(4px) scale(1.03);
+    }
+    /* Event Hosts */
+    .sidebar-nav .sidebar-link[href*="Quotes_From_Event_Hosts"] {
+      background: linear-gradient(90deg, #ff9100 60%, #ffb74d 100%);
+      color: #fff;
+    }
+    .sidebar-nav .sidebar-link[href*="Quotes_From_Event_Hosts"]:hover {
+      background: linear-gradient(90deg, #ffb74d 60%, #ff9100 100%);
+      color: #23243a;
+      transform: translateX(4px) scale(1.03);
+    }
+    /* Moderation Team */
+    .sidebar-nav .sidebar-link[href*="Quotes_From_Moderation_Team"] {
+      background: linear-gradient(90deg, #8b32ff 60%, #b388ff 100%);
+      color: #fff;
+    }
+    .sidebar-nav .sidebar-link[href*="Quotes_From_Moderation_Team"]:hover {
+      background: linear-gradient(90deg, #b388ff 60%, #8b32ff 100%);
+      color: #ffd700;
+      transform: translateX(4px) scale(1.03);
+    }
+    /* Development Team */
+    .sidebar-nav .sidebar-link[href*="Quotes_From_Development_Team"] {
+      background: linear-gradient(90deg, #0059ff 60%, #82b1ff 100%);
+      color: #fff;
+    }
+    .sidebar-nav .sidebar-link[href*="Quotes_From_Development_Team"]:hover {
+      background: linear-gradient(90deg, #82b1ff 60%, #0059ff 100%);
+      color: #ffd700;
+      transform: translateX(4px) scale(1.03);
+    }
+    /* Honorable Mentions */
+    .sidebar-nav .sidebar-link.special {
+      background: linear-gradient(90deg, #ffd700 60%, #ffcc00 100%);
+      color: #23243a;
+      font-weight: bold;
+      border: 2px solid #fffbe7;
+      box-shadow: 0 2px 12px rgba(255,215,0,0.15);
+    }
+    .sidebar-nav .sidebar-link.special:hover {
+      background: linear-gradient(90deg, #ffcc00 60%, #ffd700 100%);
+      color: #00329e;
+      border: 2px solid #ffd700;
+      transform: translateX(4px) scale(1.04);
+    }
+    /* Contact Us (Discord) */
+    .sidebar-nav .sidebar-link[href*="discord"] {
+      background: linear-gradient(90deg, #7289da 60%, #99aab5 100%);
+      color: #fff;
+    }
+    .sidebar-nav .sidebar-link[href*="discord"]:hover {
+      background: linear-gradient(90deg, #99aab5 60%, #7289da 100%);
+      color: #23243a;
+      transform: translateX(4px) scale(1.03);
+    }
+    /* Footer Contact Button */
+    .button-contact {
+      background: linear-gradient(90deg, #ff5722 60%, #ff8a65 100%);
+      color: #fff;
+      border-radius: 50px;
+      padding: 12px 24px;
+      font-size: 1em;
+      margin: 10px 5px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.18);
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.12s;
+      display: inline-block;
+      border: none;
+      outline: none;
+      font-family: BR, 'Segoe UI', Arial, sans-serif;
+      font-weight: bold;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+    }
+    .button-contact:hover {
+      background: linear-gradient(90deg, #ff8a65 60%, #ff5722 100%);
+      color: #fffbe7;
+      transform: scale(1.05);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.22);
+    }
+    .sidebar-close {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      background: none;
+      border: none;
+      color: #ffd700;
+      font-size: 2em;
+      cursor: pointer;
+      z-index: 1002;
+      transition: color 0.2s;
+    }
+    .sidebar-close:hover {
+      color: #fff;
+    }
+    /* Hide old button containers for trial */
+    .button-container, .button-container-new {
+      display: none !important;
+    }
+    /* Overlay for sidebar */
+    .sidebar-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.25);
+      z-index: 999;
+      transition: opacity 0.3s;
+    }
+    .sidebar-overlay.open {
+      display: block;
+    }
+    @media (max-width: 700px) {
+      .burger { top: 16px; left: 12px; }
+      .sidebar { width: 90vw; min-width: 0; }
+      .sidebar-nav { padding: 0 8vw; }
+      .sidebar .sidebar-header { font-size: 1.1em; }
+      header { font-size: 1.3em; }
+      .site-logo { width: 90px; height: 90px; }
+      footer { font-size: 0.95em; }
+    }
+    footer {
+      color: #f0f0f0;
+      text-align: center;
+      padding: 20px 8px 16px 8px;
+      font-size: 1em;
+      background: #1e1e1e;
+      box-shadow: 0 -2px 5px rgba(0,0,0,0.18);
+      width: 100%;
+      margin-top: auto;
+    }
+    footer img {
+      vertical-align: middle;
+      width: 20px;
+      height: 20px;
+      margin-right: 4px;
+    }
   </style>
+</head>
+<body>
   <div class="background-image"></div>
-  <header>
-    <h1>Welcome to Our Transportation Website</h1>
-  </header>
-  <div class="button-container">
-    <button class="button-regional" onclick="if (event.button === 0) { window.location.href='../../Pages/Regional Planner/regional.html'; }" onauxclick="if (event.button === 1) { window.open('../../Pages/Regional Planner/regional.html', '_blank'); }">Regional Journey Planner</button>
-    <button class="button-intercity" onclick="if (event.button === 0) { window.location.href='../../Pages/Intercity Planner/Intercity.html'; }" onauxclick="if (event.button === 1) { window.open('../../Pages/Intercity Planner/Intercity.html', '_blank'); }">Intercity Journey Planner</button>
-    <button class="button-stations" onclick="if (event.button === 0) { window.location.href='../../Pages/Popular Stations/stations.html'; }" onauxclick="if (event.button === 1) { window.open('../../Pages/Popular Stations/stations.html', '_blank'); }">Popular Stations</button>
-  </div>
-  <div class="button-container-new">
-    <button class="button-event-team" onclick="if (event.button === 0) { window.location.href='../../Pages/Quote Pages/Quotes_From_Event_Hosts.html'; }" onauxclick="if (event.button === 1) { window.open('../../Pages/Quote Pages/Quotes_From_Event_Hosts.html', '_blank'); }">Quotes From Event Hosts</button>
-    <button class="button-moderation-team" onclick="if (event.button === 0) { window.location.href='../../Pages/Quote Pages/Quotes_From_Moderation_Team.html'; }" onauxclick="if (event.button === 1) { window.open('../../Pages/Quote Pages/Quotes_From_Moderation_Team.html', '_blank'); }">Quotes From Moderation Team</button>
-    <button class="button-development-team" onclick="if (event.button === 0) { window.location.href='../../Pages/Quote Pages/Quotes_From_Development_Team.html'; }" onauxclick="if (event.button === 1) { window.open('../../Pages/Quote Pages/Quotes_From_Development_Team.html', '_blank'); }">Quotes From Development Team</button>
-    <button class="button-honorable-mentions" onclick="if (event.button === 0) { window.location.href='../../Pages/Quote Pages/Honorable_Mentions.html'; }" onauxclick="if (event.button === 1) { window.open('../../Pages/Quote Pages/Honorable_Mentions.html', '_blank'); }">Quotes of Honorable Mentions</button>
-  </div>
+  <!-- Burger menu button -->
+  <button class="burger" id="burger-btn" aria-label="Open navigation menu" aria-controls="sidebar" aria-expanded="false">
+    <span class="burger-bar"></span>
+    <span class="burger-bar"></span>
+    <span class="burger-bar"></span>
+  </button>
+  <!-- Sidebar and overlay -->
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+  <nav class="sidebar" id="sidebar" aria-label="Main navigation">
+    <button class="sidebar-close" id="sidebar-close" aria-label="Close navigation menu">&times;</button>
+    <div class="sidebar-header">Menu</div>
+    <div class="sidebar-nav">
+      <button onclick="window.location.href='../../Pages/Regional Planner/regional.html';">Regional Journey Planner</button>
+      <button onclick="window.location.href='../../Pages/Intercity Planner/Intercity.html';">Intercity Journey Planner</button>
+      <button onclick="window.location.href='../../Pages/Popular Stations/stations.html';">Popular Stations</button>
+      <a class="sidebar-link" href="../../Pages/Quote Pages/Quotes_From_Event_Hosts.html">Quotes From Event Hosts</a>
+      <a class="sidebar-link" href="../../Pages/Quote Pages/Quotes_From_Moderation_Team.html">Quotes From Moderation Team</a>
+      <a class="sidebar-link" href="../../Pages/Quote Pages/Quotes_From_Development_Team.html">Quotes From Development Team</a>
+      <a class="sidebar-link special" href="../../Pages/Quote Pages/Honorable_Mentions.html">Quotes of Honorable Mentions</a>
+    </div>
+  </nav>
+  <main>
+    <img src="../../Images/Site-logo.webp" alt="Regional Rail Logo" class="site-logo" title="Click for a surprise!" onclick="window.location.href='https://youtu.be/hvL1339luv0?si=4iTUOu6M3SRlnqCG';">
+    <header>
+      Welcome to Regional Rail Journey Planner
+    </header>
+    <!-- .button-container and .button-container-new are hidden for this trial -->
+  </main>
   <footer>
     <p>
-      <button class="button-contact" onclick="if (event.button === 0) { window.location.href='https://discord.gg/BBsZMyjm'; }" onauxclick="if (event.button === 1) { window.open('https://discord.gg/BBsZMyjm', '_blank'); }">Contact Us</button>: Contact us on the Fourth Rail Discord Server. <br> Note: This site is not affiliated with the Fourth Rail Discord Server. For issues, please report to 07:10 Virgin Voyager to Holyhead.
+      <button class="button-contact" onclick="window.location.href='https://discord.gg/BBsZMyjm';">Contact Us</button>
+      Contact us on the Fourth Rail Discord Server.<br>
+      <span style="font-size:0.95em;">Note: This site is not affiliated with the Fourth Rail Discord Server. For issues, please report to 07:10 Virgin Voyager to Holyhead.</span>
     </p>
-    <p> <img src="../../Images/copyright-logo-png-clipart-best-5.png" alt="Regional Rail Logo" style="vertical-align: middle; width: 20px; height: 20px;"> 2025 Regional Rail. All rights reserved. 
+    <p>
+      <img src="../../Images/copyright-logo-png-clipart-best-5.png" alt="Copyright">
+      2025 Regional Rail. All rights reserved.
     </p>
   </footer>
+  <script>
+    // Sidebar open/close logic
+    const burgerBtn = document.getElementById('burger-btn');
+    const sidebar = document.getElementById('sidebar');
+    const sidebarClose = document.getElementById('sidebar-close');
+    const sidebarOverlay = document.getElementById('sidebar-overlay');
+
+    function openSidebar() {
+      sidebar.classList.add('open');
+      sidebarOverlay.classList.add('open');
+      burgerBtn.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeSidebar() {
+      sidebar.classList.remove('open');
+      sidebarOverlay.classList.remove('open');
+      burgerBtn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+    burgerBtn.addEventListener('click', openSidebar);
+    sidebarClose.addEventListener('click', closeSidebar);
+    sidebarOverlay.addEventListener('click', closeSidebar);
+    // Close sidebar on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeSidebar();
+    });
+  </script>
 </body>
 </html>

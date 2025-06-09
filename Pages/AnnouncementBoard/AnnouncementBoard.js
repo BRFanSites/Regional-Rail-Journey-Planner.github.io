@@ -1,13 +1,24 @@
-let currentReason = ''; // Declare currentReason here
-let currentStationWithPoints = ''; // Declare currentStationWithPoints here
-let currentPlatform = ''; // Declare currentPlatform here
+// Announcement Board JS - rewritten from scratch
+
+let currentReason = '';
+let currentStationWithPoints = '';
+let currentPlatform = '';
+
+function getVoices(callback) {
+  // Wait for voices to be loaded
+  let voices = window.speechSynthesis.getVoices();
+  if (voices.length) {
+    callback(voices);
+  } else {
+    window.speechSynthesis.onvoiceschanged = () => {
+      callback(window.speechSynthesis.getVoices());
+    };
+  }
+}
 
 function speakText() {
   try {
     let time = document.getElementById('time').textContent;
-    const speakingTime = new Date().toLocaleTimeString();
-    console.log('Speaking time:', speakingTime); // Logs the current time it speaks at
-    // Format time for speech
     if (time === '00:00') {
       time = 'midnight';
     } else if (time.startsWith('00:')) {
@@ -16,149 +27,140 @@ function speakText() {
     } else {
       const hour = parseInt(time.substring(0, 2));
       const minute = time.substring(3, 5);
-      const formattedHour = hour.toString().startsWith('0') ? `oh ${hour.toString().substring(1)}` : hour;
+      const formattedHour = hour < 10 ? `oh ${hour}` : hour;
       const formattedMinute = minute.startsWith('0') ? `oh ${minute.substring(1)}` : minute;
       time = minute === '00' ? `${formattedHour} hundred` : `${formattedHour} ${formattedMinute}`;
     }
 
     const destination = document.getElementById('destination').textContent;
-    const callingPoints = document.getElementById('calling-points').textContent;
+    let callingPoints = document.getElementById('calling-points').textContent;
+    let callingPointsForTTS = callingPoints;
+    if (callingPoints.endsWith(' and ' + destination)) {
+      callingPointsForTTS = callingPoints.slice(0, -(' and '.length + destination.length));
+    }
     const status = document.getElementById('status').textContent;
-    const serviceType = document.getElementById('calling-points').textContent.includes('service') 
-      ? document.getElementById('calling-points').textContent.split('service')[0].trim().split(' ').pop() 
-      : ''; // Extract serviceType from calling-points text
-
+    const platform = document.getElementById('platform').textContent.replace('Platform ', '').trim() || currentPlatform || '';
     let message = '';
     let nextTrainMessage = '';
 
-    // Removed redundant currentTime declaration
-    const departureTime = new Date();
-    const [departureHour, departureMinute] = document.getElementById('time').textContent.split(':').map(Number);
-    departureTime.setHours(departureHour, departureMinute, 0, 0);
-
-    // Removed unused timeDifference calculation
-
+    // Status logic
     if (status === 'On Time') {
-      const departureTime = new Date();
-      departureTime.setHours(departureHour);
-      departureTime.setMinutes(departureMinute);
-      const currentTime = new Date();
-      const timeDifference = (departureTime - currentTime) / 60000; // convert to minutes
-    
-      if (timeDifference > 1) { 
-        nextTrainMessage = `The next train to depart from platform ${currentPlatform} is the ${time} to ${destination}, calling at ${callingPoints}`;
-      } else {
-        message = `Platform ${currentPlatform} for the ${time} to ${destination}, calling at ${callingPoints}.`;
-      }
-    } else if (status === 'Delayed') {
+      nextTrainMessage = `The next train to depart from platform ${platform} is the ${time} to ${destination}, calling at ${callingPointsForTTS} and ${destination}.`;
+    } else if (status.startsWith('Delayed')) {
+      let expectedTime = '';
+      const match = status.match(/Delayed\s*-\s*(\d{2}:\d{2})/);
+      if (match) expectedTime = match[1];
       if (currentReason) {
         if (currentReason === 'a points failure') {
           const locationMessage = currentStationWithPoints !== 'that is currently under investigation'
             ? `at ${currentStationWithPoints}`
             : 'that is currently under investigation somewhere on the network';
-          message = `May I have your attention please on platform ${currentPlatform}. We are sorry that the ${time} to ${destination}, is delayed due to a points failure ${locationMessage}. ${serviceType} apologises for this late running, and the inconvenience this may cause you.`;
+          if (expectedTime) {
+            message = `May I have your attention please on platform ${platform}. We are sorry that the ${time} to ${destination}, is now expected to arrive at ${expectedTime}. This is due to a points failure ${locationMessage}. We apologise for this late running, and the inconvenience this may cause you.`;
+          } else {
+            message = `May I have your attention please on platform ${platform}. We are sorry that the ${time} to ${destination}, is delayed due to a points failure ${locationMessage}. We apologise for this late running, and the inconvenience this may cause you.`;
+          }
         } else if (['trespassers on the track', 'a signal failure'].includes(currentReason)) {
-          const randomCallingPoint = callingPoints.split(',').map(point => point.trim())[Math.floor(Math.random() * callingPoints.split(',').length)];
-          message = `May I have your attention please on platform ${currentPlatform}. We are sorry that the ${time} to ${destination}, is delayed due to ${currentReason} at ${randomCallingPoint}. ${serviceType} apologises for this late running, and the inconvenience this may cause you.`;
-        } else if (['damage to overhead line equipment'].includes(currentReason) && !['Ashdean', 'Victoria Docks, Syde-on-Sea'].includes(destination)) {
-          message = `May I have your attention please on platform ${currentPlatform}. We are sorry that the ${time} to ${destination}, is delayed due to ${currentReason}. ${serviceType} apologises for this late running, and the inconvenience this may cause you.`;
+          const pointsArr = callingPointsForTTS.split(',').map(point => point.trim());
+          const randomCallingPoint = pointsArr.length ? pointsArr[Math.floor(Math.random() * pointsArr.length)] : '';
+          if (expectedTime) {
+            message = `May I have your attention please on platform ${platform}. We are sorry that the ${time} to ${destination}, is now expected to arrive at ${expectedTime}. This is due to ${currentReason} at ${randomCallingPoint}. We apologise for this late running, and the inconvenience this may cause you.`;
+          } else {
+            message = `May I have your attention please on platform ${platform}. We are sorry that the ${time} to ${destination}, is delayed due to ${currentReason} at ${randomCallingPoint}. We apologise for this late running, and the inconvenience this may cause you.`;
+          }
         } else {
-          message = `May I have your attention please on platform ${currentPlatform}. We are sorry that the ${time} to ${destination}, is delayed due to ${currentReason}. ${serviceType} apologises for this late running, and the inconvenience this may cause you.`;
+          if (expectedTime) {
+            message = `May I have your attention please on platform ${platform}. We are sorry that the ${time} to ${destination}, is now expected to arrive at ${expectedTime}. This is due to ${currentReason}. We apologise for this late running, and the inconvenience this may cause you.`;
+          } else {
+            message = `May I have your attention please on platform ${platform}. We are sorry that the ${time} to ${destination}, is delayed due to ${currentReason}. We apologise for this late running, and the inconvenience this may cause you.`;
+          }
         }
       }
-      } else if (status.match(/^\d{2}:\d{2}$/)) {
-        const delayedTime = status.replace(':', ' ');
-        if (currentReason) {
+    } else if (status === 'Cancelled') {
+      // Fix: Always set a message for cancelled, even if currentReason is empty
+      let cancelReason = '';
+      if (currentReason) {
         if (currentReason === 'a points failure') {
-          message = `May I have your attention please on platform ${currentPlatform}. We are sorry that the ${time} to ${destination}, is now expected to arrive at ${delayedTime}. This is due to a points failure  ${currentStationWithPoints}. ${serviceType} apologises for this late running, and the inconvenience this may cause you.`;
+          cancelReason = `This is due to a points failure at ${currentStationWithPoints}.`;
         } else if (['trespassers on the track', 'a signal failure'].includes(currentReason)) {
-          const randomCallingPoint = callingPoints.split(',').map(point => point.trim())[Math.floor(Math.random() * callingPoints.split(',').length)];
-          message = `May I have your attention please on platform ${currentPlatform}. We are sorry that the ${time} to ${destination}, is now expected to arrive at ${delayedTime}. This is due to ${currentReason} at ${randomCallingPoint}. ${serviceType} apologises for this late running, and the inconvenience this may cause you.`;
-        } else if (['damage to overhead line equipment'].includes(currentReason) && !['Ashdean', 'Victoria Docks, Syde-on-Sea'].includes(destination)) {
-          message = `May I have your attention please on platform ${currentPlatform}. We are sorry that the ${time} to ${destination}, is now expected to arrive at ${delayedTime}. This is due to ${currentReason}. ${serviceType} apologises for this late running, and the inconvenience this may cause you.`;
+          const pointsArr = callingPointsForTTS.split(',').map(point => point.trim());
+          const randomCallingPoint = pointsArr.length ? pointsArr[Math.floor(Math.random() * pointsArr.length)] : '';
+          cancelReason = `This is due to ${currentReason} at ${randomCallingPoint}.`;
         } else {
-          message = `May I have your attention please on platform ${currentPlatform}. We are sorry that the ${time} to ${destination}, is now expected to arrive at ${delayedTime}. This is due to ${currentReason}. ${serviceType} apologises for this late running, and the inconvenience this may cause you.`;
+          cancelReason = `This is due to ${currentReason}.`;
         }
-        } 
-      } else if (status === 'Cancelled') {
-        if (currentReason) {
-        if (currentReason === 'a points failure') {
-          message = `May I have your attention please on platform ${currentPlatform}. We are sorry to announce that the ${time} ${serviceType} to ${destination}, has been cancelled. This is due to a points failure at ${currentStationWithPoints}. ${serviceType} apologises for the disruption to your journey today.`;
-        } else if (['trespassers on the track', 'a signal failure'].includes(currentReason)) {
-          const randomCallingPoint = callingPoints.split(',').map(point => point.trim())[Math.floor(Math.random() * callingPoints.split(',').length)];
-          message = `May I have your attention please on platform ${currentPlatform}. We are sorry to announce that the ${time} ${serviceType} to ${destination}, has been cancelled. This is due to ${currentReason} at ${randomCallingPoint}. ${serviceType} apologises for the disruption to your journey today.`;
-        } else if (['damage to overhead line equipment'].includes(currentReason) && !['Ashdean', 'Victoria Docks, Syde-on-Sea'].includes(destination)) {
-          message = `May I have your attention please on platform ${currentPlatform}. We are sorry to announce that the ${time} ${serviceType} to ${destination}, has been cancelled. This is due to ${currentReason}. ${serviceType} apologises for the disruption to your journey today.`;
-        } else {
-          message = `May I have your attention please on platform ${currentPlatform}. We are sorry to announce that the ${time} ${serviceType} to ${destination}, has been cancelled. This is due to ${currentReason}. ${serviceType} apologises for the disruption to your journey today.`;
-        }
-      } 
-      } 
-    if (nextTrainMessage) {
-      const nextTrainUtterance = new SpeechSynthesisUtterance(nextTrainMessage);
-      const voice = window.speechSynthesis.getVoices().find(voice => voice.lang === 'en-GB' && voice.name.includes('Female'));
-      nextTrainUtterance.voice = voice;
-      nextTrainUtterance.lang = 'en-GB';
-      nextTrainUtterance.rate = 0.7;
-      nextTrainUtterance.pitch = 1;
-      window.speechSynthesis.speak(nextTrainUtterance);
+      }
+      message = `May I have your attention please on platform ${platform}. We are sorry to announce that the ${time} to ${destination}, has been cancelled. ${cancelReason} We apologise for the disruption to your journey today.`;
+    } else {
+      // Fallback for any other status (including blank/unknown)
+      message = `May I have your attention please on platform ${platform}. The ${time} to ${destination} is currently showing status: ${status}. Please listen for further announcements.`;
     }
 
+    // All announcements use TTS (SpeechSynthesisUtterance)
+    function speakWhenVoicesReady(utterance) {
+      window.speechSynthesis.cancel();
+      getVoices(voices => {
+        let voice = voices.find(v => v.lang === 'en-GB' && v.name && v.name.toLowerCase().includes('female')) ||
+                    voices.find(v => v.lang === 'en-GB');
+        if (voice) utterance.voice = voice;
+        utterance.lang = 'en-GB';
+        utterance.rate = 0.7;
+        utterance.pitch = 1;
+        window.speechSynthesis.speak(utterance);
+      });
+    }
+
+    if (nextTrainMessage) {
+      const nextTrainUtterance = new SpeechSynthesisUtterance(nextTrainMessage);
+      speakWhenVoicesReady(nextTrainUtterance);
+    }
     if (message) {
       const utterance = new SpeechSynthesisUtterance(message);
-      const voice = window.speechSynthesis.getVoices().find(voice => voice.lang === 'en-GB' && voice.name.includes('Female'));
-      utterance.voice = voice;
-      utterance.lang = 'en-GB';
-      utterance.rate = 0.7;
-      utterance.pitch = 1;
-      window.speechSynthesis.speak(utterance);
+      speakWhenVoicesReady(utterance);
     }
   } catch (error) {
     console.error('Error speaking text:', error);
   }
 }
 
-// Speak text every 5 minutes
 setInterval(speakText, 300000);
+window.testTTS = function() { speakText(); };
 
-window.testTTS = function() {
-  speakText();
+// CLOCK
+function updateClock() {
+  const now = new Date();
+  const h = now.getHours();
+  const m = now.getMinutes();
+  const s = now.getSeconds();
+  document.getElementById('hour-tens').textContent = Math.floor(h / 10);
+  document.getElementById('hour-ones').textContent = h % 10;
+  document.getElementById('minute-tens').textContent = Math.floor(m / 10);
+  document.getElementById('minute-ones').textContent = m % 10;
+  document.getElementById('second-tens').textContent = Math.floor(s / 10);
+  document.getElementById('second-ones').textContent = s % 10;
 }
+setInterval(updateClock, 1000);
+updateClock();
 
-// Get the current time
-const currentTime = new Date();
-const currentHours = currentTime.getHours();
-const currentMinutes = currentTime.getMinutes();
+// BOARD LOGIC
+let selectedStation = 'Avonhill';
 
-// Generate random destinations and departure times
-const destinations = ['Avonhill', 'Syde-On-Sea', 'Ashdean', 'Victoria Docks', 'Mill Bridge', 'Norrington', 'Cuffley'];
-const departureTimes = [];
-const trainDestinations = [];
-
-// Function to randomize calling points
 function randomizeCallingPoints(destinations) {
-  const randomizedDestinations = destinations.destinations.slice();
-  randomizedDestinations.sort(() => Math.random() - 0.5);
-
+  const randomizedDestinations = destinations.destinations.slice().sort(() => Math.random() - 0.5);
   randomizedDestinations.forEach(destination => {
-    const services = destination.services.slice();
-    services.sort(() => Math.random() - 0.5);
-
+    const services = destination.services.slice().sort(() => Math.random() - 0.5);
     destination.services = services;
-
     destination.services.forEach(service => {
       const callingPoints = service.callingPoints;
       const exceptions = service.exceptions;
       const randomizedCallingPoints = [];
-
       const dayOfWeek = new Date().toLocaleString('en-US', { weekday: 'long' });
-
       callingPoints.forEach((callingPoint) => {
         if (typeof callingPoint === 'object') {
           if (callingPoint.daysOfOperation && callingPoint.daysOfOperation.includes(dayOfWeek)) {
             randomizedCallingPoints.push(callingPoint.name);
           } else if (!callingPoint.daysOfOperation) {
-            randomizedCallingPoints.push(callingPoint.name); // Ensure calling points without specific days are included
+            randomizedCallingPoints.push(callingPoint.name);
           }
         } else {
           if (exceptions && exceptions[callingPoint] !== undefined) {
@@ -187,130 +189,26 @@ function getRandomStatus() {
   const statuses = ["On Time", "Delayed", "Random Time", "Cancelled"];
   const randomIndex = Math.floor(Math.random() * statuses.length);
   const status = statuses[randomIndex];
-
-if (status === "Random Time") {
-  const departureTime = document.getElementById('time').textContent;
-  const departureHours = parseInt(departureTime.split(':')[0]);
-  const departureMinutes = parseInt(departureTime.split(':')[1]);
-  const randomHours = Math.floor(Math.random() * 2); // generate a random hour between 0 and 2
-  const randomMinutes = Math.floor(Math.random() * 60); // generate a random minute between 0 and 59
-  const newMinutes = (departureMinutes + randomMinutes) % 60; // ensure minutes are between 0 and 59
-  const newHours = (departureHours + randomHours + Math.floor((departureMinutes + randomMinutes) / 60)) % 24; // add any extra hours and wrap around to 0 if necessary
-  const formattedNewHours = newHours === 24 ? 0 : newHours; // Convert 24 to 0 for midnight
-  const newTime = `${String(formattedNewHours).padStart(2, '0')}:${String(newMinutes).padStart(2, '0')}`;
-  return newTime;
-} else {
-  return status;
+  if (status === "Random Time") {
+    const now = new Date();
+    const h = now.getHours();
+    const m = now.getMinutes();
+    const randomMinutes = Math.floor(Math.random() * 60);
+    const randomHours = Math.floor(Math.random() * 2);
+    let newM = (m + randomMinutes) % 60;
+    let newH = (h + randomHours + Math.floor((m + randomMinutes) / 60)) % 24;
+    if (newH === 24) newH = 0;
+    return `${String(newH).padStart(2, '0')}:${String(newM).padStart(2, '0')}`;
+  } else {
+    return status;
+  }
 }
-}
-
-let selectedStation = 'Avonhill'; // Declare selectedStation here
-
-document.addEventListener('DOMContentLoaded', () => {
-  const stationSelect = document.getElementById('station-select');
-  const statusElement = document.getElementById('status');
-
-  // Set default station and status
-  stationSelect.value = selectedStation;
-  statusElement.textContent = getRandomStatus();
-
-  // Initial board load
-  fetch('../../Pages/Avonhill/Avonhill.json')
-    .then(response => response.json())
-    .then(jsonData => {
-      console.log('Avonhill.json loaded successfully.');
-      updateDepartureBoard(jsonData);
-    })
-    .catch(error => console.error('Error loading Avonhill.json:', error));
-
-  // Listen for station changes
-  stationSelect.addEventListener('change', () => {
-    selectedStation = stationSelect.value || 'Avonhill';
-    statusElement.textContent = getRandomStatus();
-
-    switch (selectedStation) {
-      case 'Leaton':
-        fetch('../../Pages/Leaton/Leaton.json', { headers: { 'Content-Type': 'application/json' } })
-          .then(response => response.json())
-          .then(jsonData => {
-            console.log('Leaton.json loaded successfully.');
-            updateDepartureBoard(jsonData);
-          })
-          .catch(error => console.error('Error loading Leaton.json:', error));
-        break;
-      case 'Avonhill':
-        fetch('../../Pages/Avonhill/Avonhill.json', { headers: { 'Content-Type': 'application/json' } })
-          .then(response => response.json())
-          .then(jsonData => {
-            console.log('Avonhill.json loaded successfully.');
-            updateDepartureBoard(jsonData);
-          })
-          .catch(error => console.error('Error loading Avonhill.json:', error));
-        break;
-      case 'Mill Bridge':
-        fetch('../../Pages/Mill Bridge/Mill_Bridge.json', { headers: { 'Content-Type': 'application/json' } })
-          .then(response => response.json())
-          .then(jsonData => {
-            console.log('Mill_Bridge.json loaded successfully.');
-            updateDepartureBoard(jsonData);
-          })
-          .catch(error => console.error('Error loading Mill_Bridge.json:', error));
-        break;
-      case 'Norrington':
-        fetch('../../Pages/Norrington/Norrington.json', { headers: { 'Content-Type': 'application/json' } })
-          .then(response => response.json())
-          .then(jsonData => {
-            console.log('Norrington.json loaded successfully.');
-            updateDepartureBoard(jsonData);
-          })
-          .catch(error => console.error('Error loading Norrington.json:', error));
-        break;
-      case 'Cuffley':
-        fetch('../../Pages/Cuffley/Cuffley.json', { headers: { 'Content-Type': 'application/json' } })
-          .then(response => response.json())
-          .then(jsonData => {
-            console.log('Cuffley.json loaded successfully.');
-            updateDepartureBoard(jsonData);
-          })
-          .catch(error => console.error('Error loading Cuffley.json:', error));
-        break;
-      case 'Belmond Green':
-        fetch('../../Pages/Belmond Green/Belmond_Green.json', { headers: { 'Content-Type': 'application/json' } })
-          .then(response => response.json())
-          .then(jsonData => {
-            console.log('Belmond_Green.json loaded successfully.');
-            updateDepartureBoard(jsonData);
-          })
-          .catch(error => console.error('Error loading Belmond_Green.json:', error));
-        break;
-      default:
-        console.error('Invalid station selected');
-        return;
-    }
-  });
-});
-
-// Rest of the code remains the same
 
 function updateDepartureBoard(data) {
-  const destinations = data;
-  const randomizedDestinations = randomizeCallingPoints(destinations);
-
-  // Get the first service and its calling points
+  const randomizedDestinations = randomizeCallingPoints(data);
   const service = randomizedDestinations[0].services[0];
-  const callingPoints = service.randomizedCallingPoints || service.callingPoints || [];
 
-  const stationsWithPoints = [
-    'Leaton', 'Avonhill', 'Mill Bridge', 'Norrington', 'Cuffley', 'Belmond Green',
-    'Fleetwood', 'Ashdean', 'Victoria Docks', 'Newhurst'
-  ];
-  const validStations = callingPoints.filter(point => stationsWithPoints.includes(point));
-  if (validStations.length > 0) {
-    currentStationWithPoints = validStations[Math.floor(Math.random() * validStations.length)];
-  } else {
-    currentStationWithPoints = 'that is currently under investigation'; // Provide a meaningful fallback
-  }
-
+  // Platform logic
   const platformsByStation = {
     'Leaton': { '1': { maxCoaches: 12 }, '2': { maxCoaches: 12 }, '3': { maxCoaches: 8 }, '4': { maxCoaches: 8 }, '5': { maxCoaches: 12 } },
     'Avonhill': { '1': { maxCoaches: 12 }, '2': { maxCoaches: 12 }, '3': { maxCoaches: 12 }, '4': { maxCoaches: 12 }, '5': { maxCoaches: 12 }, '6': { maxCoaches: 12 }, '7': { maxCoaches: 12 }, '8': { maxCoaches: 12 }, '9': { maxCoaches: 12 }, '10': { maxCoaches: 12 }, '11': { maxCoaches: 12 }, '12': { maxCoaches: 12 }, '13': { maxCoaches: 12 }, '14': { maxCoaches: 12 }, '15': { maxCoaches: 12 }, '16': { maxCoaches: 12 } },
@@ -319,73 +217,53 @@ function updateDepartureBoard(data) {
     'Cuffley': { '1': { maxCoaches: 12 }, '2': { maxCoaches: 12 }, '3': { maxCoaches: 12 } },
     'Belmond Green': { '1': { maxCoaches: 12 }, '2': { maxCoaches: 12 }, '3': { maxCoaches: 8 }, '4': { maxCoaches: 8 } }
   };
-
   const selectedStation = document.getElementById("station-select").value;
   const platforms = platformsByStation[selectedStation];
   const platformKeys = Object.keys(platforms);
-
-  // Filter platforms based on the number of coaches
   const numCoaches = service.coachNumbers[Math.floor(Math.random() * service.coachNumbers.length)];
   const validPlatforms = platformKeys.filter(platformKey => platforms[platformKey].maxCoaches >= numCoaches);
+  currentPlatform = validPlatforms.length > 0
+    ? validPlatforms[Math.floor(Math.random() * validPlatforms.length)]
+    : 'Unknown';
 
-  if (validPlatforms.length > 0) {
-    const randomPlatformKey = validPlatforms[Math.floor(Math.random() * validPlatforms.length)];
-    currentPlatform = randomPlatformKey;
-  } else {
-    console.warn(`No valid platform found for ${numCoaches} coaches at ${selectedStation}.`);
-    currentPlatform = 'Unknown'; // Fallback if no valid platform is found
-  }
-
-  // DOM elements
+  // DOM
   const destinationSpan = document.getElementById('destination');
   const departureTimeSpan = document.getElementById('time');
   const callingPointsSpan = document.getElementById('calling-points');
   const statusSpan = document.getElementById('status');
-  const serviceSpan = document.getElementById('service');
-  const coachSpan = document.getElementById('coaches');
   const platformSpan = document.getElementById('platform');
 
-  // Set destination
-  if (randomizedDestinations[0] && randomizedDestinations[0].name) {
-    destinationSpan.textContent = randomizedDestinations[0].name;
-  } else {
-    destinationSpan.textContent = 'Unknown';
-  }
+  destinationSpan.textContent = randomizedDestinations[0]?.name || 'Unknown';
+  if (platformSpan) platformSpan.textContent = currentPlatform !== 'Unknown' ? `Platform ${currentPlatform}` : 'Platform';
 
   // Generate a random time within the next hour
-  const currentTime = new Date();
-  let hours = currentTime.getHours();
-  let minutes = currentTime.getMinutes();
-  while (true) {
-    const randomMinutes = Math.floor(Math.random() * 60);
-    minutes = currentTime.getMinutes() + randomMinutes;
-    if (minutes < 60) break;
-    hours++;
-    minutes -= 60;
+  const now = new Date();
+  let hours = now.getHours();
+  let minutes = now.getMinutes();
+  let randomMinutes = Math.floor(Math.random() * 60);
+  let depMinutes = minutes + randomMinutes;
+  if (depMinutes >= 60) {
+    hours += Math.floor(depMinutes / 60);
+    depMinutes %= 60;
   }
   if (hours >= 24) hours -= 24;
   const formattedHours = String(hours).padStart(2, '0');
-  const formattedMinutes = String(minutes).padStart(2, '0');
+  const formattedMinutes = String(depMinutes).padStart(2, '0');
   const newTime = `${formattedHours}:${formattedMinutes}`;
   departureTimeSpan.textContent = newTime;
 
-  // Update coach and service information
-  serviceSpan.textContent = service.name || 'Unknown Service';
-  coachSpan.textContent = `Coaches: ${numCoaches}`;
-  platformSpan.textContent = `Platform ${currentPlatform}`;
-
-  // Show calling points (fix)
+  // Show calling points (add "and destination" at the end)
   if (service.randomizedCallingPoints && service.randomizedCallingPoints.length > 0) {
-    callingPointsSpan.textContent = service.randomizedCallingPoints.join(', ');
+    callingPointsSpan.textContent = service.randomizedCallingPoints.join(', ') + ' and ' + (randomizedDestinations[0]?.name || 'Unknown');
   } else if (service.callingPoints && service.callingPoints.length > 0) {
-    callingPointsSpan.textContent = service.callingPoints.join(', ');
+    callingPointsSpan.textContent = service.callingPoints.join(', ') + ' and ' + (randomizedDestinations[0]?.name || 'Unknown');
   } else {
     callingPointsSpan.textContent = 'No calling points';
   }
 
-  // Update status with a random delay or cancellation
+  // Status
   const statusOptions = ['On Time', 'Delayed', 'Cancelled'];
-  const randomStatus = statusOptions[Math.floor(Math.random() * statusOptions.length)];
+  let randomStatus = statusOptions[Math.floor(Math.random() * statusOptions.length)];
   statusSpan.textContent = randomStatus;
 
   // If delayed, add a reason and new expected time
@@ -394,23 +272,60 @@ function updateDepartureBoard(data) {
       'a points failure', 'a signal failure', 'trespassers on the track',
       'damage to overhead line equipment', 'staff shortages', 'severe weather conditions'
     ];
-    const randomDelayReason = delayReasons[Math.floor(Math.random() * delayReasons.length)];
-    currentReason = randomDelayReason;
-
-    // Calculate a new expected time
+    currentReason = delayReasons[Math.floor(Math.random() * delayReasons.length)];
     const delayMinutes = Math.floor(Math.random() * 60) + 1;
     const depTime = new Date();
-    depTime.setHours(hours, minutes, 0, 0);
+    depTime.setHours(hours, depMinutes, 0, 0);
     const newExpectedTime = new Date(depTime.getTime() + delayMinutes * 60000);
     const expectedHour = newExpectedTime.getHours();
     const expectedMinute = newExpectedTime.getMinutes();
     const formattedExpectedHour = expectedHour.toString().padStart(2, '0');
     const formattedExpectedMinute = expectedMinute.toString().padStart(2, '0');
     const newExpectedTimeString = `${formattedExpectedHour}:${formattedExpectedMinute}`;
-
     statusSpan.textContent = `Delayed - ${newExpectedTimeString}`;
   }
 }
 
-// Initial clock update
-updateClock();
+document.addEventListener('DOMContentLoaded', () => {
+  const stationSelect = document.getElementById('station-select');
+  const statusElement = document.getElementById('status');
+  stationSelect.value = selectedStation;
+  statusElement.textContent = getRandomStatus();
+
+  // Initial board load
+  fetch('../../Pages/Avonhill/Avonhill.json')
+    .then(response => response.json())
+    .then(jsonData => {
+      updateDepartureBoard(jsonData);
+    })
+    .catch(error => console.error('Error loading Avonhill.json:', error));
+
+  // Listen for station changes
+  stationSelect.addEventListener('change', () => {
+    selectedStation = stationSelect.value || 'Avonhill';
+    statusElement.textContent = getRandomStatus();
+    let fetchPath = '';
+    switch (selectedStation) {
+      case 'Leaton':
+        fetchPath = '../../Pages/Leaton/Leaton.json'; break;
+      case 'Avonhill':
+        fetchPath = '../../Pages/Avonhill/Avonhill.json'; break;
+      case 'Mill Bridge':
+        fetchPath = '../../Pages/Mill Bridge/Mill_Bridge.json'; break;
+      case 'Norrington':
+        fetchPath = '../../Pages/Norrington/Norrington.json'; break;
+      case 'Cuffley':
+        fetchPath = '../../Pages/Cuffley/Cuffley.json'; break;
+      case 'Belmond Green':
+        fetchPath = '../../Pages/Belmond Green/Belmond_Green.json'; break;
+      default:
+        return;
+    }
+    fetch(fetchPath, { headers: { 'Content-Type': 'application/json' } })
+      .then(response => response.json())
+      .then(jsonData => {
+        updateDepartureBoard(jsonData);
+      })
+      .catch(error => console.error('Error loading ' + fetchPath + ':', error));
+  });
+});

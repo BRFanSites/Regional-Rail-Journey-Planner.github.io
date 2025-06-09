@@ -1,4 +1,9 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mill Bridge Departure Board</title>
   <link rel="stylesheet" type="text/css" href="Mill_Bridge.css">
   <script type="module" src="Mill_Bridge.js"></script>
   <select id="Timezone" onchange="changeTimeZone()">
@@ -20,7 +25,6 @@
     <option value="auckland">UTC +12 (Auckland)</option>
   </select>
 </head>
-
 <body>
   <div class="departure-board">
     <div class="board-header">
@@ -132,7 +136,6 @@
             <div class="calling-points-label-container">
               <span class="calling-points-label">Calling At:</span>
             </div>
-            </div>
             <div class="calling-points-text-container">
               <marquee class="calling-points-text" direction="left" scrollamount="5" scrolldelay="100">
                 <span id="calling-points-6"></span>
@@ -209,5 +212,7 @@
           </div>
         </div>
       </div>
+    </div>
   </div>
 </body>
+</html>

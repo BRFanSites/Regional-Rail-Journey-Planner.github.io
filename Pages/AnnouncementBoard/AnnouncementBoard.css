@@ -10,10 +10,11 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   min-height: 100vh;
   margin: 0;
-  background-color: #000; /* Ensure a consistent background */
+  background: linear-gradient(135deg, #232526 0%, #414345 100%);
+  font-family: 'Dot Matrix', 'Segoe UI', Arial, sans-serif;
 }
 
 /* Center the dropdown */
@@ -21,81 +22,173 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 400px;
-  height: 118px;
-  margin: 20px 0;
+  width: 420px;
+  height: 100px;
+  margin: 32px 0 10px 0;
   position: relative;
   z-index: 100;
+  background: rgba(30, 32, 48, 0.95);
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+  padding: 12px 0;
 }
 
 /* Style the dropdown */
 .station-select select {
   width: 100%;
-  padding: 10px;
+  padding: 16px 10px;
   border: none;
-  border-radius: 5px;
-  background-color: #000000;
-  color: #ffffff;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #23243a 60%, #3a3d5c 100%);
+  color: #000000;
   text-align: center;
-  font-size: 50px;
-  font-family: 'Dot Matrix', monospace; /* Use Dot_Matrix font */
+  font-size: 2.2em;
+  font-family: 'Dot Matrix', monospace;
   cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  transition: background 0.2s, color 0.2s;
+  outline: none;
+}
+
+.station-select select:focus {
+  background: linear-gradient(90deg, #00329e 60%, #2861dd 100%);
+  color: #000000;
 }
 
 /* Departure board */
 .departure-board {
-  width: 90%; /* Make it responsive */
-  max-width: 1600px;
-  margin: 20px auto;
-  background-color: #0f0f0f;
-  padding: 20px;
-  border: 10px solid #0f0f0f;
-  box-shadow: 0 0 10px inset rgb(0, 0, 0);
+  width: 96%;
+  max-width: 1200px;
+  margin: 24px auto 0 auto;
+  background: linear-gradient(120deg, #23243a 0%, #3a3d5c 100%);
+  padding: 32px 24px 24px 24px;
+  border-radius: 22px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
   text-align: center;
-  font-size: 52px;
+  font-size: 2.2em;
   font-family: 'Dot Matrix', monospace;
-  color: #ffffff;
+  color: #ffd700;
+  border: 4px solid #23243a;
+  position: relative;
 }
 
 /* Calling points container */
 .calling-points-container {
-  width: 90%; /* Make it responsive */
-  max-width: 1600px;
-  margin: 20px auto;
-  padding: 20px;
-  border: 10px solid #000000;
-  background-color: #0f0f0f;
-  text-align: center;
-  font-size: 52px;
-  font-family: 'Dot Matrix', monospace;
-  color: #ffffff;
-  z-index: 1;
+  width: 100%;
+  margin: 18px 0 0 0;
+  padding: 16px 0 8px 0;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.06);
+  font-size: 1.1em;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(40,155,221,0.10);
 }
 
 /* Test TTS button */
 #test-tts-button {
-  position: relative;
-  visibility: visible;
-  z-index: 1000;
-  background-color: #0f0f0f;
-  color: #ffffff;
-  border: 5px solid #0f0f0f;
-  border-radius: 10px;
-  padding: 10px 20px;
-  font-size: 24px;
+  position: fixed;
+  top: 24px;
+  right: 32px;
+  z-index: 1001;
+  background: linear-gradient(90deg, #ffd700 60%, #ffcc00 100%);
+  color: #23243a;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 28px;
+  font-size: 1.2em;
   font-family: 'Dot Matrix', monospace;
+  font-weight: bold;
   cursor: pointer;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  transition: all 0.3s ease;
-  margin: 20px auto;
+  box-shadow: 0 2px 8px rgba(255,215,0,0.10);
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.12s;
 }
 
+#test-tts-button:hover,
+#test-tts-button:focus {
+  background: linear-gradient(90deg, #ffcc00 60%, #ffd700 100%);
+  color: #00329e;
+  box-shadow: 0 4px 16px rgba(255,215,0,0.18);
+  transform: scale(1.04);
+}
 
 /* Clock */
 .clock {
-  position: static; /* Remove fixed positioning */
-  font-size: 52px; /* Match the font size of the departure board */
-  margin-left: 20px; /* Add spacing if needed */
-  color: white;
-  font-family: 'Dot Matrix';
+  position: static;
+  font-size: 2.5em;
+  margin: 18px 0 0 0;
+  color: #ffd700;
+  font-family: 'Dot Matrix', monospace;
+  letter-spacing: 0.08em;
+  background: rgba(0,0,0,0.18);
+  border-radius: 10px;
+  padding: 8px 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+}
+
+.clock .digit {
+  display: inline-block;
+  min-width: 1.1em;
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.18);
+}
+
+.clock .digit:not(:last-child) {
+  margin-right: 2px;
+}
+
+.clock .digit,
+.clock .separator {
+  font-size: 1.1em;
+}
+
+@media (max-width: 900px) {
+  .departure-board {
+    font-size: 1.3em;
+    padding: 18px 6px 12px 6px;
+  }
+  .station-select {
+    width: 98vw;
+    min-width: 0;
+    font-size: 1.1em;
+  }
+}
+
+@media (max-width: 600px) {
+  .departure-board {
+    font-size: 1em;
+    padding: 8px 2vw 8px 2vw;
+    border-radius: 12px;
+  }
+  .station-select {
+    width: 99vw;
+    min-width: 0;
+    border-radius: 8px;
+    padding: 6px 0;
+  }
+  #test-tts-button {
+    top: 8px;
+    right: 8px;
+    padding: 8px 12px;
+    font-size: 1em;
+    border-radius: 6px;
+  }
+  .clock {
+    font-size: 1.2em;
+    padding: 4px 8px;
+    border-radius: 6px;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  background: #23243a;
+}
+::-webkit-scrollbar-thumb {
+  background: #ffd700;
+  border-radius: 8px;
 }

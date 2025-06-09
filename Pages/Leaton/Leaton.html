@@ -2,7 +2,7 @@
 <head>
   <link rel="stylesheet" type="text/css" href="Leaton.css">
   <script type="module" src="Leaton.js"></script>
-  <select id="Timezone" onchange="changeTimeZone()">
+  <select id="Timezone">
     <option value="honolulu">UTC -10 (Honolulu)</option>
     <option value="los_angeles">UTC -8 (Los Angeles)</option>
     <option value="denver">UTC -7 (Denver)</option>
@@ -21,7 +21,6 @@
     <option value="auckland">UTC +12 (Auckland)</option>
   </select>
 </head>
-
 <body>
   <div class="departure-board">
     <div class="board-header">
@@ -53,8 +52,8 @@
       </div>
       <div class="display-group">
         <div class="display">
-          <span class="destination" id="destination-5"></span>
-          <span class="departure-time" id="departure-time-5"></span>
+          <span class="destination" id="destination-2"></span>
+          <span class="departure-time" id="departure-time-2"></span>
         </div>
         <div class="calling-points-display">
           <div class="calling-points">
@@ -63,7 +62,7 @@
             </div>
             <div class="calling-points-text-container">
               <marquee class="calling-points-text" direction="left" scrollamount="5" scrolldelay="100">
-                <span id="calling-points-5"></span>
+                <span id="calling-points-2"></span>
               </marquee>
             </div>
           </div>
@@ -71,8 +70,8 @@
       </div>
       <div class="display-group">
         <div class="display">
-          <span class="destination" id="destination-5"></span>
-          <span class="departure-time" id="departure-time-5"></span>
+          <span class="destination" id="destination-3"></span>
+          <span class="departure-time" id="departure-time-3"></span>
         </div>
         <div class="calling-points-display">
           <div class="calling-points">
@@ -81,7 +80,7 @@
             </div>
             <div class="calling-points-text-container">
               <marquee class="calling-points-text" direction="left" scrollamount="5" scrolldelay="100">
-                <span id="calling-points-5"></span>
+                <span id="calling-points-3"></span>
               </marquee>
             </div>
           </div>
@@ -133,7 +132,6 @@
             <div class="calling-points-label-container">
               <span class="calling-points-label">Calling At:</span>
             </div>
-            </div>
             <div class="calling-points-text-container">
               <marquee class="calling-points-text" direction="left" scrollamount="5" scrolldelay="100">
                 <span id="calling-points-6"></span>
@@ -161,6 +159,7 @@
             <div class="flap">6</div>
             <div class="flap">7</div>
             <div class="flap">8</div>
+            <div class="flap">9</div>
           </div>
         </div>
         <div class="separator">:</div>
@@ -189,7 +188,7 @@
         <div class="separator">:</div>
         <div class="seconds">
           <div class="seconds-tens">
-            <div class="flap">0</div> 
+            <div class="flap">0</div>
             <div class="flap">1</div>
             <div class="flap">2</div>
             <div class="flap">3</div>
@@ -210,5 +209,6 @@
           </div>
         </div>
       </div>
+    </div>
   </div>
 </body>

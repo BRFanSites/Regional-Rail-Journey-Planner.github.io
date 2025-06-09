@@ -1,23 +1,21 @@
-document.querySelector('.avonhill-box').addEventListener('click', () => {
-  window.location.href = '../../Pages/Avonhill/Avonhill.html';
-});
+const stationLinks = {
+  'avonhill-box': '../../Pages/Avonhill/Avonhill.html',
+  'belmond-green-box': '../../Pages/Belmond Green/Belmond_Green.html',
+  'leaton-box': '../../Pages/Leaton/Leaton.html',
+  'norrington-box': '../../Pages/Norrington/Norrington.html',
+  'mill-bridge-box': '../../Pages/Mill Bridge/Mill_Bridge.html',
+  'cuffley-box': '../../Pages/Cuffley/Cuffley.html'
+};
 
-document.querySelector('.belmond-green-box').addEventListener('click', () => {
-  window.location.href = '../../Pages/Belmond Green/Belmond_Green.html';
-});
-
-document.querySelector('.leaton-box').addEventListener('click', () => {
-  window.location.href = '../../Pages/Leaton/Leaton.html';
-});
-
-document.querySelector('.norrington-box').addEventListener('click', () => {
-  window.location.href = '../../Pages/Norrington/Norrington.html';
-});
-
-document.querySelector('.mill-bridge-box').addEventListener('click', () => {
-  window.location.href = '../../Pages/Mill Bridge/Mill_Bridge.html';
-});
-
-document.querySelector('.cuffley-box').addEventListener('click', () => {
-  window.location.href = '../../Pages/Cuffley/Cuffley.html';
+document.querySelectorAll('.station-box').forEach(box => {
+  box.addEventListener('click', () => {
+    const link = Object.entries(stationLinks).find(([cls]) => box.classList.contains(cls));
+    if (link) window.location.href = link[1];
+  });
+  box.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      box.click();
+    }
+  });
 });

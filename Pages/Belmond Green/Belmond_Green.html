@@ -1,4 +1,9 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Belmond Green Departure Board</title>
   <link rel="stylesheet" type="text/css" href="Belmond_Green.css">
   <script type="module" src="Belmond_Green.js"></script>
   <select id="Timezone" onchange="changeTimeZone()">
@@ -20,13 +25,10 @@
     <option value="auckland">UTC +12 (Auckland)</option>
   </select>
 </head>
-
 <body>
+  <button class="back-button"><a href="#" onclick="history.back()">Back</a></button>
   <div class="departure-board">
     <div class="board-header">
-      <div class="back-button">
-        <a href="#" onclick="history.back()">Back</a>
-      </div>
       <div class="header-labels">
         <span class="header-label-left">Destination</span>
         <span class="header-label-middle">Belmond Green</span>
@@ -132,7 +134,6 @@
             <div class="calling-points-label-container">
               <span class="calling-points-label">Calling At:</span>
             </div>
-            </div>
             <div class="calling-points-text-container">
               <marquee class="calling-points-text" direction="left" scrollamount="5" scrolldelay="100">
                 <span id="calling-points-6"></span>
@@ -211,3 +212,4 @@
       </div>
   </div>
 </body>
+</html>
